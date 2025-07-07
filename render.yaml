@@ -5,3 +5,7 @@ services:
     plan: free
     dockerfilePath: ./Dockerfile
     region: frankfurt
+    autoDeploy: true
+    branch: main
+    pullRequestPreviewsEnabled: false
+    healthCheckPath: /
