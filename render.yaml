@@ -6,6 +6,6 @@ services:
     dockerfilePath: ./Dockerfile
     region: frankfurt
     autoDeploy: true
-    branch: main
+    branch: develop
     pullRequestPreviewsEnabled: false
     healthCheckPath: /
