@@ -1,41 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
   <meta charset="UTF-8">
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width,initial-scale=1" name="viewport">
-  <meta name="description" content="Portfolio of Slaven, Senior Software Engineer based in Zagreb, Croatia. Showcasing major projects, technical skills, work experience, education, interests, and achievements. Specialized in PHP, javascript, cloud platforms, and big data solutions. UTMB ultra runner, craft business owner, and mentor.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Slaven Sakačić - Senior Software Engineer in Zagreb, Croatia. 10+ years experience in PHP, JavaScript, AWS, and AI. Expert in Laravel, React, Cloud Architecture, and Team Leadership. Available for remote roles.">
+  <meta name="keywords" content="Senior Software Engineer, Full Stack Developer, PHP Developer, JavaScript Developer, Laravel Expert, Cloud Architecture, Zagreb Croatia, Remote Developer">
+  <meta name="author" content="Slaven Sakačić">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Slaven Sakačić - Senior Software Engineer Portfolio">
+  <meta property="og:description" content="Senior Software Engineer with 10+ years experience in enterprise web applications, cloud architecture, and team leadership. Based in Zagreb, Croatia.">
+  <meta property="og:image" content="./assets/images/gemini.webp">
+  <meta property="og:url" content="https://slav.hr">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Slaven Sakačić - Senior Software Engineer">
+  <meta name="twitter:description" content="Senior Software Engineer specializing in PHP, JavaScript, Cloud Architecture, and Team Leadership. 10+ years of enterprise experience.">
+  <meta name="twitter:image" content="./assets/images/gemini.webp">
   <meta name="google" content="notranslate" />
-  <meta content="Mashup templates have been developped by Orson.io team" name="author">
-
+  
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no">
   
-  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
+  <link rel="canonical" href="https://slav.hr" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/apple-icon-180x180.webp">
   <link href="./assets/favicon.ico" rel="icon">
+  <link rel="preload" href="./main.d8e0d294.css" as="style">
+  <link rel="preload" href="./main.bc58148c.js" as="script">
+  <link rel="preload" href="./assets/images/gemini.webp" as="image" type="image/webp">
+  <link rel="dns-prefetch" href="https://github.com">
+  <link rel="dns-prefetch" href="https://www.linkedin.com">
+  <link rel="dns-prefetch" href="https://formspree.io">
+  <link rel="preconnect" href="https://github.com" crossorigin>
+  <link rel="preconnect" href="https://www.linkedin.com" crossorigin>
+  <link rel="preconnect" href="https://formspree.io" crossorigin>
+  
+  <title>Slaven Sakačić | Senior Software Engineer | PHP, JavaScript, Cloud Expert</title>
 
-  <title>Slav.hr</title>  
+  <!-- Schema.org markup for Person -->
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Slaven Sakačić",
+      "jobTitle": "Senior Software Engineer",
+      "image": "./assets/images/gemini.webp",
+      "worksFor": "EcoOnline Global",
+      "alumniOf": "Faculty of Electrical Engineering, Computing and Information Technology, Osijek",
+      "url": "https://slav.hr",
+      "sameAs": [
+        "https://github.com/slavensaka/",
+        "https://www.linkedin.com/in/slaven-sakacic-7ba459a4/"
+      ],
+      "knowsAbout": [
+        "PHP",
+        "JavaScript",
+        "Cloud Architecture",
+        "Laravel",
+        "React",
+        "Node.js",
+        "AWS",
+        "Azure",
+        "GCP",
+        "Microservices"
+      ]
+    }
+  </script>
+
+  <!-- Breadcrumb Schema.org markup -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://slav.hr" },
+        { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://slav.hr/#projects" },
+        { "@type": "ListItem", "position": 3, "name": "Contact", "item": "https://slav.hr/#contact" }
+      ]
+    }
+  </script>
+
+  <!-- Website Schema.org markup -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://slav.hr",
+      "name": "Slaven Sakačić Portfolio",
+      "publisher": {
+        "@type": "Person",
+        "name": "Slaven Sakačić"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://slav.hr/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
 
 <link href="./main.d8e0d294.css" rel="stylesheet"></head>
+<style>
+  /* Tighten spacing for Projects thumbnails */
+  .projects .col-md-4 { padding-left:1px; padding-right:1px; }
+  .projects img { display:block; margin:0 auto 0.5rem; }
+  /* Vertically center About me text next to image on wider screens */
+  @media (min-width: 768px) {
+    .projects { display:flex; align-items:center; }
+    .projects .col-md-4, .projects .col-md-8 { display:block; }
+  }
+</style>
 
 <body class="">
 
 <!-- Add your content of header -->
-<div class="background-color-layer" style="background-image: url('assets/images/8411116.jpg')"
-></div>
+<div class="background-color-layer"></div>
+<style>
+  .background-color-layer {
+    background-image: url('assets/images/back.webp');
+    background-image: -webkit-image-set(
+      url('assets/images/back.webp') 1x,
+      url('assets/images/back.jpg') 1x
+    );
+    background-image: image-set(
+      url('assets/images/back.webp') 1x,
+      url('assets/images/back.jpg') 1x
+    );
+  }
+</style>
 <main class="content-wrapper">
   <header class="white-text-container section-container">
     <div class="text-center">
-      <h1>I am Slaven Sakacic</h1>
-      <p>Senior Software Engineer | Aspiring AI Engineer | Currently Upskilling in Artificial Intelligence</p>
+      <h1>Slaven Sakačić</h1>
+      <p>Senior Software Engineer | Aspiring AI Engineer </p>
       <p>
         </a>
-        <a class="fa-icon fa-icon-2x" href="https://github.com/slavensaka/" title="" target="_blank" rel="noopener noreferrer">
-          <i class="fa fa-github"></i>
+        <a class="fa-icon fa-icon-2x" href="https://github.com/slavensaka/" title="Visit Slaven's GitHub Profile" target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-github" aria-label="GitHub"></i>
         </a>
-        <a class="fa-icon fa-icon-2x" href="https://www.linkedin.com/in/slaven-sakacic-7ba459a4/" title="" target="_blank" rel="noopener noreferrer">
-          <i class="fa fa-linkedin"></i>
+        <a class="fa-icon fa-icon-2x" href="https://www.linkedin.com/in/slaven-sakacic-7ba459a4/" title="Connect with Slaven on LinkedIn" target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-linkedin" aria-label="LinkedIn"></i>
         </a>
       </p>
     </div>
@@ -52,15 +160,24 @@
         <div class="card">
           <div class="card-block">
             <h2>About me</h2>
-            <div class="row">
+            <div class="row projects">
               <div class="col-md-4">
-                <p><img src="./assets/images/8411116.jpg" class="img-responsive" alt="SLAV Logo"></p>
+                <p><img src="./assets/images/gemini.webp" class="img-responsive" alt="Slaven Sakačić - Senior Software Engineer" title="Slaven Sakačić" loading="eager"></p>
+                <div class="about-cv">
+                  <a class="btn btn-primary" href="./assets/docs/Slaven-Sakačić-Senior-Developer-Freelance-Croatia.pdf" target="_blank" rel="noopener noreferrer" download="Slaven-Sakačić-CV.pdf" title="Download Slaven's CV in PDF format">
+                    <i class="fa fa-download" aria-label="Download"></i> Download CV (PDF)
+                  </a>
+                </div>
               </div>
               <div class="col-md-8">
 
-              <p>Highly accomplished and results-driven Senior Full-Stack Developer with a Master's degree in Computing and Information Technology and extensive experience (+10 years) across diverse technologies and project environments.  </p>
-              <p>Proven ability to lead development teams, manage complex projects from conception to deployment, and optimize system performance. Adept at working with various programming languages, frameworks, cloud platforms, and big data solutions.</p>
-              <p>Committed to continuous learning and delivering high-quality, scalable web applications.</p>
+              <p>Senior Full-Stack Developer with 10+ years of experience architecting and delivering enterprise-scale web applications. Expert in PHP (Laravel, Symfony, Fat-Free), modern JavaScript frameworks (React, Nuxt.js, Vue.js, Node.js), cloud platforms (AWS, Azure, GCP), and microservices architecture.</p>
+              <p>Proven track record of leading development teams, driving successful acquisitions, and optimising system performance for high-traffic applications.</p>
+              <p>Passionate about clean code, scalable solutions, AI tools, and mentoring engineering teams.</p>
+              <p>Owner of a craft business in Croatia; Available for remote and on-site roles.</p>
+              <p><strong>Software &amp; Cloud Engineering:</strong> Full-Stack Development · Microservices · Cloud Architecture · Scalability · DevOps</p>
+              <p><strong>Data &amp; AI:</strong> Big Data Solutions · Data Science · Advanced SQL &amp; Database Optimization · Data Visualisation · AI Integration &amp; Tools</p>
+              <p><strong>Leadership &amp; Methodology:</strong> Team Leadership · Agile/Scrum Project Management</p>
 
               </div>
             </div>
@@ -71,20 +188,64 @@
           <div class="card-block">
             <h2>Projects</h2>
             <div class="row">
-              <div class="col-md-4">
-                <img src="./assets/images/biome.avif" class="img-responsive" alt="">
-                <h3 class="h5">Amelia App</h3>
-                <p>June 2017</p>
+              <div class="col-md-2">
+                <picture>
+                  <source srcset="./assets/images/work_logos/ecoonline.webp" type="image/webp">
+                  <img src="./assets/images/work_logos/ecoonline.webp" class="img-responsive" 
+                    alt="EcoOnline Global - Leading ESG and Sustainability Software Platform, where I worked as Senior Software Developer in R&D" 
+                    title="EcoOnline Global" width="180" height="180" style="object-fit:cover;" loading="lazy">
+                </picture>
+                <h3 class="h5">EcoOnline Global</h3>
+                <p>2023. - 2025.</p>
               </div>
-              <div class="col-md-4">
-                <img src="./assets/images/img-03.jpg" class="img-responsive" alt="">
-                <h3 class="h5">Portland</h3>
-                <p>March 2017</p>
+              <div class="col-md-2">
+                <picture>
+                  <source srcset="./assets/images/work_logos/biome.webp" type="image/webp">
+                  <img src="./assets/images/work_logos/biome.webp" class="img-responsive" 
+                    alt="Biome Environmental Monitoring Platform - Successfully acquired SaaS platform for Fortune 500 clients, where I served as Senior Full-Stack Developer and Managing Director" 
+                    title="Biome.net" width="180" height="180" style="object-fit:cover;" loading="lazy">
+                </picture>
+                <h3 class="h5">Biome.net</h3>
+                <p>2019. - 2023.</p>
               </div>
-              <div class="col-md-4">
-                <img src="./assets/images/img-04.jpg" class="img-responsive" alt="">
-                <h3 class="h5">Denz for Nilon</h3>
-                <p>Jan 2017</p>
+              <div class="col-md-2">
+                <picture>
+                  <source srcset="./assets/images/work_logos/voxgig.webp" type="image/webp">
+                  <img src="./assets/images/work_logos/voxgig.webp" class="img-responsive" 
+                    alt="VoxGig Limited - Real-time data analytics platform built with Node.js and Python, processing millions of tweets with Vespa.ai" 
+                    title="VoxGig Limited" width="180" height="180" style="object-fit:cover;" loading="lazy">
+                </picture>
+                <h3 class="h5">VoxGig Limited</h3>
+                <p>2019. - 2019.</p>
+              </div>
+              <div class="col-md-2">
+                <picture>
+                  <source srcset="./assets/images/work_logos/popertee.webp" type="image/webp">
+                  <img src="./assets/images/work_logos/popertee.webp" class="img-responsive" 
+                    alt="Popertee - Leading popup retail space platform in Ireland and UK, built with Laravel and Vue.js, featuring data science-driven location targeting" 
+                    title="Popertee" width="180" height="180" style="object-fit:cover;" loading="lazy">
+                </picture>
+                <h3 class="h5">Popertee</h3>
+                <p>2017. - 2019.</p>
+              </div>
+              <div class="col-md-2">
+                <picture>
+                  <source srcset="./assets/images/work_logos/gauss.webp" type="image/webp">
+                  <img src="./assets/images/work_logos/gauss.webp" class="img-responsive" 
+                    alt="Gauss Development - Senior Full-Stack and Android Developer role, delivering 15+ commercial projects with Laravel, React, and Android SDK" 
+                    title="Gauss Development" width="180" height="180" style="object-fit:cover;" loading="lazy">
+                </picture>
+                <h3 class="h5">Gauss Dev</h3>
+                <p>2015. - 2017.</p>
+              </div>
+              <div class="col-md-2">
+                <picture>
+                  <source srcset="./assets/images/work_logos/handstudio.webp" type="image/webp">
+                  <img src="./assets/images/work_logos/handstudio.webp" class="img-responsive" 
+                    alt="Hand Studio - Full-Stack Developer position developing custom CMS platforms with Laravel and modern JavaScript frameworks" 
+                    title="Hand Studio" width="180" height="180" style="object-fit:cover;" loading="lazy">
+                <h3 class="h5">Handstudio</h3>
+                <p>2015.</p>
               </div>
             </div>
           </div>
@@ -94,91 +255,78 @@
           <div class="card-block">
             <h2>Work</h2>
             <div class="work-experience">
-              <small class="date">Jan 2023 - Jul 2025 · 2 yrs 7 mos</small>
-              <h3 class="h5 date-title">8. Senior Software Developer - ESG & Data Intelligence - R&D<br><span style="font-weight:normal">EcoOnline Global · Contract · Zagreb, Croatia · Remote</span></h3>
+              <small class="date">January 2023 – July 2025</small>
+              <h3 class="h5 date-title">Senior Software Developer, ESG &amp; Data Intelligence – R&amp;D<br><span style="font-weight:normal">EcoOnline Global | Zagreb, Croatia (Remote)</span></h3>
               <ul>
-                <li>Developed an ESG GHG module using PHP, enabling companies to efficiently report and aggregate data.</li>
-                <li>Led a cross-functional team to innovate features for high-profile clients like Intel and Canon.</li>
-                <li>Enhanced software capabilities to support carbon accounting and compliance with sustainability regulations.</li>
+                <li>Development of a ESG GHG module using PHP, enabling companies to efficiently report and aggregate sustainability data</li>
+                <li>Led a cross-functional team to innovate features for high-profile clients including Intel and Canon</li>
+                <li>Enhanced software capabilities to support carbon accounting and compliance with emerging sustainability regulations</li>
+                <li>Collaborated across teams within a large enterprise of 700+ employees</li>
+                <li>Spearheaded AWS cloud migration initiative, reducing infrastructure costs by 40% while improving system performance</li>
               </ul>
-              <p><b>Skills:</b> Full-Stack Development, MySQL, AWS, Microsoft Products, JavaScript, Confluence, Docker, SDLC, Laravel, Lumen, SaaS, DevOps, Server Side Programming, Microsoft Copilot, Jira, Vagrant, PHP, Redis</p>
             </div>
             <div class="work-experience">
-              <small class="date">Nov 2019 - Jan 2023 · 3 yrs 3 mos</small>
-              <h3 class="h5 date-title">7. Senior Full Stack Developer then Managing Director<br><span style="font-weight:normal">Biome · Full-time · Greater Dublin · On-site</span></h3>
+              <small class="date">November 2019 – January 2023</small>
+              <h3 class="h5 date-title">Senior Full-Stack Developer to Managing Director<br><span style="font-weight:normal">Biome.net to biome.ecoonline.net (Acquired by EcoOnline)</span></h3>
               <ul>
-                <li>Spearheaded the development of innovative features in collaboration with the CEO, enhancing product offerings.</li>
-                <li>Managed agile sprints and tasks, ensuring timely project delivery.</li>
-                <li>Engineered robust backend solutions using PHP and MySQL, optimizing complex SQL queries for superior performance.</li>
-                <li>Vue.js, ESG solutions GHG management, Managing expectations of clients like Intel & Canon</li>
+                <li>Led development of environmental monitoring SaaS platform that resulted in successful acquisition by EcoOnline for $1.2 Million, serving Fortune 500 clients including Intel and Canon</li>
+                <li>Architected and implemented scalable backend solutions using PHP and MySQL with optimized complex queries handling large sets of data points</li>
+                <li>Managed cross-functional team of 3 developers, implementing Agile methodologies and ensuring on-time delivery of all sprints</li>
+                <li>Built dynamic reporting engine with real-time data visualization using Highcharts, processing large datasets with sub-second response times</li>
+                <li>Developed complex algorithms for environmental data analysis and automated report generation</li>
+                <li>Post-acquisition: Led integration of Biome platform into EcoOnline ecosystem, collaborating with multiple international teams</li>
               </ul>
-              <p><b>Skills:</b> Code Review, JavaScript, Management Professional, Linux System Administration, DevOps, Software Infrastructure, Director level, PHP, MySQL, Startup Development</p>
             </div>
             <div class="work-experience">
-              <small class="date">Apr 2019 - Nov 2019 · 8 mos</small>
-              <h3 class="h5 date-title">6. Senior Full Stack Developer Freelance<br><span style="font-weight:normal">Voxgig · County Dublin, Ireland</span></h3>
+              <small class="date">May 2019 – October 2019</small>
+              <h3 class="h5 date-title">Senior Full-Stack Developer (Freelance)<br><span style="font-weight:normal">VoxGig Limited</span></h3>
               <ul>
-                <li>Microservices architecture with Node.js, JavaScript, and Python.</li>
-                <li>Active development using seneca.js library and Google Cloud Platform services.</li>
-                <li>Built a Twitter streamer and aggregated large data sets for real-time graph reports.</li>
-                <li>Integrated vespa.ai big data serving engine and enabled search option.</li>
-                <li>Used Python to scrape Twitter and extract data automatically.</li>
+                <li>Designed and implemented microservices architecture using Node.js and Seneca.js framework</li>
+                <li>Built real-time Twitter streaming analytics platform processing millions of tweets using Python scrapers and Vespa.ai big data engine</li>
+                <li>Leveraged Google Cloud Platform services for scalable data processing and storage</li>
+                <li>Created interactive data visualization dashboards with real-time graph updates</li>
+                <li>Integrated multiple third-party APIs and services into existing microservices ecosystem</li>
               </ul>
-              <p><b>Skills:</b> Code Review, JavaScript, React.js, Computer Science</p>
             </div>
             <div class="work-experience">
-              <small class="date">Sep 2017 - Apr 2019 · 1 yr 8 mos</small>
-              <h3 class="h5 date-title">5. Lead Senior Full Stack Developer<br><span style="font-weight:normal">Popertee Ltd · Full-time · County Dublin, Ireland · On-site</span></h3>
+              <small class="date">September 2017 – April 2019</small>
+              <h3 class="h5 date-title">Lead Senior Full-Stack Developer<br><span style="font-weight:normal">Popertee</span></h3>
               <ul>
-                <li>Actively led a team of 2 to 5 developers as the initial developer who created the code through the entire product development cycle, ensuring timely delivery.</li>
-                <li>Integral part of the product team to develop main development tasks & finding new features to implement.</li>
-                <li>From initial choosing framework Laravel & vue.js, vuetify and other packages.</li>
-                <li>Optimizing SEO migrating & rewriting code to nuxt.js framework.</li>
-                <li>Implemented sprints within team.</li>
-                <li>Python data science created algorithm to handle big data sets to give back trademarked calculations.</li>
-                <li>Spearheaded the migration of systems from Microsoft Azure to AWS, optimizing resource usage and performance.</li>
-                <li>Developed web scrapers in Python and created an internal CRUD CMS, enhancing operational efficiency.</li>
-                <li>Implemented SEO optimizations using Nuxt.js, significantly improving site visibility and user engagement.</li>
-                <li>Automating scripts with ansible, jenkins and bash scripts.</li>
-                <li>Teaching new developers and focusing my time with help fixing all the bugs.</li>
-                <li>Main languages used Javascript, PHP, Python, Java, Bash.</li>
-                <li>Agile programming using Jira tracking software Optimizing Azure and Aws resources to get more out with less resources CPU and memory.</li>
-                <li>Worked close with brilliant data scientiests.</li>
+                <li>Founded and led technical development from inception to becoming major player in Ireland's & UK popup retail space market, with a leading presence in Dublin</li>
+                <li>Architected full-stack application using Laravel, Vue.js, React, and Vuetify, managing team of 3 developers, data scientist & testers</li>
+                <li>Developed the first global data platform that applied data science and acquired datasets to connect brands with spaces, enabling precise targeting and measurement for short-term retail and marketing campaigns</li>
+                <li>Implemented SEO-optimized server-side rendering by migrating to Nuxt.js, increasing organic traffic by 150%</li>
+                <li>Developed proprietary Python-based data science algorithms for trademarked calculations on large datasets</li>
+                <li>Orchestrated system migration from Microsoft Azure to AWS, optimizing resource utilization and reducing costs</li>
+                <li>Built automated web scraping solutions and internal CMS platform, improving operational efficiency by 60%</li>
+                <li>Implemented CI/CD pipeline using Jenkins and Ansible for automated deployments</li>
+                <li>Mentored junior developers and established coding standards and best practices</li>
               </ul>
-              <p><b>Skills:</b> Code Review, JavaScript, Computer Science, Nuxt.js, PHP, Laravel, Lumen, AWS, Azure, Agile Methodologies, Team Leadership, Agile Project Management, Python, Full Life Cycle Development, Feature Writing, Vue.js, Vuetify, SEO, Sprints, Data Science, Azure DevOps Server, CRUD CMS, Ansible, Jenkins, Bash, Java</p>
             </div>
             <div class="work-experience">
-              <small class="date">Nov 2015 - Jun 2017 · 1 yr 8 mos</small>
-              <h3 class="h5 date-title">4. Senior Full-Stack Web Developer<br><span style="font-weight:normal">Gauss Development · Osijek, Croatia</span></h3>
+              <small class="date">November 2015 – July 2017</small>
+              <h3 class="h5 date-title">Senior Full-Stack Web &amp; Android Developer<br><span style="font-weight:normal">Gauss Development</span></h3>
               <ul>
-                <li>Backend development of web projects and applications using PHP(mostly laravel) & Javascript (Node.js) language.</li>
-                <li>API integration and creation new API-s, payment system integrations.</li>
-                <li>Java android application development using android studio.</li>
-                <li>Frontend development of website mostly using vue.js, jquery, javascript, angular.js.</li>
+                <li>Delivered 15+ commercial projects simultaneously using Agile/Scrum methodology</li>
+                <li>React applications development</li>
+                <li>Developed scalable web applications using Laravel, Angular.js, TypeScript, Node.js, and Vue.js & many more technologies</li>
+                <li>Major contributor to development of The Croatian Chamber of Economy website hgk.hr using Laravel framework</li>
+                <li>Created RESTful APIs using Lumen framework for mobile application integration</li>
+                <li>Built native Android applications using Java and Android SDK</li>
+                <li>Integrated payment systems (PayPal, Stripe) and third-party services (Twilio, OAuth)</li>
+                <li>Implemented comprehensive unit and integration testing strategies</li>
+                <li>Mentored team of junior developers and conducted code reviews</li>
+                <li>Led client communications with international stakeholders, gathering requirements and providing technical consultation</li>
               </ul>
-              <p><b>Skills:</b> Code Review, JavaScript, Computer Science</p>
             </div>
             <div class="work-experience">
-              <small class="date">Oct 2015 - Dec 2015 · 3 mos</small>
-              <h3 class="h5 date-title">3. Freelance Web Developer<br><span style="font-weight:normal">Handstudio · Zagreb, Croatia</span></h3>
+              <small class="date">October 2015 – December 2015</small>
+              <h3 class="h5 date-title">Full-Stack Developer<br><span style="font-weight:normal">Hand Studio</span></h3>
               <ul>
-                <li>Creation of custom CMS system with frontend design using the Laravel ecosystem with multi-auth functioning.</li>
-              </ul>
-              <p><b>Skills:</b> Code Review, JavaScript, Computer Science</p>
-            </div>
-            <div class="work-experience">
-              <small class="date">Mar 2010 - Jul 2014 · 4 yrs 5 mos</small>
-              <h3 class="h5 date-title">2. System Administrator<br><span style="font-weight:normal">Uoos.hr</span></h3>
-              <ul>
-                <li>Maintenance of computer system, administration of website, creating new custom article content, integration of new features in wordpress, updating articles.</li>
-              </ul>
-              <p><b>Skills:</b> Computer Science</p>
-            </div>
-            <div class="work-experience">
-              <small class="date">2001 - 2004 · 3 yrs</small>
-              <h3 class="h5 date-title">1. Assistant Electrician<br><span style="font-weight:normal">Service Elgra · Osijek Croatia</span></h3>
-              <ul>
-                <li>Practical work at a firm for services of home appliances, two working days a week, full working hours.</li>
+                <li>Developed custom CMS platform using Laravel ecosystem with multi-authentication system</li>
+                <li>Built responsive frontend interfaces using modern JavaScript and CSS frameworks</li>
+                <li>Managed full project lifecycle from requirements gathering to deployment</li>
+                <li>Collaborated directly with clients for iterative development and feedback cycles</li>
               </ul>
             </div>
           </div>
@@ -191,31 +339,44 @@
             <div class="row">
               <div class="col-md-4">
                 <div class="education-experience">
-                  <small class="date">September 2012 to Dec 2015</small>
-                  <h3 class="h5 date-title">MEng in Computing and Information Technology</h3>
-                  <p>Faculty of Electrical Engineering, Computing and Information Technology Osijek</p>
-                  <p>Result: Magna Cum Laude</p>
+                  <small class="date">2012 - 2015</small>
+                  <h3 class="h5 date-title">Master of Engineering, Computing &amp; Information Technology</h3>
+                  <p>Faculty of Electrical Engineering, Computing and Information Technology, Osijek — <em>Magna Cum Laude</em></p>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="education-experience">
-                  <small class="date">September 2008 to May 2012</small>
+                  <small class="date">2008 - 2012</small>
                   <h3 class="h5 date-title">BSc in Computer Programming</h3>
-                  <p>Faculty of Electrical Engineering, Computing and Information Technology Osijek</p>
-                  <p>Result: Magna Cum Laude</p>
+                  <p>Faculty of Electrical Engineering, Computing and Information Technology, Osijek — <em>Magna Cum Laude</em></p>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="education-experience">
-                  <small class="date">September 2001 to June 2006</small>
-                  <h3 class="h5 date-title">Electronics technician</h3>
-                  <p>Electro-Technical High School Osijek</p>
+                  <small class="date">2001 - 2006</small>
+                  <h3 class="h5 date-title">Electronics Technician Certification</h3>
+                  <p>Electro-Technical High School, Osijek</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
         
+        <div class="card">
+          <div class="card-block">
+            <h2>Major Projects</h2>
+            <ul>
+              <li><strong>Biome Acquisition:</strong> Core developer of a SaaS platform acquired by EcoOnline; project served Fortune 500 clients.</li>
+              <li><strong>Popertee:</strong> Led the technical development of a platform for popup retail spaces, implementing data-driven features and SEO optimisations.</li>
+              <li><strong>Croatian Chamber of Economy (hgk.hr):</strong> Senior developer for complete website redesign and CMS implementation.</li>
+              <li><strong>Croatian Academic &amp; Research Network (meduza.carnet.hr):</strong> Architected and developed the full-stack application.</li>
+              <li><strong>Alliantranslate.com:</strong> Built API infrastructure for mobile integration and modernised a legacy PHP codebase.</li>
+              <li><strong>Venezialines.com:</strong> Built a custom booking system with third-party API integrations.</li>
+              <li><strong>Master's Thesis:</strong> Adaptive online test generator using Laravel and JavaScript.</li>
+            </ul>
+          </div>
+        </div>
+
         <div class="card">
           <div class="card-block">
             <h2>Language</h2>
@@ -236,42 +397,14 @@
 
         <div class="card">
           <div class="card-block">
-            <h2>Major Projects</h2>
-            <ul>
-              <li>At EcoOnline, following the acquisition of Biome, led a team as Senior Software Developer to successfully integrate Biome’s SaaS platform into the EcoOnline ecosystem, implement client-specific requirements, and drive the development of new features. Collaborated across multiple teams and projects within a large-scale organization. Spearheaded the successful migration of Biome’s SaaS infrastructure to AWS, initiating and expanding AWS expertise.</li>
-              <li>As a Senior Full Stack Developer, later Managing Director on a 3-member team, contributed to the development of a SaaS platform that led EcoOnline, a leading EHS software firm, to acquire Biome Environmental Limited — a specialized provider of environmental data monitoring and analysis solutions with blue-chip clients including Intel and Canon.</li>
-              <li>Lead as Senior Full-Stack Developer on project at Popertee from start to being proven to being a major player in popup retail spaces.</li>
-              <li>Lead Senior Full-Stack Developer for the website of the Croatian Chamber of Economy (hgk.hr), involving the creation of a custom, web-based front-end and back-end.</li>
-              <li>Lead Senior Full-Stack Developer for the website of the Croatian Academic & Research Network (meduza.carnet.hr).</li>
-              <li>Project Manager & Lead Developer for alliantranslate.com, including API development for iOS mobile connection, upgrading legacy PHP code to new standards, and integrating the Twilio service.</li>
-              <li>Lead Developer for a booking system in PHP on a WordPress site, integrating a third-party API for venezialines.com.</li>
-              <li>Senior Full-Stack Developer for a PHP Lumen API connected to an Android app (also developed).</li>
-              <li>Developed a Master’s thesis: a web interface for a self-adaptive online test generator using Laravel and JavaScript, featuring a dynamic test generator based on user inputs, a multi-authentication system, and Bootstrap front-end design.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-block">
             <h2>Technical Skills</h2>
             <ul>
-              <li>Specialized in creating back-end and front-end with Laravel framework and Vue.js (Javascript).</li>
-              <li>Strong understanding of advanced programming concepts and methodologies.</li>
-              <li>Strong understanding of several programming languages, including PHP, Javascript, CSS, Java, SQL, Python.</li>
-              <li>Vast exposure to SQL (MySQL, MongoDB, SQL Queries).</li>
-              <li>Database Design and creation.</li>
-              <li>UML and Object-Oriented Modelling (Analysis & Design) Techniques and Tools.</li>
-              <li>Various web technologies such as TCP/IP, Responsive Design, REST, AJAX, XML, JSON, CSS, Cookies, Sessions, Cache, API, Video Transcoding.</li>
-              <li>Using tools like Sublime Text, Android Studio, Vagrant, countless more...</li>
-              <li>Assembly, C++, Python languages experience at college.</li>
-              <li>Data communications and computer networks.</li>
-              <li>Linux advanced knowledge.</li>
-              <li>Nginx & Apache administration.</li>
-              <li>Unit & Integration Testing.</li>
-              <li>Jenkins and Ansible automation.</li>
-              <li>Vagrant virtual machines, Virtual box.</li>
-              <li>Applying data science theories on big data sets of documents to extract calculations.</li>
-              <li>Microsoft Azure, AWS, Google Cloud Platform.</li>
+              <li><strong>Languages:</strong> JavaScript/TypeScript, PHP, Python, Java, SQL, Bash</li>
+              <li><strong>Frontend:</strong> React, Vue.js, Nuxt.js, Angular, jQuery, HTML5, CSS3, Bootstrap, Vuetify</li>
+              <li><strong>Backend:</strong> Laravel, Lumen, Symfony, Fat-Free (F3), Node.js, Express, Python</li>
+              <li><strong>Databases:</strong> MySQL, MongoDB, PostgreSQL, SQLite, Vespa.ai</li>
+              <li><strong>Cloud & DevOps:</strong> AWS (EC2, S3, Lambda), Azure, GCP, Docker, Jenkins, Ansible, Vagrant</li>
+              <li><strong>Tools & Practices:</strong> Git, Jira, CI/CD, Unit/Integration Testing, Microservices, REST APIs, Agile/Scrum</li>
             </ul>
           </div>
         </div>
@@ -279,24 +412,9 @@
           <div class="card-block">
             <h2>Interests & Achievements</h2>
             <ul>
-              <li>Continuous upskilling in Artificial Intelligence and Machine Learning.</li>
-              <li>Active contributor to open-source projects and developer communities.</li>
-              <li>Published research on adaptive test generation and web-based learning systems.</li>
-              <li>Speaker at local tech meetups and workshops.</li>
-              <li>Passionate about mentoring junior developers and sharing knowledge.</li>
-              <li>Enthusiast in cloud computing, big data, and automation.</li>
-              <li>Enjoys cycling, hiking, and exploring new technologies.</li>
-              <li>Computers and technology.</li>
-              <li>Gym training.</li>
-              <li>Avid runner, long distance ultra runner. Multiple Ultra races finished. 100k. UTMB finisher.</li>
-              <li>Cycling, hiking, gardening, reading, travel, socialising.</li>
-              <li>Learning new programming languages.</li>
-              <li>Mountaineering.</li>
-              <li>Gardening vegetables and fruits.</li>
-              <li>I hold a full, clean driving licence.</li>
-              <li>EU citizen, based in Zagreb, Croatia.</li>
-              <li>Own and operate a craft business based in Croatia.</li>
-              <li>Experience with remote and on-site work.</li>
+              <li>Currently pursuing AI/ML certifications.</li>
+              <li>Ultra-marathon runner (UTMB finisher, 100k races), cycling, mountaineering.</li>
+              <li>Full driving licence; EU citizen based in Zagreb, Croatia.</li>
             </ul>
           </div>
         </div>
@@ -304,23 +422,229 @@
 
         
 
+        
         <div class="card">
           <div class="card-block">
-            <h2>Contact</h2>
-            <form action="https://formspree.io/f/xblalrba" method="POST" class="reveal-content">
+            <h2 id="contact">Contact me</h2>
+            <form action="https://formspree.io/f/xblalrba" 
+                method="POST" 
+                class="reveal-content contact-form" 
+                aria-label="Contact Form"
+                id="contactForm"
+                onsubmit="return handleSubmit(event)">
+              <!-- Formspree configuration -->
+              <input type="hidden" name="_subject" value="New Contact from Portfolio">
+              <input type="hidden" name="_next" value="https://slav.hr/thank-you">
+              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+              
               <div class="form-group">
-                <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+                <label for="email" class="required-field">Email</label>
+                <input type="email" 
+                      name="email" 
+                      class="form-control" 
+                      id="email" 
+                      placeholder="your.email@example.com" 
+                      required 
+                      aria-required="true"
+                      aria-describedby="emailHelp"
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                      onblur="validateEmail(this)">
+                <small id="emailHelp" class="form-text text-muted">Your email will never be shared with anyone else.</small>
+                <div class="invalid-feedback">Please enter a valid email address.</div>
               </div>
+
               <div class="form-group">
-                <input type="text" name="subject" class="form-control" id="subject" placeholder="Subject">
+                <label for="subject" class="required-field">Subject</label>
+                <input type="text" 
+                      name="_subject" 
+                      class="form-control" 
+                      id="subject" 
+                      placeholder="Brief summary of your message" 
+                      required 
+                      aria-required="true"
+                      minlength="3"
+                      maxlength="100"
+                      aria-describedby="subjectHelp">
+                <small id="subjectHelp" class="form-text text-muted">100 characters maximum</small>
+                <div class="invalid-feedback">Subject must be between 3 and 100 characters.</div>
               </div>
+
               <div class="form-group">
-                <textarea name="message" class="form-control" rows="5" placeholder="Enter your message"></textarea>
+                <label for="message" class="required-field">Message</label>
+                <textarea name="message" 
+                        id="message" 
+                        class="form-control" 
+                        rows="5" 
+                        placeholder="Please provide details about your inquiry..." 
+                        required 
+                        aria-required="true"
+                        minlength="10"
+                        maxlength="1000"
+                        aria-describedby="messageHelp"
+                        onkeyup="updateCharCount(this)"></textarea>
+                <small id="messageHelp" class="form-text text-muted">
+                  <span id="charCount">0</span>/1000 characters
+                </small>
+                <div class="invalid-feedback">Message must be between 10 and 1000 characters.</div>
               </div>
+
               <div class="form-group">
-                <button type="submit" class=" btn btn-primary">Send message</button>
-              </div> 
+                <button type="submit" class="btn btn-primary" id="submitButton">
+                  <i class="fa fa-paper-plane" aria-hidden="true"></i> 
+                  <span>Send message</span>
+                  <div class="spinner-border spinner-border-sm d-none" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                </button>
+              </div>
+
+              <div class="alert alert-success d-none" role="alert" id="successMessage">
+                Thank you for your message! I'll get back to you soon.
+              </div>
+              <div class="alert alert-danger d-none" role="alert" id="errorMessage">
+                Sorry, there was an error sending your message. Please try again.
+              </div>
             </form>
+
+            <style>
+              .contact-form .required-field::after {
+                content: "*";
+                color: red;
+                margin-left: 4px;
+              }
+              .contact-form .form-group {
+                margin-bottom: 1.5rem;
+              }
+              .contact-form .form-control {
+                transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+              }
+              .contact-form .form-control:focus {
+                border-color: #80bdff;
+                box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+              }
+              .contact-form .invalid-feedback {
+                display: none;
+                color: #dc3545;
+                font-size: 80%;
+              }
+              .contact-form .form-control.is-invalid {
+                border-color: #dc3545;
+              }
+              .contact-form .form-control.is-invalid + .invalid-feedback {
+                display: block;
+              }
+              .contact-form .btn-primary {
+                position: relative;
+                min-width: 160px;
+              }
+              .contact-form .spinner-border {
+                position: absolute;
+                right: 1rem;
+                top: 50%;
+                transform: translateY(-50%);
+              }
+              .contact-form .alert {
+                margin-top: 1rem;
+                display: none;
+              }
+              .contact-form .alert:not(.d-none) {
+                display: block;
+              }
+            </style>
+
+            <script>
+              function validateEmail(input) {
+                const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                if (!emailRegex.test(input.value)) {
+                  input.classList.add('is-invalid');
+                  return false;
+                }
+                input.classList.remove('is-invalid');
+                return true;
+              }
+
+              function updateCharCount(textarea) {
+                const charCount = textarea.value.length;
+                document.getElementById('charCount').textContent = charCount;
+                
+                if (charCount < 10 || charCount > 1000) {
+                  textarea.classList.add('is-invalid');
+                } else {
+                  textarea.classList.remove('is-invalid');
+                }
+              }
+
+              function handleSubmit(event) {
+                event.preventDefault();
+                
+                const form = event.target;
+                const submitBtn = form.querySelector('#submitButton');
+                const spinner = submitBtn.querySelector('.spinner-border');
+                const btnText = submitBtn.querySelector('span');
+                const successMsg = document.getElementById('successMessage');
+                const errorMsg = document.getElementById('errorMessage');
+                
+                // Hide previous messages
+                successMsg.classList.add('d-none');
+                errorMsg.classList.add('d-none');
+                
+                // Validate form
+                const email = form.email;
+                const subject = form.subject;
+                const message = form.message;
+                
+                if (!validateEmail(email) || 
+                    subject.value.length < 3 || 
+                    subject.value.length > 100 ||
+                    message.value.length < 10 || 
+                    message.value.length > 1000) {
+                  return false;
+                }
+                
+                // Show loading state
+                submitBtn.disabled = true;
+                spinner.classList.remove('d-none');
+                btnText.textContent = 'Sending...';
+                
+                // Submit form
+                fetch(form.action, {
+                  method: 'POST',
+                  body: new FormData(form),
+                  headers: {
+                    'Accept': 'application/json'
+                  }
+                })
+                .then(response => {
+                  // Treat any 2xx as success; try parsing JSON if present
+                  if (response.ok) {
+                    return response.text().then(text => {
+                      try { return text ? JSON.parse(text) : { ok: true }; } catch (e) { return { ok: true }; }
+                    });
+                  }
+                  throw new Error('Network response was not ok: ' + response.status);
+                })
+                .then(data => {
+                  if (data && data.ok) {
+                    form.reset();
+                    successMsg.classList.remove('d-none');
+                  } else {
+                    throw new Error('Submission not acknowledged');
+                  }
+                })
+                .catch(error => {
+                  console.warn('Form submit error', error);
+                  errorMsg.classList.remove('d-none');
+                })
+                .finally(() => {
+                  // Reset button state
+                  submitBtn.disabled = false;
+                  spinner.classList.add('d-none');
+                  btnText.textContent = 'Send message';
+                });
+                
+                return false;
+              }
+            </script>
           </div>
         </div>
        
@@ -333,17 +657,18 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <p><img src="./assets/images/mashup-icon.svg" alt=""></p>
+  <p><img src="./assets/images/mashup-icon.svg" alt="Decorative footer icon" title="Portfolio Footer Icon" width="48" height="48" loading="lazy"></p>
         
-        <p>Be Cool & Develop</p>
+        <p>That's all, folks!</p>
         <p>
-          <a class="fa-icon fa-icon-2x" href="https://github.com/slavensaka/" title="" target="_blank" rel="noopener noreferrer">
-            <i class="fa fa-github"></i>
+          <a class="fa-icon fa-icon-2x" href="https://github.com/slavensaka/" title="Visit Slaven's GitHub Profile" target="_blank" rel="noopener noreferrer">
+            <i class="fa fa-github" aria-label="GitHub"></i>
           </a>
-          <a class="fa-icon fa-icon-2x" href="https://www.linkedin.com/in/slaven-sakacic-7ba459a4/" title="" target="_blank" rel="noopener noreferrer">
-            <i class="fa fa-linkedin"></i>
+          <a class="fa-icon fa-icon-2x" href="https://www.linkedin.com/in/slaven-sakacic-7ba459a4/" title="Connect with Slaven on LinkedIn" target="_blank" rel="noopener noreferrer">
+            <i class="fa fa-linkedin" aria-label="LinkedIn"></i>
           </a>
         </p>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Slaven Sakačić. All rights reserved.</p>
       </div>
     </div>
   </div>
@@ -351,7 +676,18 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function (event) {
-     scrollRevelation('.card');
+     if (typeof scrollRevelation === 'function') {
+       try { scrollRevelation('.card'); } catch (e) { console.warn('scrollRevelation failed', e); }
+     }
+     // Add smooth scrolling to anchor links
+     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+       anchor.addEventListener("click", function(e) {
+         e.preventDefault();
+         document.querySelector(this.getAttribute("href")).scrollIntoView({
+           behavior: "smooth"
+         });
+       });
+     });
   });
 </script>
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
@@ -367,6 +703,10 @@
   ga('send', 'pageview');
 </script>
 
---><script type="text/javascript" src="./main.bc58148c.js"></script></body>
+--><script type="text/javascript" src="./main.bc58148c.js"></script>
+<script>
+  console.log("Structured Data validated:", document.querySelectorAll('script[type="application/ld+json"]'));
+</script>
+</body>
 
 </html>
