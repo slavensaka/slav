@@ -1,0 +1,1274 @@
+[
+  {
+    "id": "1.1",
+    "naziv": "Krndija - vrh Kapovac",
+    "lat": 45.483228,
+    "lng": 17.846743,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/1-krndija-vrh/"
+  },
+  {
+    "id": "1.2",
+    "naziv": "Papuk - vrh Lapjak",
+    "lat": 45.484137,
+    "lng": 17.652432,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/2-papuk-vrh/"
+  },
+  {
+    "id": "1.3",
+    "naziv": "Papuk - vrh Ivačka glava",
+    "lat": 45.514922,
+    "lng": 17.63568,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/3-papuk-vrh/"
+  },
+  {
+    "id": "1.4",
+    "naziv": "Papuk - vrh Češljakovački vis",
+    "lat": 45.491014,
+    "lng": 17.722459,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/4-papuk-vrh-cesljakovacki-vis/"
+  },
+  {
+    "id": "1.5",
+    "naziv": "Papuk - Petrov vrh",
+    "lat": 45.585433,
+    "lng": 17.312801,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/5-papuk-petrov-vrh/"
+  },
+  {
+    "id": "1.6",
+    "naziv": "Psunj - vrh Brezovo polje",
+    "lat": 45.38576,
+    "lng": 17.33237,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/6-psunj-vrh-brezovo-polje/"
+  },
+  {
+    "id": "1.7",
+    "naziv": "Dilj gora - vrh Čardak",
+    "lat": 45.258992,
+    "lng": 18.092272,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/7-dilj-gora-vrh-cardak/"
+  },
+  {
+    "id": "1.8",
+    "naziv": "Požeska gora - vrh Maksimov hrast",
+    "lat": 45.281877,
+    "lng": 17.566699,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/8-pozeska-gora-vrh-maksimov-hrast/"
+  },
+  {
+    "id": "1.9",
+    "naziv": "Papuk - Crni vrh",
+    "lat": 45.601965,
+    "lng": 17.427251,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/9-papuk-crni-vrh/"
+  },
+  {
+    "id": "1.10",
+    "naziv": "Banska kosa (Bansko brdo) - vrh Kamenjak",
+    "lat": 45.8019,
+    "lng": 18.7008,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/10-110-banska-kosa-bansko-brdo-vrh-kamenjak/"
+  },
+  {
+    "id": "1.11",
+    "naziv": "Fruška gora - vidikovac Skandala",
+    "lat": 45.1755,
+    "lng": 19.3841,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/11-fruska-gora-vidikovac-skandala/"
+  },
+  {
+    "id": "2.1",
+    "naziv": "Moslavačka gora - vrh Vis",
+    "lat": 45.599959,
+    "lng": 16.755943,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/1-moslavacka-gora-vrh-vis/"
+  },
+  {
+    "id": "2.2",
+    "naziv": "Bilogora - Stankov vrh",
+    "lat": 46.081633,
+    "lng": 16.825283,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/2-bilogora-stankov-vrh/"
+  },
+  {
+    "id": "3.1",
+    "naziv": "Međimurske gorice - vrh Mohokos",
+    "lat": 46.45393,
+    "lng": 16.363473,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/1-meimurske-gorice-vrh-mohokos/"
+  },
+  {
+    "id": "3.2",
+    "naziv": "Kalnik - vrh Vranilac",
+    "lat": 46.13125,
+    "lng": 16.454671,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/2-kalnik-vrh-vranilac/"
+  },
+  {
+    "id": "3.4",
+    "naziv": "Ivanščica - vrh Ivanščica",
+    "lat": 46.18144,
+    "lng": 16.127227,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/4-ivanscica-vrh-ivanscica/"
+  },
+  {
+    "id": "3.5",
+    "naziv": "Ivanščica - Oštrcgrad",
+    "lat": 46.166413,
+    "lng": 16.084414,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/5-ivanscica-ostrcgrad/"
+  },
+  {
+    "id": "3.6",
+    "naziv": "Ravna gora - vrh Ravna gora",
+    "lat": 46.271455,
+    "lng": 15.984092,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/6-ravna-gora-vrh-piramida/"
+  },
+  {
+    "id": "3.7",
+    "naziv": "Strahinjščica - vrh Sušec",
+    "lat": 46.189316,
+    "lng": 15.90853,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/7-strahinjcica-vrh-susec/"
+  },
+  {
+    "id": "3.8",
+    "naziv": "Cesarsko brdo - vrh Japica",
+    "lat": 46.058666,
+    "lng": 15.736252,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/8-cesarsko-brdo-vrh-japica/"
+  },
+  {
+    "id": "3.9",
+    "naziv": "Ivanščica - vrh Čevo",
+    "lat": 46.206441,
+    "lng": 16.282564,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/9-ivanscica-vrh-cevo/"
+  },
+  {
+    "id": "4.1",
+    "naziv": "Grohot - vrh",
+    "lat": 45.957359,
+    "lng": 16.117678,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/1-grohot-vrh/"
+  },
+  {
+    "id": "4.2",
+    "naziv": "Lipa - vrh",
+    "lat": 45.92972,
+    "lng": 16.067239,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/2-lipa-vrh/"
+  },
+  {
+    "id": "4.3",
+    "naziv": "Horvatovih 500 stuba",
+    "lat": 45.918807,
+    "lng": 15.963317,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/3-horvatovih-500-stuba/"
+  },
+  {
+    "id": "4.4",
+    "naziv": "Sljeme - vrh",
+    "lat": 45.899297,
+    "lng": 15.947379,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/4-sljeme-vrh/"
+  },
+  {
+    "id": "4.5",
+    "naziv": "Medvedgrad",
+    "lat": 45.869752,
+    "lng": 15.940639,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/5-medvedgrad/"
+  },
+  {
+    "id": "4.6",
+    "naziv": "Kameni svati - vrh",
+    "lat": 45.869309,
+    "lng": 15.854111,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/6-kameni-svati-vrh/"
+  },
+  {
+    "id": "5.1",
+    "naziv": "Okić - vrh",
+    "lat": 45.74878,
+    "lng": 15.706748,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/1-okic/"
+  },
+  {
+    "id": "5.2",
+    "naziv": "Plešivica - vrh",
+    "lat": 45.7372,
+    "lng": 15.668065,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/2-plesivica/"
+  },
+  {
+    "id": "5.3",
+    "naziv": "Oštrc - vrh",
+    "lat": 45.761479,
+    "lng": 15.649408,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/3-ostrc/"
+  },
+  {
+    "id": "5.4",
+    "naziv": "Japetić - vrh",
+    "lat": 45.749,
+    "lng": 15.609298,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/4-japetic/"
+  },
+  {
+    "id": "5.5",
+    "naziv": "Noršićka Plešivica - vrh ili Veliki Lovnik",
+    "lat": 45.798091,
+    "lng": 15.564376,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/5-norsicka-plesivica/"
+  },
+  {
+    "id": "6.1",
+    "naziv": "Tuščak - gradina",
+    "lat": 45.82357,
+    "lng": 15.562584,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/1-tuscak/"
+  },
+  {
+    "id": "6.2",
+    "naziv": "Zečak - vrh",
+    "lat": 45.753492,
+    "lng": 15.548245,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/2-zecak-vrh/"
+  },
+  {
+    "id": "6.3",
+    "naziv": "Pliješ - vrh",
+    "lat": 45.768743,
+    "lng": 15.383075,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/3-plijes-vrh/"
+  },
+  {
+    "id": "6.4",
+    "naziv": "Sveta Gera - vrh",
+    "lat": 45.759799,
+    "lng": 15.318123,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/4-sveta-gera-vrh/"
+  },
+  {
+    "id": "6.5",
+    "naziv": "Ječmište - vrh",
+    "lat": 45.780615,
+    "lng": 15.421785,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/5-jecmiste-vrh/"
+  },
+  {
+    "id": "7.1",
+    "naziv": "Vodenica - vrh",
+    "lat": 45.592435,
+    "lng": 15.408913,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/1-vodenica-vrh/"
+  },
+  {
+    "id": "7.2",
+    "naziv": "Vinica - vrh",
+    "lat": 45.44483,
+    "lng": 15.525055,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/2-vinica-vrh/"
+  },
+  {
+    "id": "7.3",
+    "naziv": "Martinščak - vrh",
+    "lat": 45.40739,
+    "lng": 15.579466,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/3-martinscak-vrh/"
+  },
+  {
+    "id": "7.4",
+    "naziv": "Petrova gora - vrh Petrovac",
+    "lat": 45.311386,
+    "lng": 15.808307,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/4-petrova-gora-vrh-petrovac/"
+  },
+  {
+    "id": "7.5",
+    "naziv": "Hrastovička gora - vrh Cepeliš",
+    "lat": 45.3959,
+    "lng": 16.270918,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/5-hrastovicka-gora-vrh-cepelis/"
+  },
+  {
+    "id": "8.1",
+    "naziv": "Ogulin - Zavičajni muzej",
+    "lat": 45.267487,
+    "lng": 15.224272,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/1-ogulin-zavicajni-muzej/"
+  },
+  {
+    "id": "8.2",
+    "naziv": "Klek - vrh",
+    "lat": 45.260336,
+    "lng": 15.145474,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/2-klek-vrh/"
+  },
+  {
+    "id": "8.3",
+    "naziv": "Bijela kosa - vrh",
+    "lat": 45.324283,
+    "lng": 15.020912,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/3-bijela-kosa-vrh/"
+  },
+  {
+    "id": "8.4",
+    "naziv": "Javorova kosa - vrh",
+    "lat": 45.386715,
+    "lng": 14.951717,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/4-javorova-kosa-vrh/"
+  },
+  {
+    "id": "8.5",
+    "naziv": "Bjelolasica - vrh Kula",
+    "lat": 45.273514,
+    "lng": 14.96134,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/5-bjelolasica-vrh-kula/"
+  },
+  {
+    "id": "8.6",
+    "naziv": "Samarske stijene - vrh",
+    "lat": 45.231307,
+    "lng": 14.942227,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/6-samarske-stijene-vrh/"
+  },
+  {
+    "id": "8.7",
+    "naziv": "Bijele stijene - vrh",
+    "lat": 45.219299,
+    "lng": 14.975781,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/7-bijele-stijene-vrh/"
+  },
+  {
+    "id": "8.8",
+    "naziv": "Kolovratske stijene - vrh",
+    "lat": 45.126082,
+    "lng": 14.94117,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/8-kolovratske-stijene-vrh/"
+  },
+  {
+    "id": "8.9",
+    "naziv": "Zagradski vrh",
+    "lat": 45.227778,
+    "lng": 14.780216,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/9-zagradski-vrh/"
+  },
+  {
+    "id": "8.10",
+    "naziv": "Viševica - vrh",
+    "lat": 45.254271,
+    "lng": 14.800665,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/10-visevica-vrh/"
+  },
+  {
+    "id": "8.11",
+    "naziv": "Burni Bitoraj - vrh Bitoraj",
+    "lat": 45.292683,
+    "lng": 14.790376,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/11-burni-bitoraj-vrh-bitoraj/"
+  },
+  {
+    "id": "8.12",
+    "naziv": "Kobiljak - vrh Veliki Kobiljak",
+    "lat": 45.253214,
+    "lng": 14.725526,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/12-kobiljak-vrh-veliki-kobiljak/"
+  },
+  {
+    "id": "8.13",
+    "naziv": "Medviđak - vrh",
+    "lat": 45.256375,
+    "lng": 14.686476,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/13-medviak-vrh/"
+  },
+  {
+    "id": "8.14",
+    "naziv": "Tuhobić - vrh",
+    "lat": 45.334172,
+    "lng": 14.642056,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/14-tuhobic-vrh/"
+  },
+  {
+    "id": "9.1",
+    "naziv": "Črmuž (Črmažov) vrh",
+    "lat": 45.354037,
+    "lng": 14.840102,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/1-crmuz-crmazov-vrh/"
+  },
+  {
+    "id": "9.2",
+    "naziv": "Špičasti vrh",
+    "lat": 45.478636,
+    "lng": 14.927917,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/2-spicasti-vrh/"
+  },
+  {
+    "id": "9.3",
+    "naziv": "Skradski vrh",
+    "lat": 45.42018,
+    "lng": 14.921327,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/3-skradski-vrh/"
+  },
+  {
+    "id": "9.4",
+    "naziv": "Drgomalj - vrh Veliki Drgomalj",
+    "lat": 45.436632,
+    "lng": 14.792066,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/4-drgomalj-vrh-veliki-drgomalj/"
+  },
+  {
+    "id": "9.5",
+    "naziv": "Rudnik - vrh",
+    "lat": 45.56458,
+    "lng": 14.609515,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/5-rudnik-vrh/"
+  },
+  {
+    "id": "9.6",
+    "naziv": "Risnjak - vrh",
+    "lat": 45.431524,
+    "lng": 14.621387,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/6-risnjak-vrh/"
+  },
+  {
+    "id": "9.7",
+    "naziv": "Snježnik - vrh",
+    "lat": 45.440588,
+    "lng": 14.584066,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/7-snjeznik-vrh/"
+  },
+  {
+    "id": "9.8",
+    "naziv": "Jelenc - vrh",
+    "lat": 45.487241,
+    "lng": 14.553323,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/8-jelenc-vrh/"
+  },
+  {
+    "id": "9.9",
+    "naziv": "Crni vrh",
+    "lat": 45.444713,
+    "lng": 14.527225,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/9-crni-vrh/"
+  },
+  {
+    "id": "9.10",
+    "naziv": "Fratar - vrh",
+    "lat": 45.4489,
+    "lng": 14.4865,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/10-fratar-vrh/"
+  },
+  {
+    "id": "9.11",
+    "naziv": "Obruč - vrh",
+    "lat": 45.459307,
+    "lng": 14.465851,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/11-obruc-vrh/"
+  },
+  {
+    "id": "9.12",
+    "naziv": "Kamenjak - vrh",
+    "lat": 45.3787,
+    "lng": 14.5552,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/12-kamenjak-vrh/"
+  },
+  {
+    "id": "10.1",
+    "naziv": "Ćićarija - vrh Žbevnica",
+    "lat": 45.458765,
+    "lng": 14.013845,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/1-cicarija-vrh-zbevnica/"
+  },
+  {
+    "id": "10.2",
+    "naziv": "Ćićarija - vrh Orljak",
+    "lat": 45.419385,
+    "lng": 14.12668,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/2-cicarija-vrh-orljak/"
+  },
+  {
+    "id": "10.3",
+    "naziv": "Ćićarija - Županj vrh",
+    "lat": 45.387932,
+    "lng": 14.167377,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/3-cicarija-zupanj-vrh/"
+  },
+  {
+    "id": "10.4",
+    "naziv": "Ćićarija - vrh Veliki Planik",
+    "lat": 45.36174,
+    "lng": 14.190622,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/4-cicarija-vrh-veliki-planik/"
+  },
+  {
+    "id": "10.5",
+    "naziv": "Učka - vrh Knezgrad",
+    "lat": 45.283368,
+    "lng": 14.249289,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/5-ucka-vrh-knezgrad/"
+  },
+  {
+    "id": "10.6",
+    "naziv": "Učka - vrh Vojak",
+    "lat": 45.284542,
+    "lng": 14.202002,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/6-ucka-vrh-vojak/"
+  },
+  {
+    "id": "10.7",
+    "naziv": "Učka - vrh Sisol",
+    "lat": 45.171157,
+    "lng": 14.201052,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/7-ucka-vrh-sisol/"
+  },
+  {
+    "id": "11.1",
+    "naziv": "Senjsko bilo - vrh Jadičeva plan",
+    "lat": 44.917209,
+    "lng": 15.021873,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/1-senjsko-bilo-vrh-jadiceva-plan/"
+  },
+  {
+    "id": "11.2",
+    "naziv": "Veliki Zavižan - vrh",
+    "lat": 44.802351,
+    "lng": 14.9734,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/2-veliki-zavizan-vrh/"
+  },
+  {
+    "id": "11.3",
+    "naziv": "Balinovac - vrh",
+    "lat": 44.807382,
+    "lng": 14.966643,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/3-balinovac-vrh/"
+  },
+  {
+    "id": "11.4",
+    "naziv": "Veliki (Zavižanski) Pivčevac - vrh",
+    "lat": 44.80504,
+    "lng": 14.992441,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/4-veliki-zavizanski-pivcevac-vrh/"
+  },
+  {
+    "id": "11.5",
+    "naziv": "Mali Rajinac - vrh",
+    "lat": 44.794467,
+    "lng": 15.01308,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/5-mali-rajinac-vrh/"
+  },
+  {
+    "id": "11.6",
+    "naziv": "Gromovača - vrh",
+    "lat": 44.773115,
+    "lng": 14.984394,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/6-gromovaca-vrh/"
+  },
+  {
+    "id": "11.7",
+    "naziv": "Krajačev kuk - vrh",
+    "lat": 44.75097,
+    "lng": 14.995474,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/7-krajacev-kuk-vrh/"
+  },
+  {
+    "id": "11.10",
+    "naziv": "Veliki Kozjak - vrh",
+    "lat": 44.733071,
+    "lng": 15.035514,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/10-veliki-kozjak-vrh/"
+  },
+  {
+    "id": "11.11",
+    "naziv": "Korenski vrh",
+    "lat": 44.801201,
+    "lng": 15.198603,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/11-korenski-vrh-kod-kutereva/"
+  },
+  {
+    "id": "12.1",
+    "naziv": "Zečjak - vrh",
+    "lat": 44.703177,
+    "lng": 14.989187,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/1-zecjak-vrh/"
+  },
+  {
+    "id": "12.2",
+    "naziv": "Šatorina - vrh",
+    "lat": 44.647689,
+    "lng": 15.04848,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/2-satorina-vrh/"
+  },
+  {
+    "id": "12.3",
+    "naziv": "Laktin vrh",
+    "lat": 44.621082,
+    "lng": 15.092592,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/3-laktin-vrh/"
+  },
+  {
+    "id": "12.4",
+    "naziv": "Budakovo brdo - vrh",
+    "lat": 44.582624,
+    "lng": 15.073945,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/4-budakovo-brdo-vrh/"
+  },
+  {
+    "id": "12.5",
+    "naziv": "Bačić kuk - vrh",
+    "lat": 44.57938,
+    "lng": 15.096154,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/5-bacic-kuk-vrh/"
+  },
+  {
+    "id": "12.6",
+    "naziv": "Kiza - vrh",
+    "lat": 44.548464,
+    "lng": 15.159953,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/6-kiza-vrh/"
+  },
+  {
+    "id": "12.7",
+    "naziv": "Ljubičko brdo - vrh",
+    "lat": 44.537411,
+    "lng": 15.190036,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/7-ljubicko-brdo-vrh/"
+  },
+  {
+    "id": "12.8",
+    "naziv": "Metla - vrh",
+    "lat": 44.539242,
+    "lng": 15.213334,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/8-metla-vrh/"
+  },
+  {
+    "id": "12.9",
+    "naziv": "Velinac - vrh",
+    "lat": 44.559771,
+    "lng": 15.072142,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/9-velinac-vrh/"
+  },
+  {
+    "id": "13.1",
+    "naziv": "Veliki Sadikovac - vrh",
+    "lat": 44.50503,
+    "lng": 15.186453,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/1-veliki-sadikovac-vrh/"
+  },
+  {
+    "id": "13.2",
+    "naziv": "Veliki Stolac - vrh",
+    "lat": 44.450666,
+    "lng": 15.255321,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/2-veliki-stolac-vrh/"
+  },
+  {
+    "id": "13.3",
+    "naziv": "Visočica - vrh",
+    "lat": 44.42962,
+    "lng": 15.371477,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/3-visocica-vrh/"
+  },
+  {
+    "id": "13.4",
+    "naziv": "Debeli kuk (kod Stapa) - vrh",
+    "lat": 44.417912,
+    "lng": 15.310312,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/4-debeli-kuk-kod-stapa-vrh/"
+  },
+  {
+    "id": "13.5",
+    "naziv": "Bojinac - vrh Bojin kuk",
+    "lat": 44.349016,
+    "lng": 15.413183,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/5-bojinac-vrh-bojin-kuk/"
+  },
+  {
+    "id": "13.6",
+    "naziv": "Vaganski vrh",
+    "lat": 44.367731,
+    "lng": 15.504611,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/6-vaganski-vrh/"
+  },
+  {
+    "id": "13.7",
+    "naziv": "Sveto brdo - vrh",
+    "lat": 44.328553,
+    "lng": 15.569767,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/7-sveto-brdo-vrh/"
+  },
+  {
+    "id": "13.8",
+    "naziv": "Vlaški grad - vrh",
+    "lat": 44.324942,
+    "lng": 15.550611,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/8-vlaski-grad-vrh/"
+  },
+  {
+    "id": "13.9",
+    "naziv": "Anića kuk - vrh",
+    "lat": 44.306964,
+    "lng": 15.482478,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/9-anica-kuk-vrh/"
+  },
+  {
+    "id": "13.10",
+    "naziv": "Crnopac - vrh",
+    "lat": 44.252047,
+    "lng": 15.836846,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/10-crnopac-vrh/"
+  },
+  {
+    "id": "14.1",
+    "naziv": "Lička Plješivica - vrh Ozeblin",
+    "lat": 44.579441,
+    "lng": 15.876945,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/1-licka-pljesivica-vrh-ozeblin/"
+  },
+  {
+    "id": "14.2",
+    "naziv": "Krčmar - vrh",
+    "lat": 44.570692,
+    "lng": 15.293124,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/7-krcmar-vrh/"
+  },
+  {
+    "id": "14.3",
+    "naziv": "Poštak - vrh",
+    "lat": 44.255731,
+    "lng": 16.110436,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/3-postak-vrh/"
+  },
+  {
+    "id": "14.4",
+    "naziv": "Kremen - vrh",
+    "lat": 44.463516,
+    "lng": 15.888355,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/4-kremen-vrh/"
+  },
+  {
+    "id": "14.5",
+    "naziv": "Zir - vrh",
+    "lat": 44.430156,
+    "lng": 15.614389,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/5-zir-vrh/"
+  },
+  {
+    "id": "14.6",
+    "naziv": "Mrsinj - vrh Nikina plasa",
+    "lat": 44.727997,
+    "lng": 15.667018,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/6-mrsinj-vrh-nikina-plasa/"
+  },
+  {
+    "id": "15.1",
+    "naziv": "Krk - vrh Obzova",
+    "lat": 44.994361,
+    "lng": 14.687272,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/1-krk-vrh-obzova/"
+  },
+  {
+    "id": "15.2",
+    "naziv": "Cres - vrh Sis",
+    "lat": 45.067262,
+    "lng": 14.354694,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/2-cres-vrh-sis/"
+  },
+  {
+    "id": "15.3",
+    "naziv": "Lošinj - Osorčica - vrh Sv. Mikula",
+    "lat": 44.661526,
+    "lng": 14.370452,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/3-losinj-osorcica-vrh-sv-mikula/"
+  },
+  {
+    "id": "15.4",
+    "naziv": "Rab - vrh Kamenjak",
+    "lat": 44.773244,
+    "lng": 14.789706,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/4-rab-vrh-kamenjak/"
+  },
+  {
+    "id": "15.5",
+    "naziv": "Pag - vrh Sveti Vid",
+    "lat": 44.476612,
+    "lng": 14.994981,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/5-pag-vrh-sveti-vid/"
+  },
+  {
+    "id": "15.6",
+    "naziv": "Ist - vrh Straža",
+    "lat": 44.278404,
+    "lng": 14.770516,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/6-ist-vrh-straza/"
+  },
+  {
+    "id": "16.1",
+    "naziv": "Ugljan - vrh Šćah",
+    "lat": 44.085308,
+    "lng": 15.144026,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/1-ugljan-vrh-scah/"
+  },
+  {
+    "id": "16.2",
+    "naziv": "Pašman - vrh Veliki Bokolj",
+    "lat": 43.982621,
+    "lng": 15.305516,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/2-pasman-vrh-veliki-bokolj/"
+  },
+  {
+    "id": "16.3",
+    "naziv": "Dugi otok - vrh Orljak",
+    "lat": 44.0066,
+    "lng": 15.0449,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/3-dugi-otok-vrh-orljak/"
+  },
+  {
+    "id": "16.4",
+    "naziv": "Šolta - vrh Vela Straža",
+    "lat": 43.357713,
+    "lng": 16.351886,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/4-solta-vrh-vela-straza/"
+  },
+  {
+    "id": "16.5",
+    "naziv": "Brač - vrh Vidova gora",
+    "lat": 43.279408,
+    "lng": 16.620287,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/5-brac-vrh-vidova-gora/"
+  },
+  {
+    "id": "16.6",
+    "naziv": "Hvar - vrh Sv. Nikola",
+    "lat": 43.144499,
+    "lng": 16.597563,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/6-hvar-vrh-sveti-nikola/"
+  },
+  {
+    "id": "16.7",
+    "naziv": "Vis - vrh Hum",
+    "lat": 43.035513,
+    "lng": 16.115425,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/7-vis-vrh-hum/"
+  },
+  {
+    "id": "16.8",
+    "naziv": "Korčula - vrh Kom",
+    "lat": 42.937048,
+    "lng": 16.859167,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/8-korcula-vrh-kom/"
+  },
+  {
+    "id": "16.9",
+    "naziv": "Lastovo - vrh Sozanj",
+    "lat": 42.773343,
+    "lng": 16.859947,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/9-lastovo-vrh-sozanj/"
+  },
+  {
+    "id": "16.10",
+    "naziv": "Mljet - vrh Velji grad",
+    "lat": 42.739196,
+    "lng": 17.554414,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/10-mljet-vrh-velji-grad/"
+  },
+  {
+    "id": "17.1",
+    "naziv": "Dinara - vrh Dinara (Sinjal)",
+    "lat": 44.062473,
+    "lng": 16.382911,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/1-dinara-vrh-dinara-sinjal/"
+  },
+  {
+    "id": "17.2",
+    "naziv": "Promina - vrh Čavnovka",
+    "lat": 43.924655,
+    "lng": 16.170142,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/2-promina-vrh-cavnovka/"
+  },
+  {
+    "id": "17.3",
+    "naziv": "Svilaja - vrh Svilaja",
+    "lat": 43.790556,
+    "lng": 16.48491,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/3-svilaja-vrh-svilaje/"
+  },
+  {
+    "id": "17.4",
+    "naziv": "Kamešnica - vrh Glavaš",
+    "lat": 43.72513,
+    "lng": 16.81494,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/4-kamesnica-vrh-glavas/"
+  },
+  {
+    "id": "17.5",
+    "naziv": "Kozjak (kod Kijeva) - vrh Bat",
+    "lat": 43.963032,
+    "lng": 16.329938,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/5-kozjak-kod-kijeva-vrh-bat/"
+  },
+  {
+    "id": "17.6",
+    "naziv": "Dinara - vrh Badanj",
+    "lat": 44.099109,
+    "lng": 16.322996,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/6-dinara-vrh-badanj/"
+  },
+  {
+    "id": "17.7",
+    "naziv": "Dinara - vrh Velika Duvjakuša",
+    "lat": 43.937825,
+    "lng": 16.568998,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/7-dinara-vrh-velika-duvjakusa/"
+  },
+  {
+    "id": "17.8",
+    "naziv": "Dinara - Mali Maglaj",
+    "lat": 43.879157,
+    "lng": 16.660498,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/8-dinara-mali-maglaj/"
+  },
+  {
+    "id": "18.1",
+    "naziv": "Trtar - vrh Krtolin",
+    "lat": 43.739207,
+    "lng": 15.995989,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/1-trtar-vrh-krtolin/"
+  },
+  {
+    "id": "18.2",
+    "naziv": "Kozjak - vrh Biranj",
+    "lat": 43.578871,
+    "lng": 16.353273,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/2-kozjak-vrh-biranj/"
+  },
+  {
+    "id": "18.3",
+    "naziv": "Kozjak - vrh Sv. Juraj",
+    "lat": 43.559632,
+    "lng": 16.477357,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/3-kozjak-vrh-sv-jure/"
+  },
+  {
+    "id": "18.4",
+    "naziv": "Mosor - vrh Ljubljan",
+    "lat": 43.542335,
+    "lng": 16.610717,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/4-mosor-vrh-ljubljan/"
+  },
+  {
+    "id": "18.5",
+    "naziv": "Mosor - vrh Veliki Kabal",
+    "lat": 43.527102,
+    "lng": 16.637426,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/5-mosor-vrh-veliki-kabal/"
+  },
+  {
+    "id": "18.6",
+    "naziv": "Mosor - vrh Kozik (Sv. Jure)",
+    "lat": 43.489302,
+    "lng": 16.691985,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/6-mosor-vrh-sv-jure/"
+  },
+  {
+    "id": "18.7",
+    "naziv": "Omiška Dinara - vrh Kula",
+    "lat": 43.4419,
+    "lng": 16.7111,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/7-omiska-dinara-vrh-kula/"
+  },
+  {
+    "id": "18.8",
+    "naziv": "Mosor - vrh Debelo brdo",
+    "lat": 43.5186,
+    "lng": 16.6611,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/8-mosor-vrh-debelo-brdo/"
+  },
+  {
+    "id": "18.9",
+    "naziv": "Vilaja - Crni vrh",
+    "lat": 43.6833,
+    "lng": 16.15,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/9-vilaja-crni-vrh/"
+  },
+  {
+    "id": "19.1",
+    "naziv": "Miletnjak (Šćirovac) - vrh",
+    "lat": 43.3809,
+    "lng": 16.9756,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/1-miletnjak-scirovac-vrh/"
+  },
+  {
+    "id": "19.2",
+    "naziv": "Sv. Jure - vrh",
+    "lat": 43.342,
+    "lng": 17.0539,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/2-sv-jure-vrh/"
+  },
+  {
+    "id": "19.3",
+    "naziv": "Veliki Šibenik - vrh",
+    "lat": 43.3447,
+    "lng": 17.0098,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/3-veliki-sibenik-vrh/"
+  },
+  {
+    "id": "19.4",
+    "naziv": "Sv. Ilija - vrh",
+    "lat": 43.3713,
+    "lng": 16.9971,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/4-sv-ilija-vrh/"
+  },
+  {
+    "id": "19.5",
+    "naziv": "Rilić - Sutvid - vrh Velika Kapela",
+    "lat": 43.1915,
+    "lng": 17.1943,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/5-rilic-sutvid-velika-kapela/"
+  },
+  {
+    "id": "19.6",
+    "naziv": "Rilić - Sv. Ilija",
+    "lat": 43.0996,
+    "lng": 17.3757,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/6-rilic-sv-ilija/"
+  },
+  {
+    "id": "19.7",
+    "naziv": "Vošac - vrh",
+    "lat": 43.3106,
+    "lng": 17.0463,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/7-vosac-vrh/"
+  },
+  {
+    "id": "19.8",
+    "naziv": "Kimet - vrh",
+    "lat": 43.2869,
+    "lng": 17.112,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/8-kimet-vrh/"
+  },
+  {
+    "id": "19.9",
+    "naziv": "Rilić - Drveničke stine - vrh Sokolić",
+    "lat": 43.1714,
+    "lng": 17.2418,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/9-rilic-drvenicke-stine-vrh-sokolic/"
+  },
+  {
+    "id": "19.10",
+    "naziv": "Matokit - vrh Sv. Rok",
+    "lat": 43.2164,
+    "lng": 17.3331,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/10-matokit-vrh-sv-rok/"
+  },
+  {
+    "id": "19.11",
+    "naziv": "Sveti Mihovil - vrh",
+    "lat": 43.2647,
+    "lng": 17.2425,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/11-sveti-mihovil-vrh/"
+  },
+  {
+    "id": "20.1",
+    "naziv": "Pelješac - Zmijino brdo - vrh Sv. Ilija",
+    "lat": 42.9962,
+    "lng": 17.1595,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/1-peljesac-zmijino-brdo-vrh-sv-ilija/"
+  },
+  {
+    "id": "20.2",
+    "naziv": "Sniježnica - Ilijin vrh",
+    "lat": 42.5738,
+    "lng": 18.352,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/2-snijeznica-ilijin-vrh/"
+  },
+  {
+    "id": "20.3",
+    "naziv": "Rujnica - vrh Babina gomila",
+    "lat": 43.0764,
+    "lng": 17.533,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/3-rujnica-vrh-babina-gomila/"
+  },
+  {
+    "id": "20.4",
+    "naziv": "Pelješac - vrh Sveti Ivan",
+    "lat": 42.8739,
+    "lng": 17.4574,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/4-peljesac-vrh-sveti-ivan/"
+  },
+  {
+    "id": "20.5",
+    "naziv": "Neprobić - vrh",
+    "lat": 42.8083,
+    "lng": 17.9131,
+    "posjecen": true,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/5-neprobic-vrh/"
+  },
+  {
+    "id": "21.1",
+    "naziv": "Ivanščica - vrh Veliki Lubenjak",
+    "lat": 46.180718,
+    "lng": 16.284329,
+    "posjecen": false,
+    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/3-ivanscica-vrh-veliki-lubenjak/"
+  }
+]

@@ -3,3 +3,8 @@ node_modules
 npm-debug.log
 Dockerfile
 render.yaml
+
+# Exclude obilaznica from portfolio Docker image
+obilaznica/app/node_modules
+obilaznica/app/dist
+blog/
