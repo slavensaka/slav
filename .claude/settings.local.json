@@ -6,10 +6,36 @@
       "Bash(git commit -m \"$(cat <<''EOF''\nUpdate portfolio: new About me section and cleanup\n\n- Updated About me description with concise highlights\n- Adjusted layout margin for better text alignment\n- Removed unnecessary files (index.php, components.html, source maps)\n- Deleted redundant CV formats (kept PDF only)\n- Removed large gemini.png (using optimized webp version)\n- Cleaned up IDE cache files\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n)\")",
       "Bash(git push:*)",
       "Bash(git checkout:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git merge:*)",
+      "Bash(git stash:*)",
+      "Bash(git stash pop:*)",
+      "Bash(claude mcp add hf-mcp-server -t http \"https://huggingface.co/mcp?login\")",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(git -C /c/wamp/www/slav log --oneline -20)",
+      "Bash(git -C /c/wamp/www/slav branch:*)",
+      "Bash(git -C /c/wamp/www/slav remote:*)",
+      "Bash(git -C /c/wamp/www/slav log --oneline --all --graph)",
+      "Bash(git -C /c/wamp/www/slav show-ref)",
+      "Bash(git -C /c/wamp/www/slav ls-tree:*)",
+      "Bash(du:*)",
+      "Bash(npm create:*)",
+      "Bash(npm install:*)",
+      "Bash(npm ls:*)",
+      "Bash(./node_modules/.bin/tsc:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)",
+      "Bash(node scripts/compress-union-images.js:*)",
+      "Bash(node scripts/compress-terra-vinea-images.js:*)",
+      "Bash(node scripts/add-union-via-supabase.js:*)",
+      "Bash(node scripts/add-terra-vinea-via-supabase.js:*)"
     ],
     "deny": [],
-    "ask": []
+    "ask": [],
+    "fetch": {
+      "allow_all": true
+    }
   },
   "model": "opus"
 }

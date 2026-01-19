@@ -1260,7 +1260,8 @@
     "naziv": "Neprobić - vrh",
     "lat": 42.8083,
     "lng": 17.9131,
-    "posjecen": true,
+    "posjecen": false,
+    "status": "Aktivni",
     "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/5-neprobic-vrh/"
   },
   {
