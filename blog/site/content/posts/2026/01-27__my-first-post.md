@@ -3,7 +3,7 @@ title: "My First Blog Post"
 date: 2026-01-27T16:54:55+01:00
 slug: /my-first-post/
 description: This is my first blog post exploring the amazing world of Hugo blogging
-image: images/default-placeholder.png
+image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1600&h=900&fit=crop&q=80"
 caption: My first post
 categories:
   - general

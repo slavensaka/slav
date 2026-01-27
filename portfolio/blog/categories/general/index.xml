@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>General on Slav Blog</title>
+    <link>https://slav.hr/blog/categories/general/</link>
+    <description>Recent content in General on Slav Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 27 Jan 2026 16:54:55 +0100</lastBuildDate>
+    <atom:link href="https://slav.hr/blog/categories/general/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My First Blog Post</title>
+      <link>https://slav.hr/blog/posts/2026/my-first-post/</link>
+      <pubDate>Tue, 27 Jan 2026 16:54:55 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2026/my-first-post/</guid>
+      <description>&lt;p&gt;Welcome to my first blog post! This is an example of how to write content in Markdown format.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-hugo&#34;&gt;What is Hugo?&lt;/h2&gt;&#xA;&lt;p&gt;Hugo is a fast and flexible static site generator written in Go. It&amp;rsquo;s perfect for blogs, portfolios, and documentation sites.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

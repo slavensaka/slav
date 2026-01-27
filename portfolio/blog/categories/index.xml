@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Slav Blog</title>
+    <link>https://slav.hr/blog/categories/</link>
+    <description>Recent content in Categories on Slav Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 27 Jan 2026 16:54:55 +0100</lastBuildDate>
+    <atom:link href="https://slav.hr/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>General</title>
+      <link>https://slav.hr/blog/categories/general/</link>
+      <pubDate>Tue, 27 Jan 2026 16:54:55 +0100</pubDate>
+      <guid>https://slav.hr/blog/categories/general/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Astronomy</title>
+      <link>https://slav.hr/blog/categories/astronomy/</link>
+      <pubDate>Wed, 04 Oct 2023 22:11:36 +0700</pubDate>
+      <guid>https://slav.hr/blog/categories/astronomy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Space</title>
+      <link>https://slav.hr/blog/categories/space/</link>
+      <pubDate>Sun, 24 Sep 2023 11:15:17 +0700</pubDate>
+      <guid>https://slav.hr/blog/categories/space/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

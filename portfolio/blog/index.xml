@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Slav Blog</title>
+    <link>https://slav.hr/blog/</link>
+    <description>Recent content on Slav Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 27 Jan 2026 16:54:55 +0100</lastBuildDate>
+    <atom:link href="https://slav.hr/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My First Blog Post</title>
+      <link>https://slav.hr/blog/posts/2026/my-first-post/</link>
+      <pubDate>Tue, 27 Jan 2026 16:54:55 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2026/my-first-post/</guid>
+      <description>&lt;p&gt;Welcome to my first blog post! This is an example of how to write content in Markdown format.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-hugo&#34;&gt;What is Hugo?&lt;/h2&gt;&#xA;&lt;p&gt;Hugo is a fast and flexible static site generator written in Go. It&amp;rsquo;s perfect for blogs, portfolios, and documentation sites.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Future of Web Development</title>
+      <link>https://slav.hr/blog/posts/2026/01-24__post-1/</link>
+      <pubDate>Sat, 24 Jan 2026 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2026/01-24__post-1/</guid>
+      <description>&lt;h1 id=&#34;the-future-of-web-development&#34;&gt;The Future of Web Development&lt;/h1&gt;&#xA;&lt;p&gt;A comprehensive guide to understanding the fundamentals and advanced concepts.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building Scalable Microservices</title>
+      <link>https://slav.hr/blog/posts/2026/01-21__post-2/</link>
+      <pubDate>Wed, 21 Jan 2026 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2026/01-21__post-2/</guid>
+      <description>&lt;h1 id=&#34;building-scalable-microservices&#34;&gt;Building Scalable Microservices&lt;/h1&gt;&#xA;&lt;p&gt;Dive deep into the subject matter with detailed analysis and practical examples.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Introduction to Quantum Computing</title>
+      <link>https://slav.hr/blog/posts/2026/01-18__post-3/</link>
+      <pubDate>Sun, 18 Jan 2026 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2026/01-18__post-3/</guid>
+      <description>&lt;h1 id=&#34;introduction-to-quantum-computing&#34;&gt;Introduction to Quantum Computing&lt;/h1&gt;&#xA;&lt;p&gt;Discover the latest trends, research findings, and expert perspectives.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Best Practices for DevOps</title>
+      <link>https://slav.hr/blog/posts/2026/01-15__post-4/</link>
+      <pubDate>Thu, 15 Jan 2026 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2026/01-15__post-4/</guid>
+      <description>&lt;h1 id=&#34;best-practices-for-devops&#34;&gt;Best Practices for DevOps&lt;/h1&gt;&#xA;&lt;p&gt;Learn about the cutting-edge developments and future implications.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Exploring the Deep Ocean Mysteries</title>
+      <link>https://slav.hr/blog/posts/2026/01-12__post-5/</link>
+      <pubDate>Mon, 12 Jan 2026 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2026/01-12__post-5/</guid>
+      <description>&lt;h1 id=&#34;exploring-the-deep-ocean-mysteries&#34;&gt;Exploring the Deep Ocean Mysteries&lt;/h1&gt;&#xA;&lt;p&gt;An in-depth exploration of theories, applications, and real-world scenarios.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Art of Wildlife Photography</title>
+      <link>https://slav.hr/blog/posts/2026/01-09__post-6/</link>
+      <pubDate>Fri, 09 Jan 2026 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2026/01-09__post-6/</guid>
+      <description>&lt;h1 id=&#34;the-art-of-wildlife-photography&#34;&gt;The Art of Wildlife Photography&lt;/h1&gt;&#xA;&lt;p&gt;Uncover the secrets and hidden aspects of this fascinating domain.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ancient Civilizations of Mesopotamia</title>
+      <link>https://slav.hr/blog/posts/2026/01-06__post-7/</link>
+      <pubDate>Tue, 06 Jan 2026 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2026/01-06__post-7/</guid>
+      <description>&lt;h1 id=&#34;ancient-civilizations-of-mesopotamia&#34;&gt;Ancient Civilizations of Mesopotamia&lt;/h1&gt;&#xA;&lt;p&gt;A detailed examination of key principles and methodologies.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Climate Change and Its Impact</title>
+      <link>https://slav.hr/blog/posts/2026/01-03__post-8/</link>
+      <pubDate>Sat, 03 Jan 2026 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2026/01-03__post-8/</guid>
+      <description>&lt;h1 id=&#34;climate-change-and-its-impact&#34;&gt;Climate Change and Its Impact&lt;/h1&gt;&#xA;&lt;p&gt;Journey through the most important aspects and breakthrough discoveries.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Evolution of Programming Languages</title>
+      <link>https://slav.hr/blog/posts/2025/12-31__post-9/</link>
+      <pubDate>Wed, 31 Dec 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/12-31__post-9/</guid>
+      <description>&lt;h1 id=&#34;the-evolution-of-programming-languages&#34;&gt;The Evolution of Programming Languages&lt;/h1&gt;&#xA;&lt;p&gt;Understanding the core concepts and their practical applications.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Cryptocurrency and Blockchain Technology</title>
+      <link>https://slav.hr/blog/posts/2025/12-28__post-10/</link>
+      <pubDate>Sun, 28 Dec 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/12-28__post-10/</guid>
+      <description>&lt;h1 id=&#34;cryptocurrency-and-blockchain-technology&#34;&gt;Cryptocurrency and Blockchain Technology&lt;/h1&gt;&#xA;&lt;p&gt;Explore the fascinating world of this incredible topic and discover amazing insights.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Science Behind Coffee Brewing</title>
+      <link>https://slav.hr/blog/posts/2025/12-25__post-11/</link>
+      <pubDate>Thu, 25 Dec 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/12-25__post-11/</guid>
+      <description>&lt;h1 id=&#34;the-science-behind-coffee-brewing&#34;&gt;The Science Behind Coffee Brewing&lt;/h1&gt;&#xA;&lt;p&gt;A comprehensive guide to understanding the fundamentals and advanced concepts.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Modern Architecture Design Principles</title>
+      <link>https://slav.hr/blog/posts/2025/12-22__post-12/</link>
+      <pubDate>Mon, 22 Dec 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/12-22__post-12/</guid>
+      <description>&lt;h1 id=&#34;modern-architecture-design-principles&#34;&gt;Modern Architecture Design Principles&lt;/h1&gt;&#xA;&lt;p&gt;Dive deep into the subject matter with detailed analysis and practical examples.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Psychology of Decision Making</title>
+      <link>https://slav.hr/blog/posts/2025/12-19__post-13/</link>
+      <pubDate>Fri, 19 Dec 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/12-19__post-13/</guid>
+      <description>&lt;h1 id=&#34;the-psychology-of-decision-making&#34;&gt;The Psychology of Decision Making&lt;/h1&gt;&#xA;&lt;p&gt;Discover the latest trends, research findings, and expert perspectives.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Exploring Mars: The Red Planet</title>
+      <link>https://slav.hr/blog/posts/2025/12-16__post-14/</link>
+      <pubDate>Tue, 16 Dec 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/12-16__post-14/</guid>
+      <description>&lt;h1 id=&#34;exploring-mars-the-red-planet&#34;&gt;Exploring Mars: The Red Planet&lt;/h1&gt;&#xA;&lt;p&gt;Learn about the cutting-edge developments and future implications.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mastering Docker and Kubernetes</title>
+      <link>https://slav.hr/blog/posts/2025/12-13__post-15/</link>
+      <pubDate>Sat, 13 Dec 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/12-13__post-15/</guid>
+      <description>&lt;h1 id=&#34;mastering-docker-and-kubernetes&#34;&gt;Mastering Docker and Kubernetes&lt;/h1&gt;&#xA;&lt;p&gt;An in-depth exploration of theories, applications, and real-world scenarios.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The History of the Internet</title>
+      <link>https://slav.hr/blog/posts/2025/12-10__post-16/</link>
+      <pubDate>Wed, 10 Dec 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/12-10__post-16/</guid>
+      <description>&lt;h1 id=&#34;the-history-of-the-internet&#34;&gt;The History of the Internet&lt;/h1&gt;&#xA;&lt;p&gt;Uncover the secrets and hidden aspects of this fascinating domain.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Artificial Intelligence in Healthcare</title>
+      <link>https://slav.hr/blog/posts/2025/12-07__post-17/</link>
+      <pubDate>Sun, 07 Dec 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/12-07__post-17/</guid>
+      <description>&lt;h1 id=&#34;artificial-intelligence-in-healthcare&#34;&gt;Artificial Intelligence in Healthcare&lt;/h1&gt;&#xA;&lt;p&gt;A detailed examination of key principles and methodologies.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Wonders of Bioluminescence</title>
+      <link>https://slav.hr/blog/posts/2025/12-04__post-18/</link>
+      <pubDate>Thu, 04 Dec 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/12-04__post-18/</guid>
+      <description>&lt;h1 id=&#34;the-wonders-of-bioluminescence&#34;&gt;The Wonders of Bioluminescence&lt;/h1&gt;&#xA;&lt;p&gt;Journey through the most important aspects and breakthrough discoveries.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building Your First Mobile App</title>
+      <link>https://slav.hr/blog/posts/2025/12-01__post-19/</link>
+      <pubDate>Mon, 01 Dec 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/12-01__post-19/</guid>
+      <description>&lt;h1 id=&#34;building-your-first-mobile-app&#34;&gt;Building Your First Mobile App&lt;/h1&gt;&#xA;&lt;p&gt;Understanding the core concepts and their practical applications.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Renaissance Art Movement</title>
+      <link>https://slav.hr/blog/posts/2025/11-28__post-20/</link>
+      <pubDate>Fri, 28 Nov 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/11-28__post-20/</guid>
+      <description>&lt;h1 id=&#34;the-renaissance-art-movement&#34;&gt;The Renaissance Art Movement&lt;/h1&gt;&#xA;&lt;p&gt;Explore the fascinating world of this incredible topic and discover amazing insights.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Understanding Neural Networks</title>
+      <link>https://slav.hr/blog/posts/2025/11-25__post-21/</link>
+      <pubDate>Tue, 25 Nov 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/11-25__post-21/</guid>
+      <description>&lt;h1 id=&#34;understanding-neural-networks&#34;&gt;Understanding Neural Networks&lt;/h1&gt;&#xA;&lt;p&gt;A comprehensive guide to understanding the fundamentals and advanced concepts.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Physics of Black Holes</title>
+      <link>https://slav.hr/blog/posts/2025/11-22__post-22/</link>
+      <pubDate>Sat, 22 Nov 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/11-22__post-22/</guid>
+      <description>&lt;h1 id=&#34;the-physics-of-black-holes&#34;&gt;The Physics of Black Holes&lt;/h1&gt;&#xA;&lt;p&gt;Dive deep into the subject matter with detailed analysis and practical examples.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Sustainable Energy Solutions</title>
+      <link>https://slav.hr/blog/posts/2025/11-19__post-23/</link>
+      <pubDate>Wed, 19 Nov 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/11-19__post-23/</guid>
+      <description>&lt;h1 id=&#34;sustainable-energy-solutions&#34;&gt;Sustainable Energy Solutions&lt;/h1&gt;&#xA;&lt;p&gt;Discover the latest trends, research findings, and expert perspectives.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Philosophy of Existentialism</title>
+      <link>https://slav.hr/blog/posts/2025/11-16__post-24/</link>
+      <pubDate>Sun, 16 Nov 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/11-16__post-24/</guid>
+      <description>&lt;h1 id=&#34;the-philosophy-of-existentialism&#34;&gt;The Philosophy of Existentialism&lt;/h1&gt;&#xA;&lt;p&gt;Learn about the cutting-edge developments and future implications.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Cloud Computing Architecture</title>
+      <link>https://slav.hr/blog/posts/2025/11-13__post-25/</link>
+      <pubDate>Thu, 13 Nov 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/11-13__post-25/</guid>
+      <description>&lt;h1 id=&#34;cloud-computing-architecture&#34;&gt;Cloud Computing Architecture&lt;/h1&gt;&#xA;&lt;p&gt;An in-depth exploration of theories, applications, and real-world scenarios.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Mystery of Dark Matter</title>
+      <link>https://slav.hr/blog/posts/2025/11-10__post-26/</link>
+      <pubDate>Mon, 10 Nov 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/11-10__post-26/</guid>
+      <description>&lt;h1 id=&#34;the-mystery-of-dark-matter&#34;&gt;The Mystery of Dark Matter&lt;/h1&gt;&#xA;&lt;p&gt;Uncover the secrets and hidden aspects of this fascinating domain.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Modern Database Design Patterns</title>
+      <link>https://slav.hr/blog/posts/2025/11-07__post-27/</link>
+      <pubDate>Fri, 07 Nov 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/11-07__post-27/</guid>
+      <description>&lt;h1 id=&#34;modern-database-design-patterns&#34;&gt;Modern Database Design Patterns&lt;/h1&gt;&#xA;&lt;p&gt;A detailed examination of key principles and methodologies.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Golden Age of Exploration</title>
+      <link>https://slav.hr/blog/posts/2025/11-04__post-28/</link>
+      <pubDate>Tue, 04 Nov 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/11-04__post-28/</guid>
+      <description>&lt;h1 id=&#34;the-golden-age-of-exploration&#34;&gt;The Golden Age of Exploration&lt;/h1&gt;&#xA;&lt;p&gt;Journey through the most important aspects and breakthrough discoveries.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Cybersecurity Best Practices</title>
+      <link>https://slav.hr/blog/posts/2025/11-01__post-29/</link>
+      <pubDate>Sat, 01 Nov 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/11-01__post-29/</guid>
+      <description>&lt;h1 id=&#34;cybersecurity-best-practices&#34;&gt;Cybersecurity Best Practices&lt;/h1&gt;&#xA;&lt;p&gt;Understanding the core concepts and their practical applications.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Science of Human Memory</title>
+      <link>https://slav.hr/blog/posts/2025/10-29__post-30/</link>
+      <pubDate>Wed, 29 Oct 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/10-29__post-30/</guid>
+      <description>&lt;h1 id=&#34;the-science-of-human-memory&#34;&gt;The Science of Human Memory&lt;/h1&gt;&#xA;&lt;p&gt;Explore the fascinating world of this incredible topic and discover amazing insights.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Revolutionary Discoveries in Medicine</title>
+      <link>https://slav.hr/blog/posts/2025/10-26__post-31/</link>
+      <pubDate>Sun, 26 Oct 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/10-26__post-31/</guid>
+      <description>&lt;h1 id=&#34;revolutionary-discoveries-in-medicine&#34;&gt;Revolutionary Discoveries in Medicine&lt;/h1&gt;&#xA;&lt;p&gt;A comprehensive guide to understanding the fundamentals and advanced concepts.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Future of Electric Vehicles</title>
+      <link>https://slav.hr/blog/posts/2025/10-23__post-32/</link>
+      <pubDate>Thu, 23 Oct 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/10-23__post-32/</guid>
+      <description>&lt;h1 id=&#34;the-future-of-electric-vehicles&#34;&gt;The Future of Electric Vehicles&lt;/h1&gt;&#xA;&lt;p&gt;Dive deep into the subject matter with detailed analysis and practical examples.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Understanding Genetic Engineering</title>
+      <link>https://slav.hr/blog/posts/2025/10-20__post-33/</link>
+      <pubDate>Mon, 20 Oct 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/10-20__post-33/</guid>
+      <description>&lt;h1 id=&#34;understanding-genetic-engineering&#34;&gt;Understanding Genetic Engineering&lt;/h1&gt;&#xA;&lt;p&gt;Discover the latest trends, research findings, and expert perspectives.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Art of Japanese Gardens</title>
+      <link>https://slav.hr/blog/posts/2025/10-17__post-34/</link>
+      <pubDate>Fri, 17 Oct 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/10-17__post-34/</guid>
+      <description>&lt;h1 id=&#34;the-art-of-japanese-gardens&#34;&gt;The Art of Japanese Gardens&lt;/h1&gt;&#xA;&lt;p&gt;Learn about the cutting-edge developments and future implications.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building Distributed Systems</title>
+      <link>https://slav.hr/blog/posts/2025/10-14__post-35/</link>
+      <pubDate>Tue, 14 Oct 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/10-14__post-35/</guid>
+      <description>&lt;h1 id=&#34;building-distributed-systems&#34;&gt;Building Distributed Systems&lt;/h1&gt;&#xA;&lt;p&gt;An in-depth exploration of theories, applications, and real-world scenarios.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The History of Ancient Egypt</title>
+      <link>https://slav.hr/blog/posts/2025/10-11__post-36/</link>
+      <pubDate>Sat, 11 Oct 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/10-11__post-36/</guid>
+      <description>&lt;h1 id=&#34;the-history-of-ancient-egypt&#34;&gt;The History of Ancient Egypt&lt;/h1&gt;&#xA;&lt;p&gt;Uncover the secrets and hidden aspects of this fascinating domain.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Machine Learning Algorithms Explained</title>
+      <link>https://slav.hr/blog/posts/2025/10-08__post-37/</link>
+      <pubDate>Wed, 08 Oct 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/10-08__post-37/</guid>
+      <description>&lt;h1 id=&#34;machine-learning-algorithms-explained&#34;&gt;Machine Learning Algorithms Explained&lt;/h1&gt;&#xA;&lt;p&gt;A detailed examination of key principles and methodologies.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Beauty of Fractal Geometry</title>
+      <link>https://slav.hr/blog/posts/2025/10-05__post-38/</link>
+      <pubDate>Sun, 05 Oct 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/10-05__post-38/</guid>
+      <description>&lt;h1 id=&#34;the-beauty-of-fractal-geometry&#34;&gt;The Beauty of Fractal Geometry&lt;/h1&gt;&#xA;&lt;p&gt;Journey through the most important aspects and breakthrough discoveries.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Exploring the Amazon Rainforest</title>
+      <link>https://slav.hr/blog/posts/2025/10-02__post-39/</link>
+      <pubDate>Thu, 02 Oct 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/10-02__post-39/</guid>
+      <description>&lt;h1 id=&#34;exploring-the-amazon-rainforest&#34;&gt;Exploring the Amazon Rainforest&lt;/h1&gt;&#xA;&lt;p&gt;Understanding the core concepts and their practical applications.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Rise of Virtual Reality</title>
+      <link>https://slav.hr/blog/posts/2025/09-29__post-40/</link>
+      <pubDate>Mon, 29 Sep 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/09-29__post-40/</guid>
+      <description>&lt;h1 id=&#34;the-rise-of-virtual-reality&#34;&gt;The Rise of Virtual Reality&lt;/h1&gt;&#xA;&lt;p&gt;Explore the fascinating world of this incredible topic and discover amazing insights.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Understanding Quantum Mechanics</title>
+      <link>https://slav.hr/blog/posts/2025/09-26__post-41/</link>
+      <pubDate>Fri, 26 Sep 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/09-26__post-41/</guid>
+      <description>&lt;h1 id=&#34;understanding-quantum-mechanics&#34;&gt;Understanding Quantum Mechanics&lt;/h1&gt;&#xA;&lt;p&gt;A comprehensive guide to understanding the fundamentals and advanced concepts.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The World of Particle Physics</title>
+      <link>https://slav.hr/blog/posts/2025/09-23__post-42/</link>
+      <pubDate>Tue, 23 Sep 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/09-23__post-42/</guid>
+      <description>&lt;h1 id=&#34;the-world-of-particle-physics&#34;&gt;The World of Particle Physics&lt;/h1&gt;&#xA;&lt;p&gt;Dive deep into the subject matter with detailed analysis and practical examples.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building Serverless Applications</title>
+      <link>https://slav.hr/blog/posts/2025/09-20__post-43/</link>
+      <pubDate>Sat, 20 Sep 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/09-20__post-43/</guid>
+      <description>&lt;h1 id=&#34;building-serverless-applications&#34;&gt;Building Serverless Applications&lt;/h1&gt;&#xA;&lt;p&gt;Discover the latest trends, research findings, and expert perspectives.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Mysteries of the Universe</title>
+      <link>https://slav.hr/blog/posts/2025/09-17__post-44/</link>
+      <pubDate>Wed, 17 Sep 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/09-17__post-44/</guid>
+      <description>&lt;h1 id=&#34;the-mysteries-of-the-universe&#34;&gt;The Mysteries of the Universe&lt;/h1&gt;&#xA;&lt;p&gt;Learn about the cutting-edge developments and future implications.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Evolution of Music Technology</title>
+      <link>https://slav.hr/blog/posts/2025/09-14__post-45/</link>
+      <pubDate>Sun, 14 Sep 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/09-14__post-45/</guid>
+      <description>&lt;h1 id=&#34;the-evolution-of-music-technology&#34;&gt;The Evolution of Music Technology&lt;/h1&gt;&#xA;&lt;p&gt;An in-depth exploration of theories, applications, and real-world scenarios.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Understanding Climate Systems</title>
+      <link>https://slav.hr/blog/posts/2025/09-11__post-46/</link>
+      <pubDate>Thu, 11 Sep 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/09-11__post-46/</guid>
+      <description>&lt;h1 id=&#34;understanding-climate-systems&#34;&gt;Understanding Climate Systems&lt;/h1&gt;&#xA;&lt;p&gt;Uncover the secrets and hidden aspects of this fascinating domain.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Art of Data Visualization</title>
+      <link>https://slav.hr/blog/posts/2025/09-08__post-47/</link>
+      <pubDate>Mon, 08 Sep 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/09-08__post-47/</guid>
+      <description>&lt;h1 id=&#34;the-art-of-data-visualization&#34;&gt;The Art of Data Visualization&lt;/h1&gt;&#xA;&lt;p&gt;A detailed examination of key principles and methodologies.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Exploring Antarctic Wilderness</title>
+      <link>https://slav.hr/blog/posts/2025/09-05__post-48/</link>
+      <pubDate>Fri, 05 Sep 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/09-05__post-48/</guid>
+      <description>&lt;h1 id=&#34;exploring-antarctic-wilderness&#34;&gt;Exploring Antarctic Wilderness&lt;/h1&gt;&#xA;&lt;p&gt;Journey through the most important aspects and breakthrough discoveries.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Future of Space Exploration</title>
+      <link>https://slav.hr/blog/posts/2025/09-02__post-49/</link>
+      <pubDate>Tue, 02 Sep 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/09-02__post-49/</guid>
+      <description>&lt;h1 id=&#34;the-future-of-space-exploration&#34;&gt;The Future of Space Exploration&lt;/h1&gt;&#xA;&lt;p&gt;Understanding the core concepts and their practical applications.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Understanding Machine Learning Fundamentals</title>
+      <link>https://slav.hr/blog/posts/2025/08-30__post-50/</link>
+      <pubDate>Sat, 30 Aug 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/08-30__post-50/</guid>
+      <description>&lt;h1 id=&#34;understanding-machine-learning-fundamentals&#34;&gt;Understanding Machine Learning Fundamentals&lt;/h1&gt;&#xA;&lt;p&gt;Explore the fascinating world of this incredible topic and discover amazing insights.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>https://slav.hr/blog/about/</link>
+      <pubDate>Fri, 06 Oct 2023 20:37:29 +0700</pubDate>
+      <guid>https://slav.hr/blog/about/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Pehtheme Hugo&lt;/strong&gt; is your gateway to the mysteries and wonders of the universe. We are a passionate community of space enthusiasts, scientists, and stargazers dedicated to sharing the awe-inspiring beauty and profound knowledge of the cosmos.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Unveiling the Secrets of Black Holes: A Journey into the Heart of Darkness</title>
+      <link>https://slav.hr/blog/posts/2023/unveiling-the-secrets-of-black-holes/</link>
+      <pubDate>Wed, 04 Oct 2023 22:11:36 +0700</pubDate>
+      <guid>https://slav.hr/blog/posts/2023/unveiling-the-secrets-of-black-holes/</guid>
+      <description>&lt;p&gt;In the vast expanse of the cosmos, &lt;code&gt;there&lt;/code&gt; are few objects as mysterious and awe-inspiring as black holes. These enigmatic cosmic phenomena, once thought of as nothing more than theoretical curiosities, have now become a central focus of astronomical research. In this article, we embark on a journey deep into the heart of darkness, unraveling some of the secrets that lie within.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Galactic Marvels: The Most Spectacular Nebulas in the Cosmos</title>
+      <link>https://slav.hr/blog/posts/2023/galactic-marvels/</link>
+      <pubDate>Sun, 24 Sep 2023 11:15:17 +0700</pubDate>
+      <guid>https://slav.hr/blog/posts/2023/galactic-marvels/</guid>
+      <description>&lt;p&gt;In the vast expanse of the cosmos, one cannot help but be captivated by the breathtaking beauty of nebulae. These celestial marvels are often hidden in the depths of space, waiting to be discovered and admired by astronomers and space enthusiasts alike. In this article, we will embark on a cosmic journey to explore some of the most spectacular nebulas in the cosmos, shedding light on their unique features and the mysteries they hold.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Stellar Spectacles: The Wonders of Supernova Explosions</title>
+      <link>https://slav.hr/blog/posts/2023/stellar-spectacles/</link>
+      <pubDate>Sat, 23 Sep 2023 22:45:37 +0700</pubDate>
+      <guid>https://slav.hr/blog/posts/2023/stellar-spectacles/</guid>
+      <description>&lt;p&gt;In the vast expanse of the cosmos, few events match the spectacle and scientific importance of supernova explosions. These awe-inspiring cosmic fireworks mark the dramatic end of a star&amp;rsquo;s life and offer profound insights into the universe&amp;rsquo;s workings. In this article, we embark on a journey to explore the wonders of supernova explosions, shedding light on their significance and the mysteries they unveil.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Space Exploration&#39;s Next Frontier: The Race to Reach Mars</title>
+      <link>https://slav.hr/blog/posts/2023/space-explorations-next-frontier/</link>
+      <pubDate>Tue, 15 Aug 2023 13:45:49 +0700</pubDate>
+      <guid>https://slav.hr/blog/posts/2023/space-explorations-next-frontier/</guid>
+      <description>&lt;p&gt;The dream of reaching Mars has captured the imagination of scientists, engineers, and space enthusiasts for decades. In recent years, this dream has transformed into a tangible goal, with various space agencies and private companies embarking on missions to make it a reality. In this article, we delve into space exploration&amp;rsquo;s next frontier—the race to reach Mars.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Great Beyond: Exploring the Expanding Universe</title>
+      <link>https://slav.hr/blog/posts/2023/the-great-beyond/</link>
+      <pubDate>Sat, 12 Aug 2023 14:15:05 +0700</pubDate>
+      <guid>https://slav.hr/blog/posts/2023/the-great-beyond/</guid>
+      <description>&lt;p&gt;The universe, with its vastness and complexity, has intrigued humanity for centuries. In recent decades, our understanding of the cosmos has deepened, thanks to groundbreaking discoveries about the expansion of the universe. In this article, we embark on a journey to explore the great beyond, delving into the universe&amp;rsquo;s expansion and the mysteries it unveils.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Cosmic Time Travel: Peering into the Universe&#39;s Past with Telescopes</title>
+      <link>https://slav.hr/blog/posts/2022/cosmic-time-travel/</link>
+      <pubDate>Mon, 07 Aug 2023 09:30:32 +0700</pubDate>
+      <guid>https://slav.hr/blog/posts/2022/cosmic-time-travel/</guid>
+      <description>&lt;p&gt;In the realm of astronomy, telescopes are our time machines, allowing us to peer into the distant past of the universe. These remarkable instruments have the power to capture light that has traveled across the cosmos for millions or even billions of years. In this article, we embark on a journey of cosmic time travel, exploring how telescopes enable us to witness the universe&amp;rsquo;s history.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Hubble Space Telescope: 30 Years of Stunning Discoveries</title>
+      <link>https://slav.hr/blog/posts/2022/the-hubble-space-telescope/</link>
+      <pubDate>Sun, 30 Jul 2023 09:30:32 +0700</pubDate>
+      <guid>https://slav.hr/blog/posts/2022/the-hubble-space-telescope/</guid>
+      <description>&lt;p&gt;For three remarkable decades, the Hubble Space Telescope has been our eye on the universe, delivering breathtaking images and transformative scientific insights. Since its launch in 1990, the Hubble has reshaped our understanding of the cosmos and provided us with unparalleled views of distant galaxies, nebulae, and other celestial wonders. In this article, we celebrate the Hubble Space Telescope&amp;rsquo;s 30 years of stunning discoveries.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Exoplanets: Hunting for Earth&#39;s Cosmic Cousins</title>
+      <link>https://slav.hr/blog/posts/2022/exoplanets-hunting/</link>
+      <pubDate>Thu, 27 Jul 2023 13:03:07 +0700</pubDate>
+      <guid>https://slav.hr/blog/posts/2022/exoplanets-hunting/</guid>
+      <description>&lt;p&gt;In the vast tapestry of the cosmos, one of the most intriguing quests of modern astronomy is the search for exoplanets, distant celestial bodies that might bear a resemblance to our own Earth. This endeavor is driven by the tantalizing question: Could there be other habitable worlds out there? In this article, we embark on a journey to explore the captivating hunt for Earth&amp;rsquo;s cosmic cousins.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

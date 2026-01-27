@@ -1,4 +1,4 @@
-baseURL = 'https://pehtheme-hugo.netlify.app/'
+baseURL = 'https://slav.hr/blog/'
 languageCode = 'en-us'
 title = 'Slav Blog'
 theme = 'pehtheme-hugo'
@@ -23,7 +23,7 @@ disqusShortname = 'your-disqus-shortname' # <- Get form here : https://disqus.co
 
 [menu] # Menu management
 	[[menu.main]]
-		name = 'About'
+		name = 'About me'
 		url = 'https://slav.hr'
 		weight = 15
 	[[menu.main]]
