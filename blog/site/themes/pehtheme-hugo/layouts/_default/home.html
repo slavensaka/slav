@@ -15,7 +15,7 @@
       {{- else }}
 
         {{- with $imgfeature := resources.Get .Params.image }}
-          {{ $imgfeature := $imgfeature.Resize "720x Q85" -}}
+          {{ $imgfeature := $imgfeature.Resize "720x webp q75" -}}
           <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer" src="{{ $imgfeature.Permalink }}" alt="{{ $.Name }}" width="{{ $imgfeature.Width }}" height="{{ $imgfeature.Height }}">
         {{- end }}
 
@@ -44,7 +44,9 @@
 
     </div>
 
-    {{ $paginator := .Paginate (( where site.RegularPages "Type" "in" site.Params.mainSections).ByWeight) }}
+    {{ $allPosts := where site.RegularPages "Type" "in" site.Params.mainSections }}
+    {{ $nonFeaturedPosts := where $allPosts "Params.weight" "ne" 1 }}
+    {{ $paginator := .Paginate ($nonFeaturedPosts.ByDate.Reverse) }}
 
     <div id="posts-container" class="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-10"
          data-has-next="{{ $paginator.HasNext }}"

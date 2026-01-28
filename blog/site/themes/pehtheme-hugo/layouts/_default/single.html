@@ -16,7 +16,7 @@
         {{- else }}
 
           {{- with $image := resources.Get .Params.image }}
-            {{- $image := $image.Resize "750x" }}
+            {{- $image := $image.Resize "750x webp q75" }}
             <img class="rounded-lg" src="{{ $image.Permalink }}" alt="{{ .Params.title }}" width="{{ $image.Width }}" height="{{ $image.Height }}">
           {{- end }}
 

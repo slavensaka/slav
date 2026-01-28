@@ -13,7 +13,7 @@
 		  {{- else }}
 
 			{{- with $imgcard := resources.Get .Params.image -}}
-			  {{- $imgcard := $imgcard.Process "resize 750x" -}}
+			  {{- $imgcard := $imgcard.Process "resize 750x webp q75" -}}
 			  <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer" src="{{ $imgcard.Permalink }}" alt="{{ $.Name }}" width="{{ $imgcard.Width }}" height="{{ $imgcard.Height }}">
 			{{- end }}
 
