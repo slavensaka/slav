@@ -4,7 +4,9 @@
 
 		<h2 class="font-bold text-xl mb-8">Recent Post</h2>
 
-		{{ range where .Site.RegularPages "Type" "posts" | first 5}}
+		{{ $recentPosts := where .Site.RegularPages "Type" "posts" }}
+		{{ $nonFeatured := where $recentPosts "Params.weight" "ne" 1 }}
+		{{ range $nonFeatured | first 5}}
 
 			{{- partial "content/list-post.html" . -}}
 
