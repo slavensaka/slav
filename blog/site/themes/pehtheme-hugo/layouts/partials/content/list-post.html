@@ -11,7 +11,7 @@
 		  {{- else }}
 
 			{{- with $imglist := resources.Get .Params.image -}}
-			  {{- $imglist := $imglist.Crop "250x250 Center" -}}
+			  {{- $imglist := $imglist.Process "crop 250x250 center webp q75" -}}
 			  <img class="object-cover h-full w-full group-hover:scale-105 transition duration-500 cursor-pointer" src="{{ $imglist.Permalink }}" alt="{{ $.Name }}" width="{{ $imglist.Width }}" height="{{ $imglist.Height }}">
 			{{- end }}
 
