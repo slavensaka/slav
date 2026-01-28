@@ -2,7 +2,7 @@
 
 <!-- Feature post by tag = "feature" -->
 
-{{- range where .Site.RegularPages "Params.tags" "intersect" (slice "feature" ) | first 1 -}}
+{{- range first 1 (where (.Site.RegularPages.ByWeight) "Params.tags" "intersect" (slice "feature" )) -}}
 <section class="block md:flex relative group p-6 lg:p-10 space-y-6 md:space-x-6 my-14 bg-zinc-100 rounded-3xl hover:bg-blue-100">
   <figure class="basis-1/2 w-full aspect-video overflow-hidden rounded-2xl border">
 
@@ -44,7 +44,7 @@
 
     </div>
 
-    {{ $paginator := .Paginate ( where site.RegularPages "Type" "in" site.Params.mainSections) }}
+    {{ $paginator := .Paginate (( where site.RegularPages "Type" "in" site.Params.mainSections).ByWeight) }}
 
     <div id="posts-container" class="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-10"
          data-has-next="{{ $paginator.HasNext }}"

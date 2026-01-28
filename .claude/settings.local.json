@@ -57,7 +57,10 @@
       "Bash(./hugo.exe version:*)",
       "Bash(./hugo.exe server:*)",
       "Bash(/tmp/hugo.exe:*)",
-      "Bash(./hugo.exe new:*)"
+      "Bash(./hugo.exe new:*)",
+      "Bash(../hugo.exe:*)",
+      "Bash(./hugo.exe:*)",
+      "Bash(tree:*)"
     ],
     "deny": [],
     "ask": [],
