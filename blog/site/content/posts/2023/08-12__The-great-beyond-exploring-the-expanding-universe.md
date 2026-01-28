@@ -3,7 +3,7 @@ title: "The Great Beyond: Exploring the Expanding Universe"
 date: 2023-08-12T14:15:05+07:00
 slug: /the-great-beyond/
 description: Delve into the awe-inspiring journey of exploring the universe's expansion and the mysteries it unveils.
-image: images/brent-cox-ydGRmobx5jA-unsplash.jpg
+image: "https://images.unsplash.com/photo-1543722530-d2c3201371e7?w=1600&h=900&fit=crop&q=80"
 caption: Photo by Brentcox on Unsplash
 categories:
   - astronomy

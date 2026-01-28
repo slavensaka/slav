@@ -3,7 +3,7 @@ title: "The Hubble Space Telescope: 30 Years of Stunning Discoveries"
 date: 2023-07-30T09:30:32+07:00
 slug: /the-hubble-space-telescope/
 description: Explore the incredible journey of the Hubble Space Telescope and its three decades of groundbreaking contributions to astronomy.
-image: images/daniele-colucci-Smeer5L0tXM-unsplash.jpg
+image: "https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?w=1600&h=900&fit=crop&q=80"
 caption: Photo by Daniele Colucci on Unsplash
 categories:
   - space

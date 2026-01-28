@@ -3,7 +3,7 @@ title: "Cosmic Time Travel: Peering into the Universe's Past with Telescopes"
 date: 2023-08-07T09:30:32+07:00
 slug: /cosmic-time-travel/
 description: Explore how telescopes enable us to journey back in time by observing distant celestial objects.
-image: images/javardh-2q6C5zDJOsg-unsplash.jpg
+image: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1600&h=900&fit=crop&q=80"
 caption: Photo by Javardh Unsplash.
 categories:
   - astronomy

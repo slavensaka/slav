@@ -3,7 +3,7 @@ title: "Galactic Marvels: The Most Spectacular Nebulas in the Cosmos"
 date: 2023-09-24T11:15:17+07:00
 slug: /galactic-marvels/
 description: galactic marvels the most spectacular nebulas in the cosmos
-image: images/nasa-rTZW4f02zY8-unsplash.jpg
+image: "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=1600&h=900&fit=crop&q=80"
 caption: Photo by Nasa on Unsplash
 categories:
   - space
