@@ -9,6 +9,13 @@
     <lastBuildDate>Tue, 27 Jan 2026 16:54:55 +0100</lastBuildDate>
     <atom:link href="https://slav.hr/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>From Overwhelm to Progress: My New Approach</title>
+      <link>https://slav.hr/blog/posts/2025/12-28__post-10/</link>
+      <pubDate>Sun, 28 Dec 2025 10:00:00 +0100</pubDate>
+      <guid>https://slav.hr/blog/posts/2025/12-28__post-10/</guid>
+      <description>&lt;h1 id=&#34;from-overwhelm-to-progress-my-new-approach&#34;&gt;From Overwhelm to Progress: My New Approach&lt;/h1&gt;&#xA;&lt;p&gt;Hey there, and welcome to my blog.&lt;/p&gt;&#xA;&lt;p&gt;If you&amp;rsquo;re a developer, you&amp;rsquo;ll probably relate to this: I want to learn everything. Not just one thing - everything at once. I&amp;rsquo;ll start researching a new JavaScript framework, then discover it pairs well with a certain state management library, which leads me to reading about database optimization, which reminds me I should learn Docker better, and oh wait - what about that new Clawdbot AI assistant everyone&amp;rsquo;s talking about?&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>My First Blog Post</title>
       <link>https://slav.hr/blog/posts/2026/my-first-post/</link>
       <pubDate>Tue, 27 Jan 2026 16:54:55 +0100</pubDate>
@@ -77,13 +84,6 @@
       <pubDate>Wed, 31 Dec 2025 10:00:00 +0100</pubDate>
       <guid>https://slav.hr/blog/posts/2025/12-31__post-9/</guid>
       <description>&lt;h1 id=&#34;the-evolution-of-programming-languages&#34;&gt;The Evolution of Programming Languages&lt;/h1&gt;&#xA;&lt;p&gt;Understanding the core concepts and their practical applications.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Cryptocurrency and Blockchain Technology</title>
-      <link>https://slav.hr/blog/posts/2025/12-28__post-10/</link>
-      <pubDate>Sun, 28 Dec 2025 10:00:00 +0100</pubDate>
-      <guid>https://slav.hr/blog/posts/2025/12-28__post-10/</guid>
-      <description>&lt;h1 id=&#34;cryptocurrency-and-blockchain-technology&#34;&gt;Cryptocurrency and Blockchain Technology&lt;/h1&gt;&#xA;&lt;p&gt;Explore the fascinating world of this incredible topic and discover amazing insights.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is an auto-generated blog post created to test the infinite scroll functionality. The content explores various aspects of the topic with detailed analysis and insights.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Science Behind Coffee Brewing</title>
