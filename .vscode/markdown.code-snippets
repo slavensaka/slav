@@ -1,0 +1,53 @@
+{
+  "Hugo Blog Post": {
+    "prefix": "blogpost",
+    "body": [
+      "---",
+      "title: \"${1:Post Title}\"",
+      "date: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T${CURRENT_HOUR}:${CURRENT_MINUTE}:00+01:00",
+      "draft: ${2|true,false|}",
+      "description: \"${3:Brief description (1-2 sentences)}\"",
+      "image: \"images/${4:post-image.png}\"",
+      "tags: [${5:technology,programming,tutorial}]",
+      "---",
+      "",
+      "# ${1:Post Title}",
+      "",
+      "${6:Your content starts here...}",
+      "",
+      "## ${7:Section Title}",
+      "",
+      "$0",
+      ""
+    ],
+    "description": "Create a new Hugo blog post with frontmatter"
+  },
+  "Image with Caption": {
+    "prefix": "img",
+    "body": [
+      "![${1:alt text}](images/${2:image.png})",
+      ""
+    ],
+    "description": "Insert image markdown"
+  },
+  "Code Block": {
+    "prefix": "code",
+    "body": [
+      "```${1:language}",
+      "${2:code}",
+      "```",
+      ""
+    ],
+    "description": "Insert code block"
+  },
+  "Section": {
+    "prefix": "section",
+    "body": [
+      "## ${1:Section Title}",
+      "",
+      "${2:Content}",
+      ""
+    ],
+    "description": "Insert section with heading"
+  }
+}

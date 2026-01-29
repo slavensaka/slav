@@ -1,0 +1,27 @@
+{
+  // Paste Image configuration for blog posts
+  "pasteImage.path": "${workspaceFolder}/blog/site/assets/images",
+  "pasteImage.basePath": "${workspaceFolder}/blog/site/assets",
+  "pasteImage.prefix": "images/",
+  "pasteImage.namePrefix": "${currentFileNameWithoutExt}_",
+  "pasteImage.insertPattern": "![${imageFileName}](${imageFilePath})",
+
+  // Markdown settings
+  "markdown.preview.breaks": true,
+  "markdown.preview.linkify": true,
+
+  // File associations
+  "files.associations": {
+    "*.md": "markdown"
+  },
+
+  // Editor settings for markdown
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "strings": "on",
+      "other": "on"
+    }
+  }
+}

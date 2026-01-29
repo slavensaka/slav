@@ -60,7 +60,11 @@
       "Bash(./hugo.exe new:*)",
       "Bash(../hugo.exe:*)",
       "Bash(./hugo.exe:*)",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Bash(find:*)",
+      "Bash(xargs rm:*)",
+      "Bash(code --install-extension:*)",
+      "Bash(test:*)"
     ],
     "deny": [],
     "ask": [],
