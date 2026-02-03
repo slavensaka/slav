@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Remove trailing slash (except root /)
+RewriteCond %{REQUEST_URI} ^.+/$
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+# Serve index.html for clean URLs without trailing slash
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}/ -d
+RewriteRule ^(.+)$ $1/index.html [L]
