@@ -1,4 +1,5 @@
 RewriteEngine On
+DirectorySlash Off
 
 # Remove trailing slash (except root /)
 RewriteCond %{REQUEST_URI} ^.+/$
