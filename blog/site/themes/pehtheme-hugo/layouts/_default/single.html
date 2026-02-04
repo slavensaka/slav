@@ -30,6 +30,9 @@
 
     </figure>
 
+    <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-2 not-prose">{{ .Title }}</h1>
+    <time class="text-sm text-zinc-500 not-prose" datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">{{ .Date.Format "Jan 02, 2006" }}</time>
+
     <div id="content" class="mb-14">
       <!-- Content -->
 
