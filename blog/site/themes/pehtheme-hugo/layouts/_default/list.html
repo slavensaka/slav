@@ -6,6 +6,10 @@
 
   <section class="md:col-span-2">
 
+    {{- if eq .Kind "term" }}
+      <a class="text-sm text-zinc-500 hover:text-zinc-800 mb-4 inline-block" href="{{ .Parent.Permalink }}">← {{ .Parent.Title }}</a>
+    {{- end }}
+
     <h2 class="text-3xl font-bold mb-10">{{ .Title | humanize }}</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-4">
