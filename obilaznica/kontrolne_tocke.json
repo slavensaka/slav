@@ -44,7 +44,7 @@
     "naziv": "Psunj - vrh Brezovo polje",
     "lat": 45.38576,
     "lng": 17.33237,
-    "posjecen": false,
+    "posjecen": true,
     "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/6-psunj-vrh-brezovo-polje/"
   },
   {
@@ -60,7 +60,7 @@
     "naziv": "Požeska gora - vrh Maksimov hrast",
     "lat": 45.281877,
     "lng": 17.566699,
-    "posjecen": false,
+    "posjecen": true,
     "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/8-pozeska-gora-vrh-maksimov-hrast/"
   },
   {
