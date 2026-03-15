@@ -1,6 +1,6 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, X, ChevronDown, MapPin } from 'lucide-react';
+import { Search, X, ChevronDown, MapPin, CheckCircle, Circle } from 'lucide-react';
 import type { KontrolnaTocka, Podrucje } from '../types';
 import { podrucja } from '../data/podrucja';
 
@@ -14,8 +14,21 @@ interface SidebarProps {
   filterPosjecen: 'svi' | 'posjeceni' | 'neposjeceni';
   onFilterPosjecenChange: (filter: 'svi' | 'posjeceni' | 'neposjeceni') => void;
   onTockaSelect: (tocka: KontrolnaTocka) => void;
+  onToggleTocka: (id: string) => void;
   selectedTocka: KontrolnaTocka | null;
+  onClose: () => void;
 }
+
+const FILTER_OPTIONS = [
+  { value: 'svi' as const, label: 'Sve' },
+  { value: 'posjeceni' as const, label: 'Posjećeni' },
+  { value: 'neposjeceni' as const, label: 'Neposjećeni' },
+] as const;
+
+// Spring config shared across accordion expansions
+const ACCORDION_SPRING = { type: 'spring' as const, stiffness: 380, damping: 32 };
+// Spring config for the sliding pill in segmented control
+const PILL_SPRING = { type: 'spring' as const, stiffness: 500, damping: 38 };
 
 export function Sidebar({
   allTocke,
@@ -27,11 +40,13 @@ export function Sidebar({
   filterPosjecen,
   onFilterPosjecenChange,
   onTockaSelect,
+  onToggleTocka,
   selectedTocka,
+  onClose,
 }: SidebarProps) {
   const [expandedPodrucja, setExpandedPodrucja] = useState<number[]>([]);
+  const listRef = useRef<HTMLDivElement>(null);
 
-  // Group kontrolne tocke by podrucje
   const tockeByPodrucje = useMemo(() => {
     const grouped: Record<number, KontrolnaTocka[]> = {};
     allTocke.forEach((kt) => {
@@ -42,170 +57,228 @@ export function Sidebar({
     return grouped;
   }, [allTocke]);
 
+  const filteredTockeByPodrucje = useMemo(() => {
+    const grouped: Record<number, KontrolnaTocka[]> = {};
+    filteredTocke.forEach((kt) => {
+      const pid = kt.podrucjeId || 0;
+      if (!grouped[pid]) grouped[pid] = [];
+      grouped[pid].push(kt);
+    });
+    return grouped;
+  }, [filteredTocke]);
+
   const togglePodrucje = (id: number) => {
     setExpandedPodrucja((prev) =>
-      prev.includes(id) ? prev.filter((p) => p !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((p) => p !== id) : [...prev, id],
     );
   };
 
-  const getPodrucjeStats = (podrucje: Podrucje) => {
-    const tocke = tockeByPodrucje[podrucje.id] || [];
-    const visited = tocke.filter(t => t.posjecen).length;
-    const unvisited = tocke.length - visited;
-    return { total: tocke.length, visited, unvisited, percentage: tocke.length > 0 ? (visited / tocke.length) * 100 : 0 };
+  const getPodrucjeStats = (p: Podrucje) => {
+    const tocke = tockeByPodrucje[p.id] || [];
+    const visited = tocke.filter((t) => t.posjecen).length;
+    return {
+      total: tocke.length,
+      visited,
+      unvisited: tocke.length - visited,
+      percentage: tocke.length > 0 ? (visited / tocke.length) * 100 : 0,
+    };
   };
 
   const totalStats = useMemo(() => {
-    const visited = allTocke.filter(t => t.posjecen).length;
+    const visited = allTocke.filter((t) => t.posjecen).length;
     return {
       total: allTocke.length,
       visited,
       unvisited: allTocke.length - visited,
-      percentage: (visited / allTocke.length) * 100
+      percentage: (visited / allTocke.length) * 100,
     };
   }, [allTocke]);
 
-  // Filter područja prema filterPosjecen
-  const filteredPodrucja = useMemo(() => {
-    return podrucja.filter((podrucje) => {
-      const tocke = tockeByPodrucje[podrucje.id] || [];
-      if (tocke.length === 0) return false;
+  const filteredPodrucja = useMemo(
+    () => podrucja.filter((p) => (filteredTockeByPodrucje[p.id]?.length ?? 0) > 0),
+    [filteredTockeByPodrucje],
+  );
 
-      if (filterPosjecen === 'svi') {
-        return true;
-      } else if (filterPosjecen === 'neposjeceni') {
-        // Prikazati samo područja koja imaju barem jedan neposjećen vrh
-        return tocke.some(t => !t.posjecen);
-      } else if (filterPosjecen === 'posjeceni') {
-        // Prikazati samo područja koja imaju barem jedan posjećen vrh
-        return tocke.some(t => t.posjecen);
-      }
-      return true;
-    });
-  }, [tockeByPodrucje, filterPosjecen]);
+  const filterCounts: Record<'svi' | 'neposjeceni' | 'posjeceni', number> = {
+    svi: totalStats.total,
+    neposjeceni: totalStats.unvisited,
+    posjeceni: totalStats.visited,
+  };
+
+  // ── Auto-scroll & auto-expand when peak selected from map ──────────────
+  useEffect(() => {
+    if (!selectedTocka || !listRef.current) return;
+
+    // Auto-expand the region that contains the selected peak
+    const pid = selectedTocka.podrucjeId || 0;
+    if (pid && !expandedPodrucja.includes(pid)) {
+      setExpandedPodrucja((prev) => [...prev, pid]);
+    }
+
+    // After expand animation settles, scroll to the item
+    const timer = setTimeout(() => {
+      const el = listRef.current?.querySelector(`[data-tocka-id="${selectedTocka.id}"]`);
+      el?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 280);
+
+    return () => clearTimeout(timer);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedTocka?.id]);
 
   return (
-    <motion.div
-      initial={{ x: -400, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      className="h-screen flex flex-col bg-slate-900 border-r border-slate-800 overflow-hidden"
+    <div
+      className="h-screen flex flex-col overflow-hidden"
+      style={{ background: '#0d1b2a', borderRight: '1px solid #1d3461' }}
     >
-      {/* Header */}
-      <div className="border-b border-slate-800 px-6 py-6">
-        <motion.div
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.1, duration: 0.4 }}
-        >
-          {/* Logo/Title */}
-          <div className="relative flex items-center justify-center mb-6">
-            <div className="absolute left-0">
-              <img
-                src="/01-01-1024x1007.png"
-                alt="PD Izletnik Logo"
-                className="w-12 h-12 object-contain"
-              />
-            </div>
-            <h1 className="text-2xl font-bold text-white">Obilaznica</h1>
-          </div>
 
-          {/* Filter Cards */}
-          <div className="grid grid-cols-3 gap-2">
-            <button
-              onClick={() => onFilterPosjecenChange('svi')}
-              className={`rounded-lg p-3 text-center transition-all ${
-                filterPosjecen === 'svi'
-                  ? 'bg-blue-600 border-2 border-blue-400'
-                  : 'bg-slate-800/50 border-2 border-transparent hover:bg-slate-800'
-              }`}
-            >
-              <p className={`text-[10px] uppercase tracking-wide mb-1 ${
-                filterPosjecen === 'svi' ? 'text-blue-100' : 'text-slate-400'
-              }`}>Svi</p>
-              <p className={`text-xl font-bold ${
-                filterPosjecen === 'svi' ? 'text-white' : 'text-white'
-              }`}>{totalStats.total}</p>
-            </button>
-            <button
-              onClick={() => onFilterPosjecenChange('neposjeceni')}
-              className={`rounded-lg p-3 text-center transition-all ${
-                filterPosjecen === 'neposjeceni'
-                  ? 'bg-amber-500 border-2 border-amber-300'
-                  : 'bg-amber-500/10 border-2 border-amber-500/20 hover:bg-amber-500/20'
-              }`}
-            >
-              <p className={`text-[10px] uppercase tracking-wide mb-1 ${
-                filterPosjecen === 'neposjeceni' ? 'text-amber-50' : 'text-amber-400'
-              }`}>Aktivni</p>
-              <p className={`text-xl font-bold ${
-                filterPosjecen === 'neposjeceni' ? 'text-white' : 'text-amber-400'
-              }`}>{totalStats.unvisited}</p>
-            </button>
-            <button
-              onClick={() => onFilterPosjecenChange('posjeceni')}
-              className={`rounded-lg p-3 text-center transition-all ${
-                filterPosjecen === 'posjeceni'
-                  ? 'bg-emerald-500 border-2 border-emerald-300'
-                  : 'bg-emerald-500/10 border-2 border-emerald-500/20 hover:bg-emerald-500/20'
-              }`}
-            >
-              <p className={`text-[10px] uppercase tracking-wide mb-1 ${
-                filterPosjecen === 'posjeceni' ? 'text-emerald-50' : 'text-emerald-400'
-              }`}>Završeni</p>
-              <p className={`text-xl font-bold ${
-                filterPosjecen === 'posjeceni' ? 'text-white' : 'text-emerald-400'
-              }`}>{totalStats.visited}</p>
-            </button>
+      {/* ── Header ─────────────────────────────────────── */}
+      <div className="px-5 pt-5 pb-4" style={{ borderBottom: '1px solid #1d3461' }}>
+        <div className="flex items-center gap-3 mb-5">
+          <img
+            src="/01-01-1024x1007.png"
+            alt="PD Izletnik"
+            className="w-9 h-9 object-contain flex-shrink-0"
+          />
+          <div className="flex-1 min-w-0">
+            <h1 className="text-base font-bold leading-tight tracking-tight" style={{ color: '#ffffff' }}>
+              Obilaznica
+            </h1>
+            <p className="text-[11px] font-medium" style={{ color: '#5a7fa8' }}>HPO Planinska obilaznica</p>
           </div>
+          <button
+            onClick={onClose}
+            className="w-8 h-8 rounded-xl flex items-center justify-center transition-colors flex-shrink-0"
+            style={{ background: '#1d3461' }}
+            onMouseEnter={(e) => (e.currentTarget.style.background = '#1a3050')}
+            onMouseLeave={(e) => (e.currentTarget.style.background = '#1d3461')}
+            aria-label="Zatvori"
+          >
+            <X className="w-4 h-4" style={{ color: '#7a9abb' }} />
+          </button>
+        </div>
 
-        </motion.div>
+        {/* ── Progress bar ──────────────────────────────── */}
+        <div>
+          <div className="flex justify-between items-center mb-1.5">
+            <span className="text-[11px] font-medium" style={{ color: '#5a7fa8' }}>Ukupni progres</span>
+            <span className="text-[11px] font-bold tabular-nums" style={{ color: '#4CAF50' }}>
+              {totalStats.percentage.toFixed(0)}%
+            </span>
+          </div>
+          <div className="h-2 rounded-full overflow-hidden" style={{ background: '#1d3461' }}>
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: `${totalStats.percentage}%` }}
+              transition={{ type: 'spring', stiffness: 60, damping: 18 }}
+              className="h-full rounded-full"
+              style={{ background: 'linear-gradient(90deg, #2E7D32, #4CAF50)' }}
+            />
+          </div>
+        </div>
       </div>
 
-      {/* Search Bar */}
-      <div className="px-6 py-4 border-b border-slate-800">
-        <motion.div
-          initial={{ y: -10, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.4 }}
-          className="relative"
-        >
+      {/* ── Filter tabs ── */}
+      <div className="px-3 py-3" style={{ borderBottom: '1px solid #1d3461' }}>
+        <div className="flex gap-2">
+          {FILTER_OPTIONS.map(({ value, label }) => {
+            const isActive = filterPosjecen === value;
+            return (
+              <motion.button
+                key={value}
+                onClick={() => onFilterPosjecenChange(value)}
+                className="flex-1 flex flex-col items-center gap-1.5 py-3 px-2 rounded-xl cursor-pointer select-none"
+                whileTap={{ y: 2, boxShadow: isActive
+                  ? '0 1px 0 #166534'
+                  : '0 1px 0 #0f2340',
+                }}
+                style={isActive ? {
+                  background: 'linear-gradient(180deg, #22c55e 0%, #16a34a 100%)',
+                  border: '1px solid #15803d',
+                  boxShadow: '0 4px 0 #14532d, 0 6px 12px rgba(34,197,94,0.3)',
+                } : {
+                  background: 'linear-gradient(180deg, #1a3a5c 0%, #142d4a 100%)',
+                  border: '1px solid #2d5480',
+                  boxShadow: '0 4px 0 #0d1e33, 0 6px 12px rgba(0,0,0,0.3)',
+                }}
+              >
+                <span
+                  className="text-[9px] uppercase tracking-widest font-bold leading-none"
+                  style={{ color: isActive ? 'rgba(0,0,0,0.75)' : '#4a7aaa' }}
+                >
+                  {label}
+                </span>
+                <span
+                  className="text-2xl font-extrabold leading-none tabular-nums"
+                  style={{ color: isActive ? '#ffffff' : '#6a9cc8' }}
+                >
+                  {filterCounts[value]}
+                </span>
+              </motion.button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* ── Search ────────────────────────────────────── */}
+      <div className="px-4 py-3" style={{ borderBottom: '1px solid #1d3461' }}>
+        <div className="relative">
           <input
             type="text"
             placeholder="Pretraži vrhove..."
             value={searchTerm}
             onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full px-4 py-2.5 bg-slate-800/50 border border-slate-700 rounded-lg text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500/50 focus:bg-slate-800 transition-all"
+            className="w-full px-3 pr-8 py-2.5 rounded-xl text-sm transition-all focus:outline-none"
+            style={{ background: '#112240', border: '1px solid #1d3461', color: '#ffffff' }}
+            onFocus={(e) => {
+              e.currentTarget.style.border = '1px solid rgba(76,175,80,0.5)';
+              e.currentTarget.style.background = '#142b45';
+            }}
+            onBlur={(e) => {
+              e.currentTarget.style.border = '1px solid #1d3461';
+              e.currentTarget.style.background = '#112240';
+            }}
           />
           <AnimatePresence>
             {searchTerm && (
               <motion.button
-                initial={{ scale: 0, rotate: -180 }}
-                animate={{ scale: 1, rotate: 0 }}
-                exit={{ scale: 0, rotate: 180 }}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0, opacity: 0 }}
+                transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                 onClick={() => onSearchChange('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-md bg-slate-700 hover:bg-slate-600 transition-colors"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full flex items-center justify-center"
+                style={{ background: '#1d3461' }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = '#264070')}
+                onMouseLeave={(e) => (e.currentTarget.style.background = '#1d3461')}
               >
-                <X className="w-3 h-3 text-slate-300" />
+                <X className="w-3 h-3" style={{ color: '#8ab0cc' }} />
               </motion.button>
             )}
           </AnimatePresence>
-        </motion.div>
+        </div>
 
-        {/* Active Filter Chip */}
+        {/* Active region chip */}
         <AnimatePresence>
           {selectedPodrucje !== null && (
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: -10 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: -10 }}
-              className="mt-3"
+              initial={{ opacity: 0, y: -6, height: 0 }}
+              animate={{ opacity: 1, y: 0, height: 'auto' }}
+              exit={{ opacity: 0, y: -6, height: 0 }}
+              transition={ACCORDION_SPRING}
+              className="mt-2 overflow-hidden"
             >
               <button
                 onClick={() => onPodrucjeSelect(null)}
-                className="inline-flex items-center gap-2 px-3 py-1.5 bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-400 rounded-lg text-xs font-semibold transition-all group"
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium transition-colors"
+                style={{
+                  background: 'rgba(239,68,68,0.12)',
+                  border: '1px solid rgba(239,68,68,0.25)',
+                  color: '#f87171',
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(239,68,68,0.2)')}
+                onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(239,68,68,0.12)')}
               >
-                <X className="w-3 h-3 group-hover:rotate-90 transition-transform" />
+                <X className="w-3 h-3" />
                 {podrucja.find((p) => p.id === selectedPodrucje)?.naziv}
               </button>
             </motion.div>
@@ -213,163 +286,207 @@ export function Sidebar({
         </AnimatePresence>
       </div>
 
-      {/* Search Results Banner */}
+      {/* Search results banner */}
       <AnimatePresence>
         {searchTerm && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="px-6 py-2.5 bg-amber-500/10 border-b border-amber-500/20"
+            transition={ACCORDION_SPRING}
+            className="px-4 py-2 overflow-hidden flex-shrink-0"
+            style={{
+              background: 'rgba(251,191,36,0.08)',
+              borderBottom: '1px solid rgba(251,191,36,0.15)',
+            }}
           >
-            <p className="text-xs text-amber-400 flex items-center gap-2">
+            <p className="text-xs flex items-center gap-1.5" style={{ color: '#fbbf24' }}>
               <Search className="w-3 h-3" />
-              Pronađeno <strong>{filteredTocke.length}</strong> {filteredTocke.length === 1 ? 'vrh' : 'vrhova'}
+              Pronađeno <strong>{filteredTocke.length}</strong>{' '}
+              {filteredTocke.length === 1 ? 'vrh' : 'vrhova'}
             </p>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Scrollable List */}
-      <div className="flex-1 overflow-y-auto px-6 py-4 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent hover:scrollbar-thumb-slate-600 min-h-0">
+      {/* ── List ──────────────────────────────────────── */}
+      <div ref={listRef} className="flex-1 overflow-y-auto min-h-0 px-3 py-3">
         {searchTerm ? (
-          /* Search Results */
-          <div className="space-y-2">
+          /* ── Search results ── */
+          <div className="space-y-1">
             <AnimatePresence mode="popLayout">
               {filteredTocke.map((tocka, idx) => {
-                const podrucje = podrucja.find((p) => p.id === tocka.podrucjeId);
+                const p = podrucja.find((p) => p.id === tocka.podrucjeId);
+                const isSelected = selectedTocka?.id === tocka.id;
                 return (
-                  <motion.button
+                  <motion.div
                     key={tocka.id}
-                    initial={{ opacity: 0, x: -20 }}
+                    data-tocka-id={tocka.id}
+                    initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    transition={{ delay: idx * 0.02, duration: 0.2 }}
+                    exit={{ opacity: 0, x: -10 }}
+                    transition={{ delay: idx * 0.012, type: 'spring', stiffness: 400, damping: 30 }}
                     onClick={() => onTockaSelect(tocka)}
-                    className={`w-full group px-3 py-2.5 text-left rounded-lg transition-all ${
-                      selectedTocka?.id === tocka.id
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-slate-800/30 hover:bg-slate-800 text-slate-200'
-                    }`}
+                    className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl cursor-pointer"
+                    style={{
+                      background: isSelected ? '#2E7D32' : '#112240',
+                      border: `1px solid ${isSelected ? '#2E7D32' : '#1d3461'}`,
+                      boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
+                    }}
                   >
-                    <div className="flex items-center gap-2.5">
-                      <div
-                        className="w-2 h-2 rounded-full flex-shrink-0"
-                        style={{
-                          backgroundColor: podrucje?.boja || '#666',
-                          opacity: tocka.posjecen ? 0.4 : 1,
-                        }}
-                      />
-                      <div className="flex-1 min-w-0">
-                        <p className={`text-sm font-medium truncate ${tocka.posjecen ? 'opacity-50' : ''}`}>
-                          {tocka.id}. {tocka.naziv}
-                        </p>
-                        <p className="text-xs text-slate-400 truncate">{podrucje?.naziv}</p>
-                      </div>
+                    <div
+                      className="w-2 h-2 rounded-full flex-shrink-0"
+                      style={{ backgroundColor: p?.boja ?? '#94A3B8', opacity: tocka.posjecen ? 0.5 : 1 }}
+                    />
+                    <div className="flex-1 min-w-0">
+                      <p className="text-xs font-semibold truncate" style={{
+                        color: isSelected ? '#ffffff' : tocka.posjecen ? '#4a6a8a' : '#c8ddf0',
+                      }}>
+                        {tocka.naziv}
+                      </p>
+                      <p className="text-[10px] truncate mt-0.5" style={{
+                        color: isSelected ? 'rgba(187,247,208,0.8)' : '#4a6a8a',
+                      }}>
+                        {p?.naziv}
+                      </p>
                     </div>
-                  </motion.button>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); onToggleTocka(tocka.id); }}
+                      title={tocka.posjecen ? 'Označi kao nedovršeno' : 'Označi kao završeno'}
+                      className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-colors"
+                      style={{ background: tocka.posjecen ? 'rgba(76,175,80,0.2)' : 'rgba(255,255,255,0.06)' }}
+                    >
+                      {tocka.posjecen
+                        ? <CheckCircle className="w-3.5 h-3.5" style={{ color: isSelected ? '#bbf7d0' : '#4CAF50' }} />
+                        : <Circle className="w-3.5 h-3.5" style={{ color: '#4a6a8a' }} />
+                      }
+                    </button>
+                  </motion.div>
                 );
               })}
             </AnimatePresence>
           </div>
         ) : (
-          /* Grouped by Area */
-          <div className="space-y-2">
+          /* ── Grouped regions ── */
+          <div className="space-y-1.5">
             <AnimatePresence mode="popLayout">
-              {filteredPodrucja.map((podrucje, idx) => {
-                const allTockeInPodrucje = tockeByPodrucje[podrucje.id] || [];
-
-                // Filter peaks within area
-                const tocke = allTockeInPodrucje.filter(tocka => {
-                  if (filterPosjecen === 'svi') return true;
-                  if (filterPosjecen === 'neposjeceni') return !tocka.posjecen;
-                  if (filterPosjecen === 'posjeceni') return tocka.posjecen;
-                  return true;
-                });
-
-                const isExpanded = expandedPodrucja.includes(podrucje.id);
-                const stats = getPodrucjeStats(podrucje);
+              {filteredPodrucja.map((p, idx) => {
+                const tocke = filteredTockeByPodrucje[p.id] || [];
+                const stats = getPodrucjeStats(p);
+                const isExpanded = expandedPodrucja.includes(p.id);
 
                 if (stats.total === 0) return null;
 
                 return (
                   <motion.div
-                    key={podrucje.id}
-                    initial={{ opacity: 0, y: 10 }}
+                    key={p.id}
+                    initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: idx * 0.03, duration: 0.3 }}
+                    transition={{ delay: idx * 0.02, type: 'spring', stiffness: 400, damping: 30 }}
                   >
-                    {/* Area Header */}
+                    {/* Region card header */}
                     <button
-                      onClick={() => togglePodrucje(podrucje.id)}
-                      className="w-full group px-4 py-3 rounded-lg bg-slate-800/30 hover:bg-slate-800 border border-slate-700/50 hover:border-slate-600 transition-all"
+                      onClick={() => togglePodrucje(p.id)}
+                      className="w-full px-3 py-3 rounded-xl text-left transition-colors"
+                      style={{
+                        background: '#112240',
+                        border: '1px solid #1d3461',
+                        boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
+                      }}
+                      onMouseEnter={(e) => {
+                        (e.currentTarget as HTMLButtonElement).style.background = '#1a3050';
+                        (e.currentTarget as HTMLButtonElement).style.borderColor = '#1d3461';
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.currentTarget as HTMLButtonElement).style.background = '#112240';
+                        (e.currentTarget as HTMLButtonElement).style.borderColor = '#1d3461';
+                      }}
                     >
-                      <div className="flex items-center justify-between mb-3">
-                        <div className="flex items-center gap-2.5 flex-1 min-w-0">
-                          <div
-                            className="w-3 h-3 rounded-md flex-shrink-0"
-                            style={{ backgroundColor: podrucje.boja }}
-                          />
-                          <p className="font-semibold text-white text-sm truncate">
-                            {podrucje.id}. {podrucje.naziv}
-                          </p>
+                      <div className="flex items-center gap-2.5 mb-2">
+                        <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: p.boja }} />
+                        <p className="flex-1 text-sm font-semibold truncate" style={{ color: '#ffffff' }}>
+                          {p.naziv}
+                        </p>
+                        <div className="flex items-center gap-1.5 flex-shrink-0">
+                          <span className="text-[10px] font-semibold tabular-nums" style={{ color: '#5a7fa8' }}>
+                            {stats.visited}/{stats.total}
+                          </span>
+                          <motion.div
+                            animate={{ rotate: isExpanded ? 180 : 0 }}
+                            transition={PILL_SPRING}
+                          >
+                            <ChevronDown className="w-3.5 h-3.5" style={{ color: '#4a6a8a' }} />
+                          </motion.div>
                         </div>
-                        <motion.div
-                          animate={{ rotate: isExpanded ? 180 : 0 }}
-                          transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                          className="text-slate-400 flex-shrink-0"
-                        >
-                          <ChevronDown className="w-4 h-4" />
-                        </motion.div>
                       </div>
 
-                      <div className="flex items-center gap-3">
-                        <span className="text-[10px] text-slate-400 flex items-center gap-1">
-                          <MapPin className="w-3 h-3" />
-                          {stats.total} vrhova
-                        </span>
-                        {stats.unvisited > 0 && (
-                          <span className="text-[10px] text-red-400 flex items-center gap-1">
-                            <X className="w-3 h-3" />
-                            {stats.unvisited}
-                          </span>
-                        )}
+                      {/* Mini progress bar */}
+                      <div className="h-1 rounded-full overflow-hidden" style={{ background: '#1d3461' }}>
+                        <div
+                          className="h-full rounded-full transition-all duration-500"
+                          style={{
+                            width: `${stats.percentage}%`,
+                            background: stats.percentage === 100
+                              ? 'linear-gradient(90deg, #2E7D32, #4CAF50)'
+                              : 'linear-gradient(90deg, #4CAF50, #8BC34A)',
+                          }}
+                        />
                       </div>
+
+                      {stats.unvisited > 0 && (
+                        <p className="text-[10px] mt-1.5 flex items-center gap-1" style={{ color: '#f59e0b' }}>
+                          <MapPin className="w-2.5 h-2.5" />
+                          {stats.unvisited} preostalo
+                        </p>
+                      )}
                     </button>
 
-                    {/* Expanded Peaks List */}
+                    {/* Expanded peaks — spring accordion */}
                     <AnimatePresence>
                       {isExpanded && (
                         <motion.div
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: 'auto', opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.2 }}
-                          className="mt-1.5 ml-5 space-y-1 overflow-hidden"
+                          transition={ACCORDION_SPRING}
+                          className="ml-3 mt-1 space-y-0.5 overflow-hidden"
                         >
-                          {tocke.map((tocka, tIdx) => (
-                            <motion.button
-                              key={tocka.id}
-                              initial={{ opacity: 0, x: -10 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              exit={{ opacity: 0, x: -10 }}
-                              transition={{ delay: tIdx * 0.02, duration: 0.15 }}
-                              onClick={() => onTockaSelect(tocka)}
-                              className={`w-full px-3 py-2 text-left rounded-md transition-all ${
-                                selectedTocka?.id === tocka.id
-                                  ? 'bg-blue-600 text-white'
-                                  : tocka.posjecen
-                                  ? 'bg-slate-800/20 hover:bg-slate-800/40 text-slate-400'
-                                  : 'bg-slate-800/20 hover:bg-slate-800 text-slate-200'
-                              }`}
-                            >
-                              <div className="flex items-center justify-between gap-2">
-                                <span className={`text-xs font-medium truncate ${tocka.posjecen && selectedTocka?.id !== tocka.id ? 'line-through' : ''}`}>
-                                  {tocka.id}. {tocka.naziv}
+                          {tocke.map((tocka) => {
+                            const isSelected = selectedTocka?.id === tocka.id;
+                            return (
+                              <div
+                                key={tocka.id}
+                                data-tocka-id={tocka.id}
+                                onClick={() => onTockaSelect(tocka)}
+                                className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg cursor-pointer transition-colors"
+                                style={{ background: isSelected ? 'rgba(76,175,80,0.12)' : 'transparent' }}
+                                onMouseEnter={(e) => { if (!isSelected) (e.currentTarget as HTMLDivElement).style.background = '#1a3050'; }}
+                                onMouseLeave={(e) => { if (!isSelected) (e.currentTarget as HTMLDivElement).style.background = 'transparent'; }}
+                              >
+                                <span
+                                  className="text-xs font-medium truncate flex-1"
+                                  style={{
+                                    color: isSelected ? '#4CAF50' : tocka.posjecen ? '#3a5a7a' : '#a8c4de',
+                                    textDecoration: tocka.posjecen && !isSelected ? 'line-through' : 'none',
+                                    fontWeight: isSelected ? 600 : undefined,
+                                  }}
+                                >
+                                  {tocka.naziv}
                                 </span>
+                                <button
+                                  onClick={(e) => { e.stopPropagation(); onToggleTocka(tocka.id); }}
+                                  title={tocka.posjecen ? 'Označi kao nedovršeno' : 'Označi kao završeno'}
+                                  className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-colors"
+                                  style={{ background: tocka.posjecen ? 'rgba(76,175,80,0.15)' : 'transparent' }}
+                                >
+                                  {tocka.posjecen
+                                    ? <CheckCircle className="w-3.5 h-3.5" style={{ color: '#4CAF50' }} />
+                                    : <Circle className="w-3.5 h-3.5" style={{ color: '#2a4a6a' }} />
+                                  }
+                                </button>
                               </div>
-                            </motion.button>
-                          ))}
+                            );
+                          })}
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -380,23 +497,6 @@ export function Sidebar({
           </div>
         )}
       </div>
-
-      {/* Progress Bar - Bottom */}
-      <div className="px-6 py-4 border-t border-slate-800">
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-xs text-slate-400">Progres</span>
-          <span className="text-xs font-bold text-white">{totalStats.percentage.toFixed(0)}%</span>
-        </div>
-        <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
-          <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: `${totalStats.percentage}%` }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="h-full bg-gradient-to-r from-emerald-500 to-emerald-400"
-          />
-        </div>
-      </div>
-
-    </motion.div>
+    </div>
   );
 }

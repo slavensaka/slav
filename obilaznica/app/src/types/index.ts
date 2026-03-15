@@ -18,8 +18,3 @@ export interface Podrucje {
   boja: string;
 }
 
-export interface MapState {
-  selectedPodrucje: number | null;
-  searchTerm: string;
-  selectedTocka: KontrolnaTocka | null;
-}

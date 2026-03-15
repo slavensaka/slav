@@ -1,14 +1,8 @@
 @import "tailwindcss";
-
-/* Leaflet CSS */
 @import 'leaflet/dist/leaflet.css';
 
-/* Reset & Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* ─── Reset & Base ─────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html, body, #root {
   height: 100%;
@@ -16,88 +10,174 @@ html, body, #root {
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #F6F8F7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Leaflet popup overrides */
+/* ─── Custom Scrollbar ──────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #9CA3AF; }
+
+/* ─── Leaflet popup overrides ───────────────────────────── */
 .leaflet-popup-content-wrapper {
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 0;
   overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-.leaflet-popup-content {
-  margin: 0;
-  min-width: 280px;
-}
-
-.leaflet-popup-content a {
-  color: white !important;
-}
+.leaflet-popup-content { margin: 0; min-width: 260px; }
+.leaflet-popup-tip-container { display: none; }
 
 .leaflet-popup-close-button {
-  top: 4px !important;
-  right: 4px !important;
-  width: 20px !important;
-  height: 20px !important;
-  color: #ffffff !important;
-  background: rgba(0, 0, 0, 0.4) !important;
+  top: 8px !important;
+  right: 8px !important;
+  width: 24px !important;
+  height: 24px !important;
+  color: #6B7280 !important;
+  background: rgba(255, 255, 255, 0.9) !important;
   border-radius: 50% !important;
-  font-size: 14px !important;
-  line-height: 18px !important;
+  font-size: 16px !important;
+  line-height: 22px !important;
   text-align: center !important;
   padding: 0 !important;
-  font-weight: normal !important;
-  transition: all 0.2s ease !important;
+  font-weight: 400 !important;
+  transition: background 0.15s ease !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1) !important;
+  z-index: 10 !important;
 }
-
 .leaflet-popup-close-button:hover {
-  background: rgba(0, 0, 0, 0.6) !important;
-  color: #ffffff !important;
+  background: rgba(243, 244, 246, 1) !important;
+  color: #374151 !important;
 }
 
-/* Custom marker cluster styles */
-.marker-cluster-small {
-  background-color: rgba(110, 204, 57, 0.6);
+/* ─── Leaflet Tooltip ───────────────────────────────────── */
+.leaflet-tooltip {
+  background: #1F2933;
+  color: #F9FAFB;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Inter', system-ui, sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+  pointer-events: none;
 }
-.marker-cluster-small div {
-  background-color: rgba(110, 204, 57, 0.8);
-}
-
-.marker-cluster-medium {
-  background-color: rgba(240, 194, 12, 0.6);
-}
-.marker-cluster-medium div {
-  background-color: rgba(240, 194, 12, 0.8);
-}
-
-.marker-cluster-large {
-  background-color: rgba(241, 128, 23, 0.6);
-}
-.marker-cluster-large div {
-  background-color: rgba(241, 128, 23, 0.8);
+.leaflet-tooltip::before { display: none; }
+.leaflet-tooltip-top::before {
+  display: block;
+  border-top-color: #1F2933 !important;
 }
 
+/* ─── Custom Marker Dots ────────────────────────────────── */
+.marker-dot {
+  border-radius: 50%;
+  border: 2.5px solid white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.marker-completed {
+  width: 12px;
+  height: 12px;
+  background: #2E7D32;
+}
+
+.marker-remaining {
+  width: 12px;
+  height: 12px;
+  background: #94A3B8;
+}
+
+.marker-selected {
+  width: 20px;
+  height: 20px;
+  background: #3A6EA5;
+  border: 3px solid white;
+  box-shadow:
+    0 0 0 5px rgba(58, 110, 165, 0.2),
+    0 2px 10px rgba(58, 110, 165, 0.45);
+  animation: pulse-selected 2s infinite;
+}
+
+@keyframes pulse-selected {
+  0%, 100% { box-shadow: 0 0 0 5px rgba(58, 110, 165, 0.2), 0 2px 10px rgba(58, 110, 165, 0.45); }
+  50%       { box-shadow: 0 0 0 8px rgba(58, 110, 165, 0.1), 0 2px 10px rgba(58, 110, 165, 0.45); }
+}
+
+@keyframes pulse-marker {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.15); opacity: 0.85; }
+}
+
+/* ─── Marker Cluster — Nature Green Theme ───────────────── */
 .marker-cluster {
   background-clip: padding-box;
-  border-radius: 20px;
+  border-radius: 50%;
 }
-
 .marker-cluster div {
-  width: 30px;
-  height: 30px;
-  margin-left: 5px;
-  margin-top: 5px;
-  text-align: center;
-  border-radius: 15px;
-  font: 12px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  color: white;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+}
+.marker-cluster span { line-height: 1; }
+
+.marker-cluster-small {
+  background-color: rgba(46, 125, 50, 0.18);
+}
+.marker-cluster-small div {
+  background-color: rgba(46, 125, 50, 0.82);
+  box-shadow: 0 2px 8px rgba(46, 125, 50, 0.4);
 }
 
-.marker-cluster span {
-  line-height: 30px;
+.marker-cluster-medium {
+  background-color: rgba(46, 125, 50, 0.22);
+}
+.marker-cluster-medium div {
+  background-color: rgba(27, 94, 32, 0.85);
+  box-shadow: 0 2px 10px rgba(27, 94, 32, 0.45);
+}
+
+.marker-cluster-large {
+  background-color: rgba(58, 110, 165, 0.18);
+}
+.marker-cluster-large div {
+  background-color: rgba(58, 110, 165, 0.85);
+  box-shadow: 0 2px 10px rgba(58, 110, 165, 0.45);
+}
+
+/* ─── Leaflet Controls Light Theme ─────────────────────── */
+.leaflet-control-layers {
+  border-radius: 12px !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+}
+.leaflet-control-layers-toggle {
+  border-radius: 10px !important;
+}
+.leaflet-bar {
+  border-radius: 12px !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+}
+.leaflet-bar a {
+  border-radius: 10px !important;
+  color: #374151 !important;
 }

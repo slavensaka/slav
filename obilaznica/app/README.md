@@ -1,73 +1,75 @@
-# React + TypeScript + Vite
+# Obilaznica
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Interaktivna web-aplikacija za praćenje kontrolnih točaka Hrvatskog planinarskog saveza (HPO). Prikazuje sve planinske vrhove i kontrolne točke na karti Hrvatske s mogućnošću filtriranja i praćenja posjećenosti.
 
-Currently, two official plugins are available:
+## Što je HPO obilaznica?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+HPO (Hrvatska planinska obilaznica) je sustav kontrolnih točaka razasutih po svim planinama Hrvatske. Planinari skupljaju potpise ili pečate na svakoj točki kako bi dokazali posjet. Ova aplikacija omogućuje vizualno praćenje napretka kroz sve regije.
 
-## React Compiler
+## Značajke
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Interaktivna karta** — Leaflet karta s klasteriranim markerima po regijama
+- **Pretraga i filtriranje** — po regiji, imenu, ID-u, ili statusu posjećenosti
+- **20 planinarskih regija** — od Slavonije do Dubrovačkog primorja, svaka u svojoj boji
+- **~380 kontrolnih točaka** — s koordinatama, statusom i linkom na HPO portal
+- **Responzivni dizajn** — radi na mobitelu i desktopu
 
-## Expanding the ESLint configuration
+## Tehnologije
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Sloj | Tehnologija |
+|------|-------------|
+| Framework | React 19 + TypeScript 5.9 |
+| Build | Vite 7 |
+| Stilizacija | Tailwind CSS 4 |
+| Karta | Leaflet + react-leaflet + MarkerCluster |
+| Animacije | Framer Motion |
+| Ikone | Lucide React |
+| Package manager | pnpm |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Pokretanje
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd app
+pnpm install
+pnpm dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Aplikacija se pokreće na `http://localhost:5173`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Struktura projekta
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+app/
+├── src/
+│   ├── components/
+│   │   ├── MapView.tsx      # Leaflet karta s markerima
+│   │   ├── Sidebar.tsx      # Bočna traka s filterima i listom
+│   │   └── PopupCard.tsx    # Popup kartica kontrolne točke
+│   ├── data/
+│   │   ├── kontrolneTocke.ts  # Podaci o kontrolnim točkama
+│   │   └── podrucja.ts        # Definicije planinarskih regija
+│   ├── types/index.ts       # TypeScript tipovi
+│   ├── App.tsx
+│   └── main.tsx
+├── kontrolne_tocke.json     # Izvorni podaci (JSON)
+└── index.html
+```
+
+## Podaci
+
+Kontrolne točke su pohranjene u `kontrolne_tocke.json` (korijenski direktorij) i učitane u `src/data/kontrolneTocke.ts`. Svaka točka sadrži:
+
+```ts
+{
+  id: string;          // npr. "1.1" (regija.redni_broj)
+  naziv: string;       // Puni naziv vrha/točke
+  lat: number;
+  lng: number;
+  posjecen: boolean;   // Je li točka posjećena
+  linkVanjski: string; // Link na HPO portal
+}
+```
+
+## Praćenje napretka
+
+Status posjećenosti (`posjecen`) se mijenja ručno u JSON datoteci. Zadnji commitovi bilježe napredak po regijama.

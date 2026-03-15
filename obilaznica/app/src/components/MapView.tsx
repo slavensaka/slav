@@ -1,18 +1,17 @@
-import { useEffect, useRef } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap, LayersControl } from 'react-leaflet';
+import { useEffect } from 'react';
+import { MapContainer, TileLayer, Marker, Tooltip, useMap, useMapEvents, LayersControl } from 'react-leaflet';
 import L from 'leaflet';
 import type { KontrolnaTocka } from '../types';
-import { getPodrucjeByTockaId } from '../data/podrucja';
-import { PopupCard } from './PopupCard';
+import { podrucja } from '../data/podrucja';
 
 const { BaseLayer } = LayersControl;
 
-// Fix for default marker icons in Leaflet with Vite
+// Fix Leaflet default icon (required for Vite)
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 
-// @ts-expect-error - Fixing Leaflet default icon issue
+// @ts-expect-error - Fixing Leaflet default icon issue with Vite
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: markerIcon2x,
@@ -20,218 +19,133 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 });
 
+// ─── Color lookup by podrucjeId ────────────────────────────────────────────
+const colorByPodrucjeId = new Map(podrucja.map((p) => [p.id, p.boja]));
+
+// ─── Icon factory — cached per color+state ─────────────────────────────────
+const iconCache = new Map<string, L.DivIcon>();
+
+// SVG pin path: teardrop shape with white inner circle
+const PIN_PATH = 'M12 0C5.373 0 0 5.373 0 12c0 9 12 20 12 20s12-11 12-20C24 5.373 18.627 0 12 0z';
+
+function getMarkerIcon(color: string, state: 'selected' | 'completed' | 'remaining'): L.DivIcon {
+  const key = `${color}-${state}`;
+  if (iconCache.has(key)) return iconCache.get(key)!;
+
+  let html: string;
+  let size: [number, number];
+  let anchor: [number, number];
+  let tooltipAnchor: [number, number];
+
+  if (state === 'selected') {
+    html = `<div style="filter:drop-shadow(0 0 7px ${color}bb) drop-shadow(0 2px 4px rgba(0,0,0,0.4))">
+      <svg width="32" height="42" viewBox="0 0 24 32" xmlns="http://www.w3.org/2000/svg">
+        <path d="${PIN_PATH}" fill="${color}"/>
+        <circle cx="12" cy="11" r="5.5" fill="white" opacity="0.95"/>
+      </svg>
+    </div>`;
+    size = [32, 42];
+    anchor = [16, 42];
+    tooltipAnchor = [0, -44];
+  } else if (state === 'completed') {
+    html = `<svg width="18" height="24" viewBox="0 0 24 32" xmlns="http://www.w3.org/2000/svg" style="opacity:0.45;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.3))">
+      <path d="${PIN_PATH}" fill="${color}"/>
+      <circle cx="12" cy="11" r="5" fill="white" opacity="0.9"/>
+    </svg>`;
+    size = [18, 24];
+    anchor = [9, 24];
+    tooltipAnchor = [0, -26];
+  } else {
+    html = `<svg width="24" height="32" viewBox="0 0 24 32" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 2px 4px rgba(0,0,0,0.35))">
+      <path d="${PIN_PATH}" fill="${color}"/>
+      <circle cx="12" cy="11" r="5" fill="white" opacity="0.9"/>
+    </svg>`;
+    size = [24, 32];
+    anchor = [12, 32];
+    tooltipAnchor = [0, -34];
+  }
+
+  const icon = L.divIcon({ className: '', html, iconSize: size, iconAnchor: anchor, tooltipAnchor });
+  iconCache.set(key, icon);
+  return icon;
+}
+
+function MapRefCapture({ onMapReady }: { onMapReady: (map: L.Map) => void }) {
+  const map = useMap();
+  useEffect(() => { onMapReady(map); }, [map, onMapReady]);
+  return null;
+}
+
+function MapClickHandler({ onMapClick }: { onMapClick: () => void }) {
+  useMapEvents({ click: onMapClick });
+  return null;
+}
+
 interface MapViewProps {
   kontrolneTocke: KontrolnaTocka[];
   selectedTocka: KontrolnaTocka | null;
   onTockaSelect: (tocka: KontrolnaTocka | null) => void;
+  onMapReady: (map: L.Map) => void;
+  onMapClick: () => void;
 }
 
-// A cache to store created icons to avoid re-creating them on every render.
-const iconCache: Record<string, L.DivIcon> = {};
-
-// A function to create a custom colored marker icon that mimics the default Leaflet pin.
-function createColoredPinIcon(color: string, posjecen: boolean = false): L.DivIcon {
-  const cacheKey = `${color}-${posjecen}`;
-  if (iconCache[cacheKey]) {
-    return iconCache[cacheKey];
-  }
-
-  const opacity = posjecen ? 0.35 : 1.0;
-  const strokeWidth = posjecen ? '1.5' : '2.5';
-  const glowFilter = posjecen ? '' : `<filter id="glow-${color.replace('#', '')}">
-      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>`;
-  const filterAttr = posjecen ? '' : ` filter="url(#glow-${color.replace('#', '')})"`;
-
-  const markerHtml = `
-    <svg viewBox="0 0 28 41" xmlns="http://www.w3.org/2000/svg" style="overflow: visible;">
-      <defs>${glowFilter}</defs>
-      <path d="M14 0C6.268 0 0 6.268 0 14c0 10.5 14 27 14 27s14-16.5 14-27C28 6.268 21.732 0 14 0z"
-            fill="${color}"
-            stroke="#fff"
-            stroke-width="${strokeWidth}"
-            opacity="${opacity}"${filterAttr}/>
-      <circle cx="14" cy="14" r="6" fill="white" opacity="${opacity}"/>
-    </svg>`;
-
-  const icon = L.divIcon({
-    className: 'custom-pin-icon',
-    html: markerHtml,
-    iconSize: [28, 41],
-    iconAnchor: [14, 41],
-    popupAnchor: [0, -41],
-  });
-
-  iconCache[cacheKey] = icon;
-  return icon;
-}
-
-// Component to fly to selected marker and open popup
-function MapController({ tocka, markerRefs }: { tocka: KontrolnaTocka | null; markerRefs: React.MutableRefObject<Record<string, L.Marker | null>> }) {
-  const map = useMap();
-
-  useEffect(() => {
-    if (tocka) {
-      // Fly to marker
-      if (
-        !map.getBounds().contains([tocka.lat, tocka.lng]) ||
-        map.getZoom() < 13
-      ) {
-        map.flyTo([tocka.lat, tocka.lng], 14, {
-          duration: 1.5,
-        });
-      }
-
-      // Open popup after a short delay to allow fly animation
-      setTimeout(() => {
-        const marker = markerRefs.current[tocka.id];
-        if (marker) {
-          marker.openPopup();
-        }
-      }, 300);
-    }
-  }, [tocka, map, markerRefs]);
-
-  return null;
-}
-
-export function MapView({ kontrolneTocke, selectedTocka, onTockaSelect }: MapViewProps) {
-  const mapRef = useRef<L.Map | null>(null);
-  const markerRefs = useRef<Record<string, L.Marker | null>>({});
-
-  // Croatia center coordinates
-  const defaultCenter: [number, number] = [45.1, 16.0];
-  const defaultZoom = 7;
-
+export function MapView({ kontrolneTocke, selectedTocka, onTockaSelect, onMapReady, onMapClick }: MapViewProps) {
   return (
-    <MapContainer
-      center={defaultCenter}
-      zoom={defaultZoom}
-      className="h-full w-full"
-      ref={mapRef}
-    >
+    <MapContainer center={[45.1, 16.0]} zoom={7} zoomControl={false} className="h-full w-full">
+      <MapRefCapture onMapReady={onMapReady} />
+      <MapClickHandler onMapClick={onMapClick} />
+
       <LayersControl position="topright">
-        {/* Cestovne/Osnovne mape */}
-        <BaseLayer checked name="OpenStreetMap Standard">
+        <BaseLayer checked name="Karta">
           <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             maxZoom={19}
           />
         </BaseLayer>
-
-        <BaseLayer name="OpenStreetMap HOT">
+        <BaseLayer name="Topografska">
           <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
-            maxZoom={19}
-          />
-        </BaseLayer>
-
-        {/* Topografske mape */}
-        <BaseLayer name="OpenTopoMap (Topografska)">
-          <TileLayer
-            attribution='Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a>'
+            attribution='Map data: &copy; OpenStreetMap | Style: &copy; OpenTopoMap'
             url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
             maxZoom={17}
           />
         </BaseLayer>
-
-        <BaseLayer name="Stamen Terrain (Reljef)">
+        <BaseLayer name="Satelit">
           <TileLayer
-            attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}.png"
-            maxZoom={18}
-          />
-        </BaseLayer>
-
-        {/* Satelitske mape */}
-        <BaseLayer name="Esri Satelit">
-          <TileLayer
-            attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+            attribution='Tiles &copy; Esri'
             url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
             maxZoom={19}
           />
         </BaseLayer>
-
-        <BaseLayer name="Google Satelit">
+        <BaseLayer name="CartoDB (Svijetla)">
           <TileLayer
-            attribution='&copy; Google'
-            url="https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}"
-            maxZoom={20}
-          />
-        </BaseLayer>
-
-        {/* Minimalistički stilovi */}
-        <BaseLayer name="CartoDB Positron (Svijetla)">
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+            attribution='&copy; OpenStreetMap &copy; CARTO'
             url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
-            maxZoom={19}
-          />
-        </BaseLayer>
-
-        <BaseLayer name="CartoDB Dark Matter (Tamna)">
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-            url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png"
-            maxZoom={19}
-          />
-        </BaseLayer>
-
-        {/* Outdoor/Hiking mape */}
-        <BaseLayer name="CyclOSM (Biciklistička)">
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors. Tiles style by <a href="https://www.cyclosm.org">CyclOSM</a>'
-            url="https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png"
-            maxZoom={20}
-          />
-        </BaseLayer>
-
-        <BaseLayer name="Esri World Street Map">
-          <TileLayer
-            attribution='Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
-            url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
             maxZoom={19}
           />
         </BaseLayer>
       </LayersControl>
 
-      <MapController tocka={selectedTocka} markerRefs={markerRefs} />
-
       {kontrolneTocke.map((tocka) => {
-        const podrucje = getPodrucjeByTockaId(tocka.id);
-        const icon = createColoredPinIcon(podrucje?.boja || '#3388ff', tocka.posjecen || false);
+        const isSelected = selectedTocka?.id === tocka.id;
+        const color = colorByPodrucjeId.get(tocka.podrucjeId ?? 0) ?? '#94A3B8';
+        const state = isSelected ? 'selected' : tocka.posjecen ? 'completed' : 'remaining';
+        const icon = getMarkerIcon(color, state);
+
         return (
           <Marker
-            key={tocka.id}
+            key={`${tocka.id}-${state}`}
             position={[tocka.lat, tocka.lng]}
-            ref={(ref) => { markerRefs.current[tocka.id] = ref; }}
-            eventHandlers={{
-              click: () => onTockaSelect(tocka),
-            }}
             icon={icon}
-            >
-              <Popup
-                closeButton={true}
-                eventHandlers={{
-                  remove: () => {
-                    // Clear selection when popup is closed via X button
-                    if (selectedTocka?.id === tocka.id) {
-                      onTockaSelect(null);
-                    }
-                  }
-                }}
-              >
-                <PopupCard tocka={tocka} podrucje={podrucje} />
-              </Popup>
-            </Marker>
-          );
-        })}
+            zIndexOffset={isSelected ? 1000 : 0}
+            eventHandlers={{ click: () => onTockaSelect(isSelected ? null : tocka) }}
+          >
+            <Tooltip direction="top" offset={[0, -6]} opacity={1}>
+              {tocka.naziv}
+            </Tooltip>
+          </Marker>
+        );
+      })}
     </MapContainer>
   );
 }

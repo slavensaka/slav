@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import type { KontrolnaTocka, Podrucje } from '../types';
 import { Mountain, Zap, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -29,7 +30,7 @@ const podrucjeIconMap: Record<number, string> = {
   18: 'dalmacija.png',
   19: 'dalmacija.png',
   20: 'dalmacija.png',
-  21: 'hrvtaska.png',
+  21: 'hrvatska.png',
 };
 
 const tezinaConfig = {
@@ -55,6 +56,19 @@ const tezinaConfig = {
     iconColor: 'text-red-600'
   },
 };
+
+function InfoRow({ delay, children }: { delay: number; children: ReactNode }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: -10 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ delay }}
+      className="flex items-center gap-3 px-3 py-2 bg-gray-50/50 hover:bg-gray-100/50 rounded-lg border border-gray-100 transition-colors"
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 export function PopupCard({ tocka, podrucje }: PopupCardProps) {
   const tezina = tocka.tezina ? tezinaConfig[tocka.tezina] : null;
@@ -101,47 +115,32 @@ export function PopupCard({ tocka, podrucje }: PopupCardProps) {
         <div className="space-y-2 text-sm">
           {/* Područje */}
           {podrucje && (
-            <motion.div
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.1 }}
-              className="flex items-center gap-3 px-3 py-2 bg-gray-50/50 hover:bg-gray-100/50 rounded-lg border border-gray-100 transition-colors"
-            >
+            <InfoRow delay={0.1}>
               <img
-                src={`/ikone/${podrucjeIconMap[podrucje.id] || 'hrvtaska.png'}`}
+                src={`/ikone/${podrucjeIconMap[podrucje.id] || 'hrvatska.png'}`}
                 alt={podrucje.naziv}
                 className="w-8 h-8 rounded-md object-cover flex-shrink-0 shadow-sm"
               />
               <span className="text-gray-700 text-sm font-medium">{podrucje.naziv}</span>
-            </motion.div>
+            </InfoRow>
           )}
 
           {/* Nadmorska visina */}
           {tocka.nadmorskaVisina && (
-            <motion.div
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.15 }}
-              className="flex items-center gap-2.5 px-3 py-2 bg-gray-50/50 hover:bg-gray-100/50 rounded-lg border border-gray-100 transition-colors"
-            >
+            <InfoRow delay={0.15}>
               <Mountain className="w-4 h-4 text-gray-400 flex-shrink-0" />
               <span className="text-gray-700 text-sm font-medium">{tocka.nadmorskaVisina} m n.v.</span>
-            </motion.div>
+            </InfoRow>
           )}
 
           {/* Težina */}
           {tezina && (
-            <motion.div
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
-              className="flex items-center gap-2.5 px-3 py-2 bg-gray-50/50 hover:bg-gray-100/50 rounded-lg border border-gray-100 transition-colors"
-            >
+            <InfoRow delay={0.2}>
               <Zap className={`w-4 h-4 flex-shrink-0 ${tezina.iconColor}`} />
               <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold border ${tezina.bgColor} ${tezina.textColor} ${tezina.borderColor}`}>
                 {tezina.label}
               </span>
-            </motion.div>
+            </InfoRow>
           )}
         </div>
 

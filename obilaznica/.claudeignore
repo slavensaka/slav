@@ -1,0 +1,12 @@
+# Dependencies
+app/node_modules/
+
+# Build output
+app/dist/
+
+# Lock files (large, not useful for context)
+app/pnpm-lock.yaml
+app/package-lock.json
+
+# Large data files (binary/generated)
+kontrolne_tocke.json
