@@ -1,5 +1,5 @@
 import { useState, useMemo, useRef, useCallback } from 'react';
-import { Menu, Navigation, Plus, Minus } from 'lucide-react';
+import { Menu, Navigation, Plus, Minus, Loader2 } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import L from 'leaflet';
 import { MapView } from './components/MapView';
@@ -41,6 +41,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTocka, setSelectedTocka] = useState<KontrolnaTocka | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [locating, setLocating] = useState(false);
   const [filterPosjecen, setFilterPosjecen] = useState<'svi' | 'posjeceni' | 'neposjeceni'>('svi');
 
   const mapRef = useRef<L.Map | null>(null);
@@ -83,10 +84,33 @@ function App() {
     mapRef.current?.flyTo([tocka.lat, tocka.lng], 14, { duration: 1.2 });
   }, []);
 
-const handleLocateMe = () => {
+  const handleZoomToPodrucje = useCallback((podrucjeId: number) => {
+    const regionTocke = tocke.filter((t) => t.podrucjeId === podrucjeId);
+    if (regionTocke.length === 0 || !mapRef.current) return;
+    const bounds = L.latLngBounds(regionTocke.map((t) => [t.lat, t.lng] as [number, number]));
+    mapRef.current.fitBounds(bounds, { padding: [60, 60], maxZoom: 11, animate: true });
+  }, [tocke]);
+
+  const handleLocateMe = () => {
+    if (!navigator.geolocation) {
+      alert('Vaš preglednik ne podržava geolokaciju.');
+      return;
+    }
+    setLocating(true);
     navigator.geolocation.getCurrentPosition(
-      (pos) => mapRef.current?.flyTo([pos.coords.latitude, pos.coords.longitude], 13, { duration: 1.5 }),
-      () => {},
+      (pos) => {
+        mapRef.current?.flyTo([pos.coords.latitude, pos.coords.longitude], 13, { duration: 1.5 });
+        setLocating(false);
+      },
+      (err) => {
+        setLocating(false);
+        if (err.code === err.PERMISSION_DENIED) {
+          alert('Dozvola za lokaciju je odbijena. Omogući lokaciju u postavkama preglednika.');
+        } else {
+          alert('Nije moguće dohvatiti lokaciju. Pokušaj ponovo.');
+        }
+      },
+      { timeout: 10000, maximumAge: 30000 },
     );
   };
 
@@ -142,9 +166,11 @@ const handleLocateMe = () => {
               onClick={() => setSidebarOpen(true)}
               className="absolute top-4 left-4 z-[1000] w-10 h-10 rounded-xl flex items-center justify-center transition-colors"
               style={{
-                background: '#112240',
-                border: '1px solid #1d3461',
-                boxShadow: '0 2px 12px rgba(0,0,0,0.35)',
+                background: 'rgba(8,18,35,0.32)',
+                backdropFilter: 'blur(16px)',
+                WebkitBackdropFilter: 'blur(16px)',
+                border: '1px solid rgba(100,160,220,0.22)',
+                boxShadow: '0 2px 12px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06)',
               }}
               aria-label="Otvori izbornik"
             >
@@ -165,37 +191,53 @@ const handleLocateMe = () => {
         {/* ── Floating controls — bottom right ── */}
         <div className="absolute bottom-6 right-4 z-[400] flex flex-col gap-2">
           {/* Zoom group */}
-          <div className="flex flex-col rounded-xl overflow-hidden" style={{ border: '1px solid #1d3461', boxShadow: '0 2px 12px rgba(0,0,0,0.35)' }}>
+          <div className="flex flex-col rounded-xl overflow-hidden" style={{
+            border: '1px solid rgba(100,160,220,0.22)',
+            boxShadow: '0 2px 12px rgba(0,0,0,0.35)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+          }}>
             <button
               onClick={() => mapRef.current?.zoomIn()}
               className="w-10 h-10 flex items-center justify-center transition-colors"
-              style={{ background: '#112240', borderBottom: '1px solid #1d3461' }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = '#1a3050')}
-              onMouseLeave={(e) => (e.currentTarget.style.background = '#112240')}
+              style={{ background: 'rgba(8,18,35,0.32)', borderBottom: '1px solid rgba(100,160,220,0.15)' }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.12)')}
+              onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(8,18,35,0.32)')}
               title="Povećaj"
             >
-              <Plus className="w-4 h-4" style={{ color: '#a8c4de' }} />
+              <Plus className="w-4 h-4" style={{ color: '#ffffff' }} />
             </button>
             <button
               onClick={() => mapRef.current?.zoomOut()}
               className="w-10 h-10 flex items-center justify-center transition-colors"
-              style={{ background: '#112240' }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = '#1a3050')}
-              onMouseLeave={(e) => (e.currentTarget.style.background = '#112240')}
+              style={{ background: 'rgba(8,18,35,0.32)' }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.12)')}
+              onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(8,18,35,0.32)')}
               title="Smanji"
             >
-              <Minus className="w-4 h-4" style={{ color: '#a8c4de' }} />
+              <Minus className="w-4 h-4" style={{ color: '#ffffff' }} />
             </button>
           </div>
-<button
+          <button
             onClick={handleLocateMe}
+            disabled={locating}
             className="w-10 h-10 rounded-xl flex items-center justify-center transition-colors"
-            style={{ background: '#112240', border: '1px solid #1d3461', boxShadow: '0 2px 12px rgba(0,0,0,0.35)' }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = '#1a3050')}
-            onMouseLeave={(e) => (e.currentTarget.style.background = '#112240')}
+            style={{
+              background: locating ? 'rgba(255,255,255,0.12)' : 'rgba(8,18,35,0.32)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+              border: '1px solid rgba(100,160,220,0.22)',
+              boxShadow: '0 2px 12px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06)',
+              opacity: locating ? 0.85 : 1,
+            }}
+            onMouseEnter={(e) => { if (!locating) (e.currentTarget as HTMLButtonElement).style.background = 'rgba(255,255,255,0.12)'; }}
+            onMouseLeave={(e) => { if (!locating) (e.currentTarget as HTMLButtonElement).style.background = 'rgba(8,18,35,0.32)'; }}
             title="Moja lokacija"
           >
-            <Navigation className="w-4 h-4" style={{ color: '#a8c4de' }} />
+            {locating
+              ? <Loader2 className="w-4 h-4 animate-spin" style={{ color: '#4ade80' }} />
+              : <Navigation className="w-4 h-4" style={{ color: '#a8c4de' }} />
+            }
           </button>
         </div>
 
@@ -204,6 +246,7 @@ const handleLocateMe = () => {
           tocka={selectedTocka}
           podrucje={selectedPodrucjeData}
           onClose={() => setSelectedTocka(null)}
+          onZoomToPodrucje={handleZoomToPodrucje}
         />
       </div>
 
