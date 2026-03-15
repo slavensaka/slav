@@ -1,5 +1,5 @@
 import type { KontrolnaTocka } from '../types';
-import rawData from '../../../kontrolne_tocke.json';
+import rawData from '../../kontrolne_tocke.json';
 
 // Process raw JSON data and add podrucjeId
 export const kontrolneTocke: KontrolnaTocka[] = (rawData as Array<{
