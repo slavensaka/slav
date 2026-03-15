@@ -1020,7 +1020,7 @@
     "naziv": "Svilaja - vrh Svilaja",
     "lat": 43.790556,
     "lng": 16.48491,
-    "posjecen": false,
+    "posjecen": true,
     "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/3-svilaja-vrh-svilaje/"
   },
   {
@@ -1036,7 +1036,7 @@
     "naziv": "Kozjak (kod Kijeva) - vrh Bat",
     "lat": 43.963032,
     "lng": 16.329938,
-    "posjecen": false,
+    "posjecen": true,
     "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/5-kozjak-kod-kijeva-vrh-bat/"
   },
   {
@@ -1252,7 +1252,7 @@
     "naziv": "Pelješac - vrh Sveti Ivan",
     "lat": 42.8739,
     "lng": 17.4574,
-    "posjecen": false,
+    "posjecen": true,
     "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/4-peljesac-vrh-sveti-ivan/"
   },
   {
@@ -1260,16 +1260,8 @@
     "naziv": "Neprobić - vrh",
     "lat": 42.8083,
     "lng": 17.9131,
-    "posjecen": false,
+    "posjecen": true,
     "status": "Aktivni",
     "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/5-neprobic-vrh/"
-  },
-  {
-    "id": "21.1",
-    "naziv": "Ivanščica - vrh Veliki Lubenjak",
-    "lat": 46.180718,
-    "lng": 16.284329,
-    "posjecen": false,
-    "linkVanjski": "https://planinarski-portal.org/kt-hpo/info/3-ivanscica-vrh-veliki-lubenjak/"
   }
 ]
