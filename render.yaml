@@ -18,7 +18,7 @@ services:
     region: frankfurt
     autoDeploy: true
     branch: develop
-    buildCommand: cd obilaznica/app && npm ci && npm run build
+    buildCommand: cd obilaznica/app && npm install -g pnpm && pnpm install --frozen-lockfile && pnpm build
     staticPublishPath: obilaznica/app/dist
     pullRequestPreviewsEnabled: false
     routes:
