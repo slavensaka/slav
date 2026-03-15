@@ -1,5 +1,5 @@
 import { useState, useMemo, useRef, useCallback } from 'react';
-import { Menu, Maximize2, Navigation, Plus, Minus } from 'lucide-react';
+import { Menu, Navigation, Plus, Minus } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import L from 'leaflet';
 import { MapView } from './components/MapView';
@@ -189,18 +189,7 @@ function App() {
               <Minus className="w-4 h-4" style={{ color: '#a8c4de' }} />
             </button>
           </div>
-          {/* Map utils */}
-          <button
-            onClick={handleResetMap}
-            className="w-10 h-10 rounded-xl flex items-center justify-center transition-colors"
-            style={{ background: '#112240', border: '1px solid #1d3461', boxShadow: '0 2px 12px rgba(0,0,0,0.35)' }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = '#1a3050')}
-            onMouseLeave={(e) => (e.currentTarget.style.background = '#112240')}
-            title="Prikaži cijelu Hrvatsku"
-          >
-            <Maximize2 className="w-4 h-4" style={{ color: '#a8c4de' }} />
-          </button>
-          <button
+<button
             onClick={handleLocateMe}
             className="w-10 h-10 rounded-xl flex items-center justify-center transition-colors"
             style={{ background: '#112240', border: '1px solid #1d3461', boxShadow: '0 2px 12px rgba(0,0,0,0.35)' }}
