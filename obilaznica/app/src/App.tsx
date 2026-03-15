@@ -83,9 +83,7 @@ function App() {
     mapRef.current?.flyTo([tocka.lat, tocka.lng], 14, { duration: 1.2 });
   }, []);
 
-  const handleResetMap = () => mapRef.current?.flyTo([45.1, 16.0], 7, { duration: 1.5 });
-
-  const handleLocateMe = () => {
+const handleLocateMe = () => {
     navigator.geolocation.getCurrentPosition(
       (pos) => mapRef.current?.flyTo([pos.coords.latitude, pos.coords.longitude], 13, { duration: 1.5 }),
       () => {},
