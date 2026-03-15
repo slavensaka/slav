@@ -72,4 +72,41 @@ Kontrolne točke su pohranjene u `kontrolne_tocke.json` (korijenski direktorij) 
 
 ## Praćenje napretka
 
-Status posjećenosti (`posjecen`) se mijenja ručno u JSON datoteci. Zadnji commitovi bilježe napredak po regijama.
+Status posjećenosti može se mijenjati direktno u UI-ju (klik na ikonu pokraj vrha u menuju). Stanje se automatski sprema u `localStorage` preglednika i čuva između osvježavanja stranice.
+
+Za trajnu promjenu u izvornom kodu (npr. ažuriranje defaultnih vrijednosti), uredi `app/kontrolne_tocke.json` i napravi commit.
+
+## Deploy na produkciju
+
+Produkcija se nalazi na [https://obilaznica.slav.hr](https://obilaznica.slav.hr) i automatski se deploya putem **GitHub Actions** pri svakom pushu na `develop` granu.
+
+### Workflow za deploy
+
+```bash
+# 1. Napravi promjene lokalno
+
+# 2. Provjeri da build prolazi
+cd app
+pnpm build
+
+# 3. Commitaj promjene
+git add <datoteke>
+git commit -m "Opis promjena"
+
+# 4. Puši na develop → automatski deploy
+git push origin develop
+```
+
+### Ažuriranje kontrolnih točaka
+
+Kontrolne točke su pohranjene u `app/kontrolne_tocke.json`.
+Kad dodaješ/uklanjavaš/mijenjavaš točke, commitaj i puši tu datoteku:
+
+```bash
+# Uredi app/kontrolne_tocke.json
+git add app/kontrolne_tocke.json
+git commit -m "Ažuriraj kontrolne točke: <opis>"
+git push origin develop
+```
+
+> **Napomena:** Lokalne promjene napravljene u UI-ju (localStorage) **nisu** dio koda i neće biti na produkciji. Za trajne promjene statusu posjećenosti uredi JSON i deployi.
