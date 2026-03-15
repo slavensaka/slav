@@ -16,8 +16,27 @@ function normalize(str: string): string {
     .replace(/[đĐ]/g, 'd');
 }
 
+const STORAGE_KEY = 'obilaznica-posjeceni-v1';
+
+function loadVisited(): Set<string> {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? new Set(JSON.parse(raw)) : new Set();
+  } catch {
+    return new Set();
+  }
+}
+
+function saveVisited(ids: Set<string>) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify([...ids]));
+}
+
 function App() {
-  const [tocke, setTocke] = useState<KontrolnaTocka[]>(kontrolneTocke);
+  const [tocke, setTocke] = useState<KontrolnaTocka[]>(() => {
+    const visited = loadVisited();
+    if (visited.size === 0) return kontrolneTocke;
+    return kontrolneTocke.map((t) => ({ ...t, posjecen: visited.has(t.id) }));
+  });
   const [selectedPodrucje, setSelectedPodrucje] = useState<number | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTocka, setSelectedTocka] = useState<KontrolnaTocka | null>(null);
@@ -30,7 +49,12 @@ function App() {
   }, []);
 
   const toggleTocka = useCallback((id: string) => {
-    setTocke((prev) => prev.map((t) => t.id === id ? { ...t, posjecen: !t.posjecen } : t));
+    setTocke((prev) => {
+      const updated = prev.map((t) => t.id === id ? { ...t, posjecen: !t.posjecen } : t);
+      const visited = new Set(updated.filter((t) => t.posjecen).map((t) => t.id));
+      saveVisited(visited);
+      return updated;
+    });
     setSelectedTocka((prev) => prev?.id === id ? { ...prev, posjecen: !prev.posjecen } : prev);
   }, []);
 
