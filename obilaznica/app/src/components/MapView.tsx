@@ -91,7 +91,7 @@ interface MapViewProps {
 
 export function MapView({ kontrolneTocke, selectedTocka, onTockaSelect, onMapReady, onMapClick }: MapViewProps) {
   return (
-    <MapContainer center={[45.1, 16.0]} zoom={7} zoomControl={false} className="h-full w-full">
+    <MapContainer center={[45.1, 16.0]} zoom={7} zoomControl={false} attributionControl={false} className="h-full w-full">
       <MapRefCapture onMapReady={onMapReady} />
       <MapClickHandler onMapClick={onMapClick} />
 
