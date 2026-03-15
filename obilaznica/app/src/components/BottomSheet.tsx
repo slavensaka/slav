@@ -37,10 +37,10 @@ export function BottomSheet({ tocka, podrucje, onClose }: BottomSheetProps) {
             <div className="w-10 h-1 rounded-full" style={{ background: '#2d4a6a' }} />
           </div>
 
-          <div className="px-5 pt-2 pb-6">
+          <div className="px-6 pt-3 pb-7">
 
             {/* Row 1 — badges + close */}
-            <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2 flex-wrap">
                 {/* Status badge */}
                 {tocka.posjecen ? (
@@ -103,14 +103,14 @@ export function BottomSheet({ tocka, podrucje, onClose }: BottomSheetProps) {
 
             {/* Row 2 — title */}
             <h2
-              className="text-2xl font-extrabold leading-tight mb-2"
+              className="text-2xl font-extrabold leading-tight mb-3"
               style={{ color: '#ffffff' }}
             >
               {tocka.naziv}
             </h2>
 
             {/* Row 3 — meta */}
-            <p className="text-sm mb-5" style={{ color: '#5a7fa8' }}>
+            <p className="text-sm mb-6" style={{ color: '#5a7fa8' }}>
               <span className="font-mono" style={{ color: '#4a6a8a' }}>ID: #{tocka.id}</span>
               <span className="mx-2" style={{ color: '#1d3461' }}>·</span>
               Kategorija: Vrh Regije
