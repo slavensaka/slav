@@ -163,17 +163,21 @@ body {
 
 /* ─── Leaflet Controls — Navy Dark Theme ────────────────── */
 
+/* Layers control — move to bottom-right above zoom buttons */
+.leaflet-bottom.leaflet-right {
+  bottom: 160px;
+  right: 0;
+}
+
 /* Layers toggle button */
 .leaflet-control-layers-toggle {
   width: 40px !important;
   height: 40px !important;
   border-radius: 12px !important;
-  background-color: rgba(8,18,35,0.32) !important;
+  background-color: transparent !important;
   background-image: none !important;
-  border: 1px solid rgba(100,160,220,0.22) !important;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06) !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
+  border: none !important;
+  box-shadow: none !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -194,17 +198,15 @@ body {
   mask-position: center;
 }
 .leaflet-control-layers-toggle:hover {
-  background-color: #1a3050 !important;
+  background-color: rgba(255,255,255,0.08) !important;
 }
 
 /* Layers expanded panel */
 .leaflet-control-layers {
-  background: rgba(8,18,35,0.45) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(100,160,220,0.2) !important;
+  background: #0d1b2a !important;
+  border: 1px solid #1d3461 !important;
   border-radius: 12px !important;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.45) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5) !important;
   font-family: 'Inter', sans-serif !important;
   font-size: 13px !important;
   color: #a8c4de !important;

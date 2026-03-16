@@ -95,7 +95,7 @@ export function MapView({ kontrolneTocke, selectedTocka, onTockaSelect, onMapRea
       <MapRefCapture onMapReady={onMapReady} />
       <MapClickHandler onMapClick={onMapClick} />
 
-      <LayersControl position="topright">
+      <LayersControl position="bottomright">
         <BaseLayer checked name="Karta">
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'

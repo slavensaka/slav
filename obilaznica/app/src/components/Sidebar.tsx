@@ -15,14 +15,15 @@ interface SidebarProps {
   onFilterPosjecenChange: (filter: 'svi' | 'posjeceni' | 'neposjeceni') => void;
   onTockaSelect: (tocka: KontrolnaTocka) => void;
   onToggleTocka: (id: string) => void;
+  onZoomToPodrucje?: (id: number) => void;
   selectedTocka: KontrolnaTocka | null;
   onClose: () => void;
 }
 
 const FILTER_OPTIONS = [
-  { value: 'svi' as const, label: 'Sve' },
-  { value: 'posjeceni' as const, label: 'Posjećeni' },
   { value: 'neposjeceni' as const, label: 'Neposjećeni' },
+  { value: 'posjeceni' as const, label: 'Posjećeni' },
+  { value: 'svi' as const, label: 'Sve' },
 ] as const;
 
 // Spring config shared across accordion expansions
@@ -41,6 +42,7 @@ export function Sidebar({
   onFilterPosjecenChange,
   onTockaSelect,
   onToggleTocka,
+  onZoomToPodrucje,
   selectedTocka,
   onClose,
 }: SidebarProps) {
@@ -68,9 +70,11 @@ export function Sidebar({
   }, [filteredTocke]);
 
   const togglePodrucje = (id: number) => {
+    const isExpanding = !expandedPodrucja.includes(id);
     setExpandedPodrucja((prev) =>
-      prev.includes(id) ? prev.filter((p) => p !== id) : [...prev, id],
+      isExpanding ? [...prev, id] : prev.filter((p) => p !== id),
     );
+    if (isExpanding) onZoomToPodrucje?.(id);
   };
 
   const getPodrucjeStats = (p: Podrucje) => {
@@ -141,7 +145,7 @@ export function Sidebar({
           />
           <div className="flex-1 min-w-0">
             <h1 className="text-base font-bold leading-tight tracking-tight" style={{ color: '#ffffff' }}>
-              Obilaznica
+              Osobna Obilaznica
             </h1>
             <p className="text-[11px] font-medium" style={{ color: '#5a7fa8' }}>HPO Planinska obilaznica</p>
           </div>

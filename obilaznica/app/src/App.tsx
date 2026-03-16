@@ -42,7 +42,7 @@ function App() {
   const [selectedTocka, setSelectedTocka] = useState<KontrolnaTocka | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [locating, setLocating] = useState(false);
-  const [filterPosjecen, setFilterPosjecen] = useState<'svi' | 'posjeceni' | 'neposjeceni'>('svi');
+  const [filterPosjecen, setFilterPosjecen] = useState<'svi' | 'posjeceni' | 'neposjeceni'>('neposjeceni');
 
   const mapRef = useRef<L.Map | null>(null);
   const handleMapReady = useCallback((map: L.Map) => {
@@ -85,11 +85,17 @@ function App() {
   }, []);
 
   const handleZoomToPodrucje = useCallback((podrucjeId: number) => {
-    const regionTocke = tocke.filter((t) => t.podrucjeId === podrucjeId);
+    const regionTocke = tocke
+      .filter((t) => t.podrucjeId === podrucjeId)
+      .filter((t) => {
+        if (filterPosjecen === 'posjeceni')   return t.posjecen === true;
+        if (filterPosjecen === 'neposjeceni') return t.posjecen === false;
+        return true;
+      });
     if (regionTocke.length === 0 || !mapRef.current) return;
     const bounds = L.latLngBounds(regionTocke.map((t) => [t.lat, t.lng] as [number, number]));
     mapRef.current.fitBounds(bounds, { padding: [60, 60], maxZoom: 11, animate: true });
-  }, [tocke]);
+  }, [tocke, filterPosjecen]);
 
   const handleLocateMe = () => {
     if (!navigator.geolocation) {
@@ -125,6 +131,7 @@ function App() {
     onFilterPosjecenChange: setFilterPosjecen,
     onTockaSelect: handleTockaSelect,
     onToggleTocka: toggleTocka,
+    onZoomToPodrucje: handleZoomToPodrucje,
     selectedTocka,
     onClose: () => setSidebarOpen(false),
   };
@@ -166,11 +173,9 @@ function App() {
               onClick={() => setSidebarOpen(true)}
               className="absolute top-4 left-4 z-[1000] w-10 h-10 rounded-xl flex items-center justify-center transition-colors"
               style={{
-                background: 'rgba(8,18,35,0.32)',
-                backdropFilter: 'blur(16px)',
-                WebkitBackdropFilter: 'blur(16px)',
-                border: '1px solid rgba(100,160,220,0.22)',
-                boxShadow: '0 2px 12px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06)',
+                background: '#112240',
+                border: '1px solid #1d3461',
+                boxShadow: '0 2px 12px rgba(0,0,0,0.35)',
               }}
               aria-label="Otvori izbornik"
             >
@@ -192,30 +197,28 @@ function App() {
         <div className="absolute bottom-6 right-4 z-[400] flex flex-col gap-2">
           {/* Zoom group */}
           <div className="flex flex-col rounded-xl overflow-hidden" style={{
-            border: '1px solid rgba(100,160,220,0.22)',
+            border: '1px solid #1d3461',
             boxShadow: '0 2px 12px rgba(0,0,0,0.35)',
-            backdropFilter: 'blur(16px)',
-            WebkitBackdropFilter: 'blur(16px)',
           }}>
             <button
               onClick={() => mapRef.current?.zoomIn()}
               className="w-10 h-10 flex items-center justify-center transition-colors"
-              style={{ background: 'rgba(8,18,35,0.32)', borderBottom: '1px solid rgba(100,160,220,0.15)' }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.12)')}
-              onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(8,18,35,0.32)')}
+              style={{ background: '#112240', borderBottom: '1px solid #1d3461' }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = '#1a3050')}
+              onMouseLeave={(e) => (e.currentTarget.style.background = '#112240')}
               title="Povećaj"
             >
-              <Plus className="w-4 h-4" style={{ color: '#ffffff' }} />
+              <Plus className="w-4 h-4" style={{ color: '#a8c4de' }} />
             </button>
             <button
               onClick={() => mapRef.current?.zoomOut()}
               className="w-10 h-10 flex items-center justify-center transition-colors"
-              style={{ background: 'rgba(8,18,35,0.32)' }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.12)')}
-              onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(8,18,35,0.32)')}
+              style={{ background: '#112240' }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = '#1a3050')}
+              onMouseLeave={(e) => (e.currentTarget.style.background = '#112240')}
               title="Smanji"
             >
-              <Minus className="w-4 h-4" style={{ color: '#ffffff' }} />
+              <Minus className="w-4 h-4" style={{ color: '#a8c4de' }} />
             </button>
           </div>
           <button
@@ -223,15 +226,13 @@ function App() {
             disabled={locating}
             className="w-10 h-10 rounded-xl flex items-center justify-center transition-colors"
             style={{
-              background: locating ? 'rgba(255,255,255,0.12)' : 'rgba(8,18,35,0.32)',
-              backdropFilter: 'blur(16px)',
-              WebkitBackdropFilter: 'blur(16px)',
-              border: '1px solid rgba(100,160,220,0.22)',
-              boxShadow: '0 2px 12px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06)',
+              background: locating ? '#1a3050' : '#112240',
+              border: '1px solid #1d3461',
+              boxShadow: '0 2px 12px rgba(0,0,0,0.35)',
               opacity: locating ? 0.85 : 1,
             }}
-            onMouseEnter={(e) => { if (!locating) (e.currentTarget as HTMLButtonElement).style.background = 'rgba(255,255,255,0.12)'; }}
-            onMouseLeave={(e) => { if (!locating) (e.currentTarget as HTMLButtonElement).style.background = 'rgba(8,18,35,0.32)'; }}
+            onMouseEnter={(e) => { if (!locating) (e.currentTarget as HTMLButtonElement).style.background = '#1a3050'; }}
+            onMouseLeave={(e) => { if (!locating) (e.currentTarget as HTMLButtonElement).style.background = '#112240'; }}
             title="Moja lokacija"
           >
             {locating
