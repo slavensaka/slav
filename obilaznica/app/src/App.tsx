@@ -1,12 +1,14 @@
-import { useState, useMemo, useRef, useCallback } from 'react';
-import { Menu, Navigation, Plus, Minus, Loader2 } from 'lucide-react';
+import { useState, useMemo, useRef, useCallback, useEffect } from 'react';
+import { Menu, Navigation, Plus, Minus, Loader2, RefreshCw } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import L from 'leaflet';
 import { MapView } from './components/MapView';
 import { Sidebar } from './components/Sidebar';
 import { BottomSheet } from './components/BottomSheet';
+import { SyncPanel } from './components/SyncPanel';
 import { kontrolneTocke } from './data/kontrolneTocke';
 import { getPodrucjeByTockaId } from './data/podrucja';
+import { getSyncUUID, fetchVisitedRemote, saveVisitedRemote, setSyncUUID, syncEnabled } from './hooks/useSync';
 import type { KontrolnaTocka } from './types';
 
 function normalize(str: string): string {
@@ -43,6 +45,23 @@ function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [locating, setLocating] = useState(false);
   const [filterPosjecen, setFilterPosjecen] = useState<'svi' | 'posjeceni' | 'neposjeceni'>('neposjeceni');
+  const [syncPanelOpen, setSyncPanelOpen] = useState(false);
+  const [syncUUID] = useState(() => getSyncUUID());
+
+  // Na pokretanju: dohvati podatke s Cloudflarea i mergeaj s lokalnim
+  useEffect(() => {
+    if (!syncEnabled) return;
+    fetchVisitedRemote(syncUUID).then((remoteIds) => {
+      if (!remoteIds || remoteIds.size === 0) return;
+      setTocke((prev) => {
+        const localVisited = new Set(prev.filter((t) => t.posjecen).map((t) => t.id));
+        // Union: lokalni + remote
+        const merged = new Set([...localVisited, ...remoteIds]);
+        saveVisited(merged);
+        return prev.map((t) => ({ ...t, posjecen: merged.has(t.id) }));
+      });
+    });
+  }, [syncUUID]);
 
   const mapRef = useRef<L.Map | null>(null);
   const handleMapReady = useCallback((map: L.Map) => {
@@ -54,9 +73,23 @@ function App() {
       const updated = prev.map((t) => t.id === id ? { ...t, posjecen: !t.posjecen } : t);
       const visited = new Set(updated.filter((t) => t.posjecen).map((t) => t.id));
       saveVisited(visited);
+      saveVisitedRemote(syncUUID, visited);
       return updated;
     });
     setSelectedTocka((prev) => prev?.id === id ? { ...prev, posjecen: !prev.posjecen } : prev);
+  }, [syncUUID]);
+
+  const handleImportSyncCode = useCallback(async (code: string) => {
+    const trimmed = code.trim().toLowerCase();
+    if (!/^[0-9a-f-]{36}$/.test(trimmed)) return false;
+    const remoteIds = await fetchVisitedRemote(trimmed);
+    if (!remoteIds) return false;
+    setSyncUUID(trimmed);
+    localStorage.setItem('obilaznica-sync-uuid', trimmed);
+    const newTocke = kontrolneTocke.map((t) => ({ ...t, posjecen: remoteIds.has(t.id) }));
+    setTocke(newTocke);
+    saveVisited(remoteIds);
+    return true;
   }, []);
 
   const filteredTocke = useMemo(() => {
@@ -221,6 +254,22 @@ function App() {
               <Minus className="w-4 h-4" style={{ color: '#a8c4de' }} />
             </button>
           </div>
+          {syncEnabled && (
+            <button
+              onClick={() => setSyncPanelOpen(true)}
+              className="w-10 h-10 rounded-xl flex items-center justify-center transition-colors"
+              style={{
+                background: '#112240',
+                border: '1px solid #1d3461',
+                boxShadow: '0 2px 12px rgba(0,0,0,0.35)',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = '#1a3050')}
+              onMouseLeave={(e) => (e.currentTarget.style.background = '#112240')}
+              title="Sinkronizacija između uređaja"
+            >
+              <RefreshCw className="w-4 h-4" style={{ color: '#a8c4de' }} />
+            </button>
+          )}
           <button
             onClick={handleLocateMe}
             disabled={locating}
@@ -248,6 +297,14 @@ function App() {
           podrucje={selectedPodrucjeData}
           onClose={() => setSelectedTocka(null)}
           onZoomToPodrucje={handleZoomToPodrucje}
+        />
+
+        {/* ── Sync panel ── */}
+        <SyncPanel
+          open={syncPanelOpen}
+          onClose={() => setSyncPanelOpen(false)}
+          syncUUID={syncUUID}
+          onImport={handleImportSyncCode}
         />
       </div>
 
