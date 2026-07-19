@@ -1,14 +1,17 @@
 import { useState, useMemo, useRef, useCallback, useEffect } from 'react';
-import { Menu, Navigation, Plus, Minus, Loader2, RefreshCw } from 'lucide-react';
+import { Menu, Navigation, Plus, Minus, Loader2, User, UserCheck } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import L from 'leaflet';
 import { MapView } from './components/MapView';
 import { Sidebar } from './components/Sidebar';
+import { SidebarSheet } from './components/SidebarSheet';
 import { BottomSheet } from './components/BottomSheet';
-import { SyncPanel } from './components/SyncPanel';
+import { AuthPanel } from './components/AuthPanel';
+import { AuthGate } from './components/AuthGate';
+import { useIsDesktop } from './hooks/useMediaQuery';
 import { kontrolneTocke } from './data/kontrolneTocke';
 import { getPodrucjeByTockaId } from './data/podrucja';
-import { getSyncUUID, fetchVisitedRemote, saveVisitedRemote, setSyncUUID, syncEnabled } from './hooks/useSync';
+import { useAuth, authEnabled, fetchUserTocke, saveTocka, bulkMarkPosjecene } from './hooks/useAuth';
 import type { KontrolnaTocka } from './types';
 
 function normalize(str: string): string {
@@ -45,23 +48,28 @@ function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [locating, setLocating] = useState(false);
   const [filterPosjecen, setFilterPosjecen] = useState<'svi' | 'posjeceni' | 'neposjeceni'>('neposjeceni');
-  const [syncPanelOpen, setSyncPanelOpen] = useState(false);
-  const [syncUUID] = useState(() => getSyncUUID());
+  const [authPanelOpen, setAuthPanelOpen] = useState(false);
+  const isDesktop = useIsDesktop();
+  const { email, loggedIn, login, register, logout } = useAuth();
 
-  // Na pokretanju: dohvati podatke s Cloudflarea i mergeaj s lokalnim
+  // Ulogiran → server (D1) je izvor istine; na login migriraj lokalno stanje (union)
   useEffect(() => {
-    if (!syncEnabled) return;
-    fetchVisitedRemote(syncUUID).then((remoteIds) => {
-      if (!remoteIds || remoteIds.size === 0) return;
-      setTocke((prev) => {
-        const localVisited = new Set(prev.filter((t) => t.posjecen).map((t) => t.id));
-        // Union: lokalni + remote
-        const merged = new Set([...localVisited, ...remoteIds]);
-        saveVisited(merged);
-        return prev.map((t) => ({ ...t, posjecen: merged.has(t.id) }));
-      });
+    if (!authEnabled || !loggedIn) return;
+    fetchUserTocke().then(async (rows) => {
+      const remoteVisited = new Set(rows.filter((r) => r.posjecen === 1).map((r) => r.tocka_id));
+      const localVisited = loadVisited();
+      // Lokalne posjete kojih nema na serveru → pošalji (migracija localStorage → D1)
+      const missing = [...localVisited].filter((id) => !remoteVisited.has(id));
+      if (missing.length > 0) {
+        await bulkMarkPosjecene(missing).catch(() => {});
+      }
+      const merged = new Set([...remoteVisited, ...localVisited]);
+      saveVisited(merged);
+      setTocke((prev) => prev.map((t) => ({ ...t, posjecen: merged.has(t.id) })));
+    }).catch(() => {
+      // offline → ostani na localStorage stanju
     });
-  }, [syncUUID]);
+  }, [loggedIn]);
 
   const mapRef = useRef<L.Map | null>(null);
   const handleMapReady = useCallback((map: L.Map) => {
@@ -73,24 +81,15 @@ function App() {
       const updated = prev.map((t) => t.id === id ? { ...t, posjecen: !t.posjecen } : t);
       const visited = new Set(updated.filter((t) => t.posjecen).map((t) => t.id));
       saveVisited(visited);
-      saveVisitedRemote(syncUUID, visited);
+      if (loggedIn) {
+        // Optimistično: UI + localStorage odmah, server u pozadini
+        const novoStanje = updated.find((t) => t.id === id)?.posjecen ?? false;
+        saveTocka(id, { posjecen: novoStanje }).catch(() => {});
+      }
       return updated;
     });
     setSelectedTocka((prev) => prev?.id === id ? { ...prev, posjecen: !prev.posjecen } : prev);
-  }, [syncUUID]);
-
-  const handleImportSyncCode = useCallback(async (code: string) => {
-    const trimmed = code.trim().toLowerCase();
-    if (!/^[0-9a-f-]{36}$/.test(trimmed)) return false;
-    const remoteIds = await fetchVisitedRemote(trimmed);
-    if (!remoteIds) return false;
-    setSyncUUID(trimmed);
-    localStorage.setItem('obilaznica-sync-uuid', trimmed);
-    const newTocke = kontrolneTocke.map((t) => ({ ...t, posjecen: remoteIds.has(t.id) }));
-    setTocke(newTocke);
-    saveVisited(remoteIds);
-    return true;
-  }, []);
+  }, [loggedIn]);
 
   const filteredTocke = useMemo(() => {
     let result = tocke;
@@ -171,6 +170,11 @@ function App() {
 
   const selectedPodrucjeData = selectedTocka ? getPodrucjeByTockaId(selectedTocka.id) : undefined;
 
+  // Aplikacija je dostupna samo ulogiranim korisnicima
+  if (authEnabled && !loggedIn) {
+    return <AuthGate onLogin={login} onRegister={register} />;
+  }
+
   return (
     <div className="h-screen w-screen flex overflow-hidden" style={{ background: '#0d1b2a' }}>
 
@@ -180,12 +184,12 @@ function App() {
           <motion.div
             className="hidden lg:block flex-shrink-0 overflow-hidden"
             initial={{ width: 0 }}
-            animate={{ width: 320 }}
+            animate={{ width: 400 }}
             exit={{ width: 0 }}
             transition={{ type: 'spring', stiffness: 380, damping: 38 }}
           >
             {/* Fixed-width inner so content doesn't squish during animation */}
-            <div className="w-80 h-full">
+            <div className="w-[400px] h-full">
               <Sidebar {...sidebarProps} />
             </div>
           </motion.div>
@@ -195,9 +199,9 @@ function App() {
       {/* ── Map area ── */}
       <div className="flex-1 relative overflow-hidden">
 
-        {/* Toggle button — top-left, visible when sidebar is closed */}
+        {/* Toggle button — top-left, desktop only (mobitel koristi bottom sheet) */}
         <AnimatePresence>
-          {!sidebarOpen && (
+          {isDesktop && !sidebarOpen && (
             <motion.button
               initial={{ opacity: 0, x: -8 }}
               animate={{ opacity: 1, x: 0 }}
@@ -217,6 +221,27 @@ function App() {
           )}
         </AnimatePresence>
 
+        {/* Login / račun — top right */}
+        {authEnabled && (
+          <button
+            onClick={() => setAuthPanelOpen(true)}
+            className="absolute top-4 right-4 z-[1000] w-10 h-10 rounded-xl flex items-center justify-center transition-colors"
+            style={{
+              background: '#112240',
+              border: `1px solid ${loggedIn ? '#166534' : '#1d3461'}`,
+              boxShadow: '0 2px 12px rgba(0,0,0,0.35)',
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.background = '#1a3050')}
+            onMouseLeave={(e) => (e.currentTarget.style.background = '#112240')}
+            title={loggedIn ? `Račun: ${email}` : 'Prijava / registracija'}
+          >
+            {loggedIn
+              ? <UserCheck className="w-4 h-4" style={{ color: '#4ade80' }} />
+              : <User className="w-4 h-4" style={{ color: '#a8c4de' }} />
+            }
+          </button>
+        )}
+
         {/* Map */}
         <MapView
           kontrolneTocke={filteredTocke}
@@ -226,8 +251,11 @@ function App() {
           onMapClick={() => setSidebarOpen(false)}
         />
 
-        {/* ── Floating controls — bottom right ── */}
-        <div className="absolute bottom-6 right-4 z-[400] flex flex-col gap-2">
+        {/* ── Floating controls — bottom right (iznad sheeta; na mobitelu podignuto iznad peeka) ── */}
+        <div
+          className="absolute right-4 z-[600] flex flex-col gap-2"
+          style={{ bottom: isDesktop ? 24 : 148 }}
+        >
           {/* Zoom group */}
           <div className="flex flex-col rounded-xl overflow-hidden" style={{
             border: '1px solid #1d3461',
@@ -254,22 +282,6 @@ function App() {
               <Minus className="w-4 h-4" style={{ color: '#a8c4de' }} />
             </button>
           </div>
-          {syncEnabled && (
-            <button
-              onClick={() => setSyncPanelOpen(true)}
-              className="w-10 h-10 rounded-xl flex items-center justify-center transition-colors"
-              style={{
-                background: '#112240',
-                border: '1px solid #1d3461',
-                boxShadow: '0 2px 12px rgba(0,0,0,0.35)',
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = '#1a3050')}
-              onMouseLeave={(e) => (e.currentTarget.style.background = '#112240')}
-              title="Sinkronizacija između uređaja"
-            >
-              <RefreshCw className="w-4 h-4" style={{ color: '#a8c4de' }} />
-            </button>
-          )}
           <button
             onClick={handleLocateMe}
             disabled={locating}
@@ -299,42 +311,21 @@ function App() {
           onZoomToPodrucje={handleZoomToPodrucje}
         />
 
-        {/* ── Sync panel ── */}
-        <SyncPanel
-          open={syncPanelOpen}
-          onClose={() => setSyncPanelOpen(false)}
-          syncUUID={syncUUID}
-          onImport={handleImportSyncCode}
+        {/* ── Auth panel ── */}
+        <AuthPanel
+          open={authPanelOpen}
+          onClose={() => setAuthPanelOpen(false)}
+          email={email}
+          onLogin={login}
+          onRegister={register}
+          onLogout={logout}
         />
       </div>
 
-      {/* ── Mobile drawer — overlay, AnimatePresence ── */}
-      <AnimatePresence>
-        {sidebarOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              className="lg:hidden fixed inset-y-0 left-80 right-0 z-[998]"
-              style={{ background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(2px)' }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.22 }}
-              onClick={() => setSidebarOpen(false)}
-            />
-            {/* Drawer */}
-            <motion.div
-              className="lg:hidden fixed inset-y-0 left-0 z-[999] w-80"
-              initial={{ x: '-100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '-100%' }}
-              transition={{ type: 'spring', stiffness: 350, damping: 35 }}
-            >
-              <Sidebar {...sidebarProps} />
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+      {/* ── Mobilni bottom sheet — uvijek prisutan (peek → pola → puno) ── */}
+      {!isDesktop && (
+        <SidebarSheet {...sidebarProps} detailOpen={selectedTocka !== null} />
+      )}
     </div>
   );
 }

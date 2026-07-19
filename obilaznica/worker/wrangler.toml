@@ -2,6 +2,10 @@ name = "obilaznica-sync"
 main = "index.js"
 compatibility_date = "2024-01-01"
 
-[[kv_namespaces]]
-binding = "OBILAZNICA_KV"
-id = "e54fbb45cfcc4bde974bdff2a4804c8e"
+# D1 baza — korisnici i per-user stanje vrhova.
+# Kreiraj s: npx wrangler d1 create obilaznica-db
+# pa zalijepi database_id koji wrangler ispiše.
+[[d1_databases]]
+binding = "DB"
+database_name = "obilaznica-db"
+database_id = "7c5e1cae-9ece-46ce-bce5-f2d4ed8efea6"
