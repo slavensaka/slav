@@ -1,0 +1,5 @@
+# pnpm postavke (od pnpm 10+ žive ovdje, ne u package.json)
+# esbuild treba postinstall skriptu da instalira binary — bez ovoga
+# CI install pada s ERR_PNPM_IGNORED_BUILDS.
+onlyBuiltDependencies:
+  - esbuild
